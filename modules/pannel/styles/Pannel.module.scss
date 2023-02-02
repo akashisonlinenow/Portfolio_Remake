@@ -1,0 +1,49 @@
+.container {
+  position: fixed;
+  height: 100vh;
+  width: var(--pannelWidth);
+  display: grid;
+}
+
+.pannel {
+  background-color: var(--pannelColor);
+  margin: 2rem 1.5rem 2rem 0;
+  border-radius: 20px;
+  overflow: hidden;
+  display: grid;
+}
+
+.item {
+  // Default MUI Centers
+  &:hover {
+    background-color: var(--pannelItemHover) !important;
+
+    .itemIcon {
+      translate: -300%;
+      opacity: 0;
+    }
+
+    .itemTitle {
+      opacity: 1;
+    }
+  }
+
+  &Icon {
+    font-size: 3.5rem !important;
+    color: black;
+    transition: var(--defaultAni);
+  }
+
+  &Title {
+    opacity: 0;
+    position: absolute;
+    transition: var(--defaultAni);
+    font-size: max(1.2rem, 1.3vw);
+    font-weight: 700;
+    // font-family: var(--defaultFont) !important;
+  }
+}
+
+.active {
+  background-color: var(--activeTab) !important;
+}

@@ -1,0 +1,1 @@
+export { Pannel } from "./pannel";

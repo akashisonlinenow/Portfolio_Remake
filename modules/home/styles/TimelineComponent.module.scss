@@ -1,0 +1,182 @@
+.flex {
+  display: flex;
+
+  &-center {
+    @extend .flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &-col {
+    @extend .flex;
+    flex-direction: column;
+  }
+}
+
+.main {
+  display: grid;
+
+  @media (max-width: 1024px) {
+    padding: 0 !important;
+
+    & > div {
+      flex-direction: row-reverse !important;
+    }
+  }
+
+  & > :nth-child(odd) {
+    flex-direction: row-reverse;
+
+    @media (max-width: 1024px) {
+      flex-direction: row;
+    }
+
+    .content {
+      &::before {
+        left: -1%;
+
+        @media (max-width: 1024px) {
+          left: unset;
+        }
+      }
+    }
+
+    .space {
+      & > div {
+        left: unset;
+        right: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .space {
+    display: none !important;
+  }
+}
+
+.item {
+  @extend .flex;
+
+  & > div {
+    @extend .flex-center;
+    min-height: 8rem;
+    padding: 1rem 2rem;
+    position: relative;
+  }
+
+  & > :nth-child(1) {
+    background-color: var(--mPannelColor);
+    flex: 1;
+    border-radius: 20px;
+    margin: 10px 0;
+    @media (max-width: 1024px) {
+      padding: 10px;
+    }
+  }
+
+  & > :nth-child(2) {
+    background-color: white;
+    margin: 0 3.5rem;
+    padding: 3px;
+
+    @media (max-width: 1024px) {
+      margin: 0 3rem 0 2rem;
+    }
+  }
+
+  & > :nth-child(3) {
+    background-color: transparent;
+    flex: 1;
+  }
+}
+
+.content {
+  & > div {
+    width: 100%;
+    padding: 5px 10px;
+    display: grid;
+    overflow: hidden;
+    gap: 1rem;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    background-color: var(--mPannelColor);
+    height: 2rem;
+    width: 2rem;
+    right: -1%;
+    transform: rotate(45deg);
+    z-index: -1;
+
+    @media (max-width: 1024px) {
+      left: -1% !important;
+    }
+  }
+}
+
+.centerNode {
+  @extend .flex-center;
+  position: absolute;
+  height: 4rem;
+  width: 4rem;
+  background-color: white;
+  border-radius: 50%;
+  color: black;
+  overflow: hidden;
+
+  // Extra
+  font-size: 2rem;
+}
+
+.space {
+  & > div {
+    color: hsla(0, 0%, 100%, 0.5);
+    position: absolute;
+    left: 0;
+    font-size: 0.9rem;
+  }
+}
+
+.header {
+  @extend .flex-col;
+  font-weight: 600;
+  font-size: 1.2rem;
+  gap: 6px;
+  justify-content: center;
+
+  @media (max-width: 1024px) {
+    font-size: 1rem;
+  }
+
+  & > :nth-child(2) {
+    @media (max-width: 1024px) {
+      font-size: 1rem;
+    }
+  }
+
+  & > :first-child {
+    font-size: 1.5rem;
+    font-weight: 700;
+
+    @media (max-width: 1024px) {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.info {
+  font-size: 0.9rem;
+}
+
+.header,
+.info {
+  flex: 1;
+}
+
+.date {
+  color: hsla(0, 0%, 100%, 0.7);
+  font-weight: 700;
+}

@@ -1,0 +1,16 @@
+@media screen and (max-width: 1024px) {
+  .container {
+    display: none;
+  }
+}
+
+.container {
+  position: fixed;
+  bottom: 2rem;
+  // right: calc(var(--pannelWidth) + 2rem);
+  left: calc(100vw - calc(var(--pannelWidth) + 7.5rem));
+  z-index: 80;
+  overflow: hidden;
+}
+
+// ? Starting from left to compensate for layout shift due to contact dialog scroll lock
