@@ -1,1 +1,0 @@
-export { Pannel } from "./pannel";

@@ -7,7 +7,6 @@ import styles from "./styles/Home.module.scss";
 const Timeline = () => {
   return (
     <div className={styles.timeline}>
-      <Heading title="Timeline" />
       <TimelineComponent data={TimeData} />
     </div>
   );

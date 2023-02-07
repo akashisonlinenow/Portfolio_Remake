@@ -1,4 +1,11 @@
-import React, { PropsWithChildren } from "react";
+import React, {
+  CSSProperties,
+  PropsWithChildren,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 import { AnimatePresence, motion, Transition, Variants } from "framer-motion";
 import { useDataContext } from "@context/dataLayer";
 
@@ -18,13 +25,13 @@ const viewPort = { once: true, amount: 0.6, margin: "10px" };
 
 interface propOptions extends PropsWithChildren {
   className?: string;
+  style?: CSSProperties;
+  ref?: any;
 }
 
 const Component: React.FC<propOptions> = (props) => {
   const currentWidth = useDataContext();
   const isMobile = currentWidth < 1024;
-
-  const className = props.className;
 
   return (
     <AnimatePresence mode="wait">
@@ -36,13 +43,13 @@ const Component: React.FC<propOptions> = (props) => {
             whileInView="visible"
             viewport={viewPort}
             transition={transition}
-            className={className}
+            {...props}
           >
             {props.children}
           </motion.div>
         </>
       ) : (
-        <div className={className}>{props.children}</div>
+        <div {...props}>{props.children}</div>
       )}
     </AnimatePresence>
   );

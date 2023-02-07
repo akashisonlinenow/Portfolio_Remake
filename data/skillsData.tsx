@@ -18,7 +18,7 @@ import {
   SiSass,
 } from "react-icons/si";
 
-export type typedata = {
+export type skillType = {
   name: string;
   icon: JSX.Element;
   level: string;
@@ -38,7 +38,7 @@ export type typenode = {
   isLearning: boolean;
 };
 
-const _defSkill: typedata[] = [
+export const SkillData: skillType[] = [
   {
     name: "C",
     icon: <SiC style={{ color: "#fff" }} />,
@@ -155,6 +155,19 @@ const _defSkill: typedata[] = [
     isFav: true,
     isLearning: true,
   },
+
+  {
+    name: "Python",
+    icon: <SiPython style={{ color: "#000" }} />,
+    level: "Beginner",
+    intNode: [],
+    type: "Language",
+    isFav: true,
+    isLearning: true,
+  },
+];
+
+export const ToolData: skillType[] = [
   {
     name: "Linux",
     icon: <SiLinux style={{ color: "#000" }} />,
@@ -173,17 +186,4 @@ const _defSkill: typedata[] = [
     isFav: true,
     isLearning: true,
   },
-  {
-    name: "Python",
-    icon: <SiPython style={{ color: "#000" }} />,
-    level: "Beginner",
-    intNode: [],
-    type: "Language",
-    isFav: true,
-    isLearning: true,
-  },
 ];
-
-export default _defSkill;
-
-// Add Sass To Skills

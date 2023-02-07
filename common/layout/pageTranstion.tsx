@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from "react";
-import { motion, Transition, useIsPresent, Variants } from "framer-motion";
+import { motion, Transition, Variants } from "framer-motion";
 import { useDataContext } from "@context/dataLayer";
 
 export const Container: React.FC<PropsWithChildren> = ({ children }) => {
@@ -14,8 +14,6 @@ export const Container: React.FC<PropsWithChildren> = ({ children }) => {
     stiffness: 260,
     damping: 30,
   };
-
-  // const isPresent = useIsPresent();
 
   const currentWidth = useDataContext();
   const isMobile = currentWidth < 1024;
@@ -35,26 +33,6 @@ export const Container: React.FC<PropsWithChildren> = ({ children }) => {
           >
             {children}
           </motion.div>
-          {/* <motion.div
-            initial={{ scaleX: 1 }}
-            animate={{
-              scaleX: 0,
-              transition: { duration: 0.5, ease: "circOut" },
-            }}
-            exit={{
-              scaleX: 1,
-              transition: { duration: 0.5, ease: "circIn" },
-            }}
-            style={{ originX: isPresent ? 0 : 1 }}
-            className="privacy-screen"
-          >
-            <motion.circle
-              // initial={{ opacity: 0 }}
-              // animate={{ opacity: 1, transition: { delay: 1 } }}
-              // exit={{ opacity: 1 }}
-              className="pac-man"
-            />
-          </motion.div> */}
         </>
       ) : (
         <div>{children}</div>

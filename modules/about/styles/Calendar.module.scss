@@ -1,0 +1,14 @@
+.container {
+  display: grid;
+  justify-items: center;
+}
+
+.tooltip {
+  padding: 10px 1rem;
+  border-radius: 20px;
+  background-color: var(--activeTab);
+  position: fixed;
+  overflow: hidden;
+  user-select: none;
+  display: grid;
+}

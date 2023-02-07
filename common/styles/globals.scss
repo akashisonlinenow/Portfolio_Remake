@@ -11,7 +11,8 @@
   --defaultAni: all 0.3s ease-in-out;
   --diagTitleFSize: 1.5rem;
   --diagTitleWeight: 700;
-  --mobileTopSpace: 4.5rem;
+  // --mobilePannelHeight:4rem;
+  --mobileTopSpace: 4rem;
   --accent: hsl(220, 12%, 30%);
 }
 
@@ -88,4 +89,3 @@ a {
     flex-direction: column;
   }
 }
-

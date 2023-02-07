@@ -9,6 +9,9 @@ import { ThemeSettings } from "@constants/theme";
 import { ThemeProvider } from "@mui/material";
 import { AnimatePresence } from "framer-motion";
 import ContextProviders from "@context/index";
+import MobilePannel from "modules/pannel/mobilePannel";
+import { useEffect } from "react";
+import { consoleMsg } from "test/consoleMsg";
 
 const RouterEvent = dynamic(() => import("@hooks/routerEvents"));
 
@@ -21,6 +24,10 @@ const ScrollTop = dynamic(() => import("@components/scrollToTop/topButton"));
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
   const ThemeData = ThemeSettings();
+
+  useEffect(() => {
+    console.info(consoleMsg);
+  }, []);
 
   return (
     <>
@@ -41,6 +48,7 @@ export default function App({ Component, pageProps }: AppProps) {
             <div className={styles.pannel}>
               <Pannel />
             </div>
+            <MobilePannel />
           </div>
         </ContextProviders>
       </ThemeProvider>

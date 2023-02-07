@@ -1,9 +1,10 @@
-import { CircularProgress } from "@mui/material";
+import { CircularProgress, SxProps } from "@mui/material";
 import React, { CSSProperties } from "react";
 
-type SpinnerProps = {
+interface SpinnerProps {
   size?: number;
-};
+  sx?: SxProps;
+}
 
 const SpinnerStyles: CSSProperties = {
   display: "flex",
@@ -14,10 +15,9 @@ const SpinnerStyles: CSSProperties = {
 };
 
 const Spinner = (props: SpinnerProps) => {
-  const { size } = props;
   return (
     <div style={SpinnerStyles}>
-      <CircularProgress size={size} />
+      <CircularProgress {...props} />
     </div>
   );
 };

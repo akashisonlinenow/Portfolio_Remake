@@ -4,9 +4,10 @@ import { PropsWithChildren } from "react";
 const defaultFont = Poppins({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
+  preload: true,
 });
-const codeFont = JetBrains_Mono({ subsets: ["latin"] });
-const altFont = Readex_Pro({ subsets: ["latin"] });
+const codeFont = JetBrains_Mono({ subsets: ["latin"], preload: true });
+const altFont = Readex_Pro({ subsets: ["latin"], preload: true });
 
 export const FontProvider: React.FC<PropsWithChildren> = ({ children }) => {
   return (

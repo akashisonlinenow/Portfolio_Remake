@@ -2,6 +2,8 @@ import Head from "next/head";
 import dynamic from "next/dynamic";
 import Spinner from "@components/loader/Spinner";
 import Container from "@layout/pageTranstion";
+import Heading from "@components/heading/heading";
+import InitialPage from "common/layout/initialPage";
 
 const HomePage = dynamic(() => import("@modules/home/homeScreen"));
 const Timeline = dynamic(() => import("@modules/home/timelineScreen"), {
@@ -18,7 +20,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <HomePage />
+        <InitialPage>
+          <HomePage />
+        </InitialPage>
+        <Heading title="Timeline" />
         <Timeline />
       </div>
     </Container>

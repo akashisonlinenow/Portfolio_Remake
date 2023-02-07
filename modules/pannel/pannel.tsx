@@ -10,6 +10,8 @@ import { useDialogContext } from "@context/fuctionalLayer";
 import { Button, Fade } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import { LayoutGroup, motion, Transition, Variants } from "framer-motion";
+import Component from "@layout/componentTransition";
 
 const Pannel = () => {
   const router = useRouter();
@@ -19,15 +21,20 @@ const Pannel = () => {
 
   const isDesktop = currentWidth > 1024;
 
+  // ! Experemental Stuff
+  const MotionLink = motion(Link);
+
   if (isDesktop) {
     return (
       <div className={styles.container}>
-        <div className={styles.pannel}>
+        <Component className={styles.pannel}>
+          {/* <LayoutGroup> */}
           {ItemData.map((e) => {
             return (
               <Button
-                // LinkComponent={Link}
                 component={Link}
+                // component={MotionLink}
+                // ? MotionLink for framer-motion enabled Button
                 scroll={false}
                 href={e.link}
                 key={e.id}
@@ -45,7 +52,8 @@ const Pannel = () => {
               </Button>
             );
           })}
-        </div>
+          {/* </LayoutGroup> */}
+        </Component>
       </div>
     );
   } else {
@@ -58,7 +66,7 @@ const Pannel = () => {
         >
           <MenuIcon sx={{ fontSize: "2rem" }} />
         </Button>
-        <Fade in={Menu}>
+        {/* <Fade in={Menu}>
           <div className={mStyles.container}>
             <div className={mStyles.heading}>
               <div>Menu</div>
@@ -94,7 +102,7 @@ const Pannel = () => {
               })}
             </div>
           </div>
-        </Fade>
+        </Fade> */}
       </>
     );
   }

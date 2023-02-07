@@ -16,7 +16,7 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "/*": ["./*"],
+      "*": ["./*"],
       "@styles/*": ["./common/styles/*"],
       "@components/*": ["./common/components/*"],
       "@constants/*": ["./common/constants/*"],
@@ -27,6 +27,6 @@
       "@data/*": ["./data/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "temp/temp_fix.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "temp/temp_fix.js", "test/temp.tsx"],
   "exclude": ["node_modules"]
 }
