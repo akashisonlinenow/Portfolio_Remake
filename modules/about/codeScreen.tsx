@@ -12,7 +12,7 @@ const Calendar = () => {
   const isMobile = currentWidth < 1024;
   return (
     <>
-      <Heading title="Days I Code" style="small" />
+      <Heading title="Days I Code" type="small" />
       <div className={styles.container}>
         <a
           href={`https://github.com/${process.env.gitUser}`}

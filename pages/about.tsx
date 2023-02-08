@@ -18,8 +18,8 @@ const About = () => {
         <title>About</title>
       </Head>
       <div>
-        <InitialPage >
-          <Heading title="About" />
+        <InitialPage>
+          <Heading title="About" disableMobileView />
           <AboutPage />
         </InitialPage>
         <Calendar />

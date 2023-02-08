@@ -1,4 +1,9 @@
-import { Poppins, JetBrains_Mono, Readex_Pro } from "@next/font/google";
+import {
+  Poppins,
+  JetBrains_Mono,
+  Readex_Pro,
+  Lobster_Two,
+} from "@next/font/google";
 import { PropsWithChildren } from "react";
 
 const defaultFont = Poppins({
@@ -8,6 +13,11 @@ const defaultFont = Poppins({
 });
 const codeFont = JetBrains_Mono({ subsets: ["latin"], preload: true });
 const altFont = Readex_Pro({ subsets: ["latin"], preload: true });
+const logoFont = Lobster_Two({
+  subsets: ["latin"],
+  preload: true,
+  weight: ["400", "700"],
+});
 
 export const FontProvider: React.FC<PropsWithChildren> = ({ children }) => {
   return (
@@ -18,6 +28,7 @@ export const FontProvider: React.FC<PropsWithChildren> = ({ children }) => {
             --defaultFont: ${defaultFont.style.fontFamily};
             --altFont: ${altFont.style.fontFamily};
             --codeFont: ${codeFont.style.fontFamily};
+            --logoFont: ${logoFont.style.fontFamily};
             font-family: ${defaultFont.style.fontFamily};
           }
         `}

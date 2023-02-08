@@ -9,9 +9,11 @@ import { useMenuContext } from "@context/applicationLayer";
 import { useDialogContext } from "@context/fuctionalLayer";
 import { Button, Fade } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import CloseIcon from "@mui/icons-material/Close";
+// import CloseIcon from "@mui/icons-material/Close";
 import { LayoutGroup, motion, Transition, Variants } from "framer-motion";
 import Component from "@layout/componentTransition";
+import Image from "next/image";
+import Heading from "@components/heading/heading";
 
 const Pannel = () => {
   const router = useRouter();
@@ -21,89 +23,83 @@ const Pannel = () => {
 
   const isDesktop = currentWidth > 1024;
 
+  const handleClick = () => {
+    setMenu(!Menu);
+  };
+  const pushHome = () => {
+    router.push("/");
+  };
+
+  const getHeading = () => {
+    let currentHeading;
+    switch (router.asPath) {
+      case "/":
+        currentHeading = "";
+        break;
+      case "/projects":
+        currentHeading = "#Projects";
+        break;
+      case "/skills":
+        currentHeading = "#Skills";
+        break;
+      case "/about":
+        currentHeading = "#About";
+        break;
+      case "/resume":
+        currentHeading = "#Resume";
+        break;
+      default:
+        currentHeading = "#404";
+        break;
+    }
+    return currentHeading;
+  };
+
   // ! Experemental Stuff
   const MotionLink = motion(Link);
 
   if (isDesktop) {
     return (
-      <div className={styles.container}>
-        <Component className={styles.pannel}>
-          {/* <LayoutGroup> */}
-          {ItemData.map((e) => {
-            return (
-              <Button
-                component={Link}
-                // component={MotionLink}
-                // ? MotionLink for framer-motion enabled Button
-                scroll={false}
-                href={e.link}
-                key={e.id}
-                className={`${styles.item} ${
-                  router.pathname === e.link ? styles.active : null
-                }`}
-                onClick={() => {
-                  if (e.title === "Contact") {
-                    setModal(true);
-                  }
-                }}
-              >
-                <div className={styles.itemIcon}>{e.icon}</div>
-                <div className={styles.itemTitle}>{e.title}</div>
-              </Button>
-            );
-          })}
-          {/* </LayoutGroup> */}
-        </Component>
+      <div className={styles.parent}>
+        <div className={styles.container}>
+          <Component className={styles.pannel}>
+            {/* <LayoutGroup> */}
+            {ItemData.map((e) => {
+              return (
+                <Button
+                  component={Link}
+                  // component={MotionLink}
+                  // ? MotionLink for framer-motion enabled Button
+                  scroll={false}
+                  href={e.link}
+                  key={e.id}
+                  className={`${styles.item} ${
+                    router.pathname === e.link ? styles.active : null
+                  }`}
+                  onClick={() => {
+                    if (e.title === "Contact") {
+                      setModal(true);
+                    }
+                  }}
+                >
+                  <div className={styles.itemIcon}>{e.icon}</div>
+                  <div className={styles.itemTitle}>{e.title}</div>
+                </Button>
+              );
+            })}
+            {/* </LayoutGroup> */}
+          </Component>
+        </div>
       </div>
     );
   } else {
     return (
-      <>
-        <Button
-          onClick={() => {
-            setMenu(!Menu);
-          }}
-        >
+      <div className={styles.parent}>
+        <Heading title={getHeading()} type="custom" className={styles.logo} />
+        <Button sx={{ backgroundColor: "transparent" }} onClick={handleClick}>
           <MenuIcon sx={{ fontSize: "2rem" }} />
         </Button>
-        {/* <Fade in={Menu}>
-          <div className={mStyles.container}>
-            <div className={mStyles.heading}>
-              <div>Menu</div>
-              <Button
-                onClick={() => {
-                  setMenu(!Menu);
-                }}
-              >
-                <CloseIcon sx={{ fontSize: "2rem" }} />
-              </Button>
-            </div>
-            <div className={mStyles.pannel}>
-              {ItemData.map((e) => {
-                return (
-                  <Button
-                    LinkComponent={Link}
-                    onClick={() => {
-                      if (e.title === "Contact") {
-                        setModal(true);
-                      }
-                      setMenu(false);
-                    }}
-                    href={e.link}
-                    key={e.id}
-                    className={`${mStyles.item} ${
-                      router.pathname === e.link ? mStyles.active : null
-                    }`}
-                  >
-                    <div className={mStyles.itemIcon}>{e.icon}</div>
-                    <div className={mStyles.itemTitle}>{e.title}</div>
-                  </Button>
-                );
-              })}
-            </div>
-          </div>
-        </Fade> */}
-      </>
+      </div>
     );
   }
 };

@@ -12,7 +12,7 @@
   --diagTitleFSize: 1.5rem;
   --diagTitleWeight: 700;
   // --mobilePannelHeight:4rem;
-  --mobileTopSpace: 4rem;
+  --mobileTopSpace: max(4rem, 8vh);
   --accent: hsl(220, 12%, 30%);
 }
 

@@ -10,7 +10,7 @@ const Projects = () => {
         <title>Projects</title>
       </Head>
       <div>
-        <Heading title="Projects" />
+        <Heading title="Projects" disableMobileView />
       </div>
     </Container>
   );

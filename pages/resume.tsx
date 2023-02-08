@@ -10,7 +10,7 @@ const Resume = () => {
         <title>Resume</title>
       </Head>
       <div>
-        <Heading title="Resume" />
+        <Heading title="Resume" disableMobileView />
       </div>
     </Container>
   );

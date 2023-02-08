@@ -17,7 +17,7 @@ const Skills = () => {
         <title>Skills</title>
       </Head>
       <div>
-        <Heading title="Skills" />
+        <Heading title="Skills" disableMobileView />
         <SkillsPage />
       </div>
     </Container>

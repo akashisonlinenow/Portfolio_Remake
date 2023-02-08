@@ -3,7 +3,6 @@ import styles from "@styles/InitialPage.module.scss";
 
 interface propType {
   children: React.ReactNode;
-  
 }
 
 const InitialPage: React.FC<propType> = ({ children, ...rest }) => {

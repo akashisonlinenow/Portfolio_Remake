@@ -1,26 +1,49 @@
-import React from "react";
+import React, { CSSProperties } from "react";
 import styles from "@styles/Heading.module.scss";
 import Component from "@layout/componentTransition";
+import { useDataContext } from "common/context/dataLayer";
 
-type inputProps = {
+type DefaultProps = {
   title: string;
-  style?: "default" | "small";
+  type?: "default" | "small";
+  disableMobileView?: boolean;
+  style?: CSSProperties;
+  className?: string;
+};
+type CustomProps = {
+  title: string;
+  type?: "custom";
+  disableMobileView?: boolean;
+  style?: CSSProperties;
+  className: string;
 };
 
-const Heading: React.FC<inputProps> = (props) => {
-  const title = props.title;
-  const style = props.style;
+const Heading: React.FC<DefaultProps | CustomProps> = ({
+  title,
+  type,
+  className,
+  disableMobileView,
+  ...rest
+}) => {
+  const currentWidth = useDataContext();
+  const isMobile = currentWidth < 1024;
 
   return (
     <Component
-      className={styles.container}
+      className={type === "custom" ? className : styles.container}
       style={
-        style === "small"
-          ? { fontSize: "clamp(2.5rem, 4vw, 5.5rem)" }
-          : undefined
+        // type === "small"
+        //   ? { fontSize: "clamp(2.5rem, 4vw, 5.5rem)" }
+        //   : undefined
+        {
+          fontSize: type === "small" ? "clamp(2.5rem, 4vw, 5.5rem)" : "null",
+          // passing null which isn't a valid css so it will be ignored
+          display: disableMobileView && isMobile ? "none" : "block",
+        }
       }
+      {...rest}
     >
-      #{title}
+      {type === "custom" ? `${title}` : `#${title}`}
     </Component>
   );
 };

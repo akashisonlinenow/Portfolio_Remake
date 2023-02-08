@@ -1,6 +1,7 @@
 .container {
   position: fixed;
   inset: 0;
+  overflow: hidden;
   // z-index: 90;
   background-color: var(--bgColor);
 
