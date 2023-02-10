@@ -1,4 +1,4 @@
-import { skillType } from "data/skillsData";
+import { skillType } from "@data/skillsData";
 import { create } from "zustand";
 
 interface storeInterface {

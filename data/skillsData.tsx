@@ -28,9 +28,6 @@ export type skillType = {
   isLearning: boolean;
 };
 
-// TODO: Learn difference between interface and type
-// TODO: Try dynamic prop passing in icon TS
-
 export type SubSkillType = {
   name: string;
   icon: JSX.Element | null;

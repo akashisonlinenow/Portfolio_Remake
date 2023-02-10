@@ -1,13 +1,13 @@
-import React, { CSSProperties, useState } from "react";
+import React from "react";
 import styles from "../styles/Card.module.scss";
-import { Button, ButtonBase } from "@mui/material";
-import { skillType, SubSkillType } from "data/skillsData";
-import { Transition, Variants } from "framer-motion";
 import useStore from "store/store";
+import Button from "@mui/material/Button";
+import { Transition, Variants } from "framer-motion";
+import { skillType, SubSkillType } from "data/skillsData";
 
 type inputProps = {
   data: skillType | SubSkillType;
-  style?: CSSProperties;
+  style?: React.CSSProperties;
   className?: string;
   component?: any;
   variants?: Variants;

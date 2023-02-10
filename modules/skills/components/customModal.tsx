@@ -1,11 +1,11 @@
 import React from "react";
+import styles from "./../styles/Modal.module.scss";
 import useStore from "store/store";
+import SkillCard from "modules/skills/components/skillCard";
+import IconButton from "@mui/material/IconButton";
+import CloseIcon from "@mui/icons-material/Close";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
 import { AnimatePresence, motion, Transition, Variants } from "framer-motion";
-import { IconButton } from "@mui/material";
-import CloseIcon from "@mui/icons-material/Close";
-import styles from "./../styles/Modal.module.scss";
-import SkillCard from "modules/skills/components/skillCard";
 
 const SkillModal = () => {
   const currentSelection = useStore((state) => state.currentSelection);

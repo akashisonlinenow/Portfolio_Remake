@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../styles/TimelineComponent.module.scss";
 import { motion, Transition, Variants } from "framer-motion";
-import { useDataContext } from "../../../common/context/dataLayer";
+import { useDataContext } from "@context/dataLayer";
 
 const variants: Variants = {
   visible: { opacity: 1, y: 0 },
@@ -47,7 +47,6 @@ type timelineItem = {
 };
 
 const TimelineComponent: React.FC<inputProps> = (props) => {
-  // This is Extra
   const currentWidth = useDataContext();
   const isMobile = currentWidth < 1024;
 

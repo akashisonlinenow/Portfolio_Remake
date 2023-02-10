@@ -1,19 +1,16 @@
 import React from "react";
 import styles from "./styles/Pannel.module.scss";
-import mStyles from "./styles/miniPannel.module.scss";
-import ItemData from "@data/pannelData";
 import Link from "next/link";
+import Button from "@mui/material/Button";
+import MenuIcon from "@mui/icons-material/Menu";
+import Heading from "@components/heading/heading";
+import Component from "@layout/componentTransition";
+import ItemData from "@data/pannelData";
+import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 import { useDataContext } from "@context/dataLayer";
 import { useMenuContext } from "@context/applicationLayer";
 import { useDialogContext } from "@context/fuctionalLayer";
-import { Button, Fade } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
-// import CloseIcon from "@mui/icons-material/Close";
-import { LayoutGroup, motion, Transition, Variants } from "framer-motion";
-import Component from "@layout/componentTransition";
-import Image from "next/image";
-import Heading from "@components/heading/heading";
 
 const Pannel = () => {
   const router = useRouter();

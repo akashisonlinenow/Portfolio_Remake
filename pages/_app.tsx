@@ -4,14 +4,14 @@ import styles from "@styles/Root.module.scss";
 import dynamic from "next/dynamic";
 import Pannel from "@modules/pannel/pannel";
 import Footer from "@modules/footer/footer";
+import MobilePannel from "@modules/pannel/mobilePannel";
+import ContextProviders from "@context/index";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
+import { consoleMsg } from "@test/consoleMsg";
 import { ThemeSettings } from "@constants/theme";
 import { ThemeProvider } from "@mui/material";
 import { AnimatePresence } from "framer-motion";
-import ContextProviders from "@context/index";
-import MobilePannel from "modules/pannel/mobilePannel";
-import { useEffect } from "react";
-import { consoleMsg } from "test/consoleMsg";
 
 const RouterEvent = dynamic(() => import("@hooks/routerEvents"));
 
@@ -26,7 +26,7 @@ export default function App({ Component, pageProps }: AppProps) {
   const ThemeData = ThemeSettings();
 
   useEffect(() => {
-    // console.info(consoleMsg);
+    console.info(consoleMsg);
   }, []);
 
   return (

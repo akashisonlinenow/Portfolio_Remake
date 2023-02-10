@@ -8,6 +8,6 @@
   min-height: 100vh;
   @media (max-width: 1024px) {
     margin-top: 10px;
-    min-height: unset;
+    min-height: calc(100vh - var(--mobileTopSpace));
   }
 }

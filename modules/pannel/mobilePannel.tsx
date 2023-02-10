@@ -1,12 +1,11 @@
 import React from "react";
-import { useMenuContext } from "@context/applicationLayer";
-import { Button, Fade } from "@mui/material";
-import CloseIcon from "@mui/icons-material/Close";
-import ItemData from "@data/pannelData";
-import mStyles from "./styles/miniPannel.module.scss";
-import { useDialogContext } from "@context/fuctionalLayer";
 import Link from "next/link";
+import Button from "@mui/material/Button";
+import mStyles from "./styles/miniPannel.module.scss";
+import ItemData from "@data/pannelData";
 import { useRouter } from "next/router";
+import { useMenuContext } from "@context/applicationLayer";
+import { useDialogContext } from "@context/fuctionalLayer";
 import { AnimatePresence, motion, Transition, Variants } from "framer-motion";
 
 const MobilePannel = () => {

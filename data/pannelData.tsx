@@ -2,7 +2,6 @@ import {
   AiOutlineHome,
   AiOutlineInfoCircle,
   AiOutlineMail,
-  AiOutlineClockCircle,
   AiOutlineBulb,
   AiOutlineIdcard,
 } from "react-icons/ai";
@@ -16,13 +15,7 @@ export type typeData = {
 };
 
 const _defMenu: typeData[] = [
-  { id: 0, title: "Home", link: "/", icon: <AiOutlineHome /> },
-  // {
-  //   id: 1,
-  //   title: "Timeline",
-  //   link: "/#timeline",
-  //   icon: <AiOutlineClockCircle />,
-  // },
+  { id: 1, title: "Home", link: "/", icon: <AiOutlineHome /> },
   { id: 2, title: "Projects", link: "/projects", icon: <AiOutlineBulb /> },
   { id: 3, title: "Skills", link: "/skills", icon: <BsCodeSlash /> },
   { id: 4, title: "About", link: "/about", icon: <AiOutlineInfoCircle /> },

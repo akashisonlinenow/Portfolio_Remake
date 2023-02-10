@@ -1,8 +1,33 @@
-.container{
-    font-size: 2rem;
-    padding: 1rem;
+.container {
+  font-size: 2rem;
+  padding: 1rem;
 
-    @media (max-width:1024px) {
-        font-size: 1.5rem;
-    }
+  @media (max-width: 1024px) {
+    font-size: 1.2rem;
+  }
+}
+
+.greet {
+  font-size: 6rem;
+  @media (max-width:1024px) {
+    font-size: 5rem;
+  }
+  font-weight: 700;
+  color: hsl(152, 54%, 59%);
+}
+
+.name {
+  font-weight: 700;
+  color: hsl(199, 96%, 70%);
+}
+
+.country {
+  font-weight: 700;
+  color: hsl(0, 100%, 74%);
+}
+.interests {
+  & > li {
+    font-weight: 600;
+    color: hsl(266, 100%, 74%);
+  }
 }

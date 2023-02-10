@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "@styles/Contact.module.scss";
-import ContactData from "/data/contactData";
+import ContactData from "@data/contactData";
 import { IconButton } from "@mui/material";
 import { useDataContext } from "@context/dataLayer";
 

@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Heading from "@components/heading/heading";
 import GitHubCalendar from "react-github-calendar";
 import styles from "./styles/Calendar.module.scss";
 import { useDataContext } from "@context/dataLayer";
 import HoverPortal, { CalendarDataType } from "./components/hoverPortal";
+import Component from "@layout/componentTransition";
 
 const Calendar = () => {
   const [Select, setSelect] = useState<CalendarDataType | null>(null);
@@ -13,7 +14,7 @@ const Calendar = () => {
   return (
     <>
       <Heading title="Days I Code" type="small" />
-      <div className={styles.container}>
+      <Component className={styles.container}>
         <a
           href={`https://github.com/${process.env.gitUser}`}
           target="_blank"
@@ -50,7 +51,7 @@ const Calendar = () => {
           />
         </a>
         <HoverPortal Select={Select} />
-      </div>
+      </Component>
     </>
   );
 };

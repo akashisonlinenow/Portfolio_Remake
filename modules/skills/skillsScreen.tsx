@@ -1,10 +1,9 @@
 import React from "react";
 import styles from "./styles/Skills.module.scss";
-import { SkillData } from "@data/skillsData";
-import SkillCard from "./components/skillCard";
 import dynamic from "next/dynamic";
+import SkillCard from "./components/skillCard";
+import { SkillData } from "@data/skillsData";
 import { motion, Transition, Variants } from "framer-motion";
-import Component from "@layout/componentTransition";
 
 const SkillModal = dynamic(() => import("./components/customModal"));
 

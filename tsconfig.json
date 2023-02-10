@@ -24,9 +24,16 @@
       "@hooks/*": ["./common/hooks/*"],
       "@layout/*": ["./common/layout/*"],
       "@modules/*": ["./modules/*"],
-      "@data/*": ["./data/*"]
+      "@data/*": ["./data/*"],
+      "@test/*": ["./test/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "temp/temp_fix.js", "test/temp.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "temp/temp_fix.js",
+    "test/temp.tsx"
+  ],
   "exclude": ["node_modules"]
 }

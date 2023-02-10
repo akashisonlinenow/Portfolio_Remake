@@ -1,10 +1,10 @@
-import React, { CSSProperties, PropsWithChildren } from "react";
+import React from "react";
 import styles from "@styles/InitialPage.module.scss";
 
 interface propType {
   children: React.ReactNode;
   className?: string;
-  style?: CSSProperties;
+  style?: React.CSSProperties;
 }
 
 const InitialPage: React.FC<propType> = ({ children, className, ...rest }) => {

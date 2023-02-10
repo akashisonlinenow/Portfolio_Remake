@@ -89,3 +89,9 @@ a {
     flex-direction: column;
   }
 }
+
+.exception-about-page {
+  @media (max-width: 1024px) {
+    min-height: unset !important;
+  }
+}

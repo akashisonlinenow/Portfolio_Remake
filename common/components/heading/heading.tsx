@@ -1,7 +1,7 @@
 import React, { CSSProperties } from "react";
 import styles from "@styles/Heading.module.scss";
 import Component from "@layout/componentTransition";
-import { useDataContext } from "common/context/dataLayer";
+import { useDataContext } from "@context/dataLayer";
 
 type DefaultProps = {
   title: string;
