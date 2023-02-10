@@ -14,7 +14,7 @@ const variants: Variants = {
   visible: { opacity: 1, x: 0 },
 };
 
-const viewPort = { once: true, amount: 0.9 };
+const viewPort = { once: true, amount: 0.8 };
 
 interface propOptions extends PropsWithChildren {
   className?: string;
