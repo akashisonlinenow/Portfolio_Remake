@@ -3,11 +3,13 @@ import styles from "@styles/InitialPage.module.scss";
 
 interface propType {
   children: React.ReactNode;
+  className?: string;
+  style?: CSSProperties;
 }
 
-const InitialPage: React.FC<propType> = ({ children, ...rest }) => {
+const InitialPage: React.FC<propType> = ({ children, className, ...rest }) => {
   return (
-    <div className={styles.container} {...rest}>
+    <div className={`${styles.container} ${className}`} {...rest}>
       {children}
     </div>
   );

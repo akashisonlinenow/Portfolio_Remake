@@ -3,7 +3,9 @@
   inset: 0;
   overflow: hidden;
   // z-index: 90;
-  background-color: var(--bgColor);
+  // background-color: var(--bgColor);
+  background-color: hsla(220%, 12%, 10%, 0.9);
+  backdrop-filter: blur(16px);
 
   display: grid;
   // grid-template-rows: auto 1fr;

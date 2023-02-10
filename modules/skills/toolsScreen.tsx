@@ -1,12 +1,8 @@
 import React from "react";
+import { ToolData } from "data/skillsData";
+import SkillCard from "modules/skills/components/skillCard";
 import styles from "./styles/Skills.module.scss";
-import { SkillData } from "@data/skillsData";
-import SkillCard from "./components/skillCard";
-import dynamic from "next/dynamic";
 import { motion, Transition, Variants } from "framer-motion";
-import Component from "@layout/componentTransition";
-
-const SkillModal = dynamic(() => import("./components/customModal"));
 
 const ParentVariants: Variants = {
   hidden: { opacity: 0, y: 50 },
@@ -21,10 +17,9 @@ const ParentTransition: Transition = {
   staggerChildren: 0.1,
 };
 
-const SkillsPage = () => {
+const ToolsPage = () => {
   return (
     <>
-      <SkillModal />
       <motion.div
         variants={ParentVariants}
         initial="hidden"
@@ -33,7 +28,7 @@ const SkillsPage = () => {
         layout
         className={styles.container}
       >
-        {SkillData.map((e) => {
+        {ToolData.map((e) => {
           return (
             <SkillCard
               key={e.name}
@@ -49,4 +44,4 @@ const SkillsPage = () => {
   );
 };
 
-export default SkillsPage;
+export default ToolsPage;

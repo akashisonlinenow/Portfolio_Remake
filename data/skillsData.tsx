@@ -22,7 +22,7 @@ export type skillType = {
   name: string;
   icon: JSX.Element;
   level: string;
-  intNode: typenode[];
+  intNode: SubSkillType[] | null;
   type: string | null;
   isFav: boolean;
   isLearning: boolean;
@@ -31,7 +31,7 @@ export type skillType = {
 // TODO: Learn difference between interface and type
 // TODO: Try dynamic prop passing in icon TS
 
-export type typenode = {
+export type SubSkillType = {
   name: string;
   icon: JSX.Element | null;
   level: string;
@@ -43,7 +43,7 @@ export const SkillData: skillType[] = [
     name: "C",
     icon: <SiC style={{ color: "#fff" }} />,
     level: "Intermediate",
-    intNode: [],
+    intNode: null,
     type: "Language",
     isFav: false,
     isLearning: false,
@@ -52,7 +52,7 @@ export const SkillData: skillType[] = [
     name: "C++",
     icon: <SiCplusplus style={{ color: "#0086d4" }} />,
     level: "Intermediate",
-    intNode: [],
+    intNode: null,
     type: "Language",
     isFav: false,
     isLearning: false,
@@ -62,7 +62,7 @@ export const SkillData: skillType[] = [
     name: "HTML",
     icon: <SiHtml5 style={{ color: "#ff6d00" }} />,
     level: "Expert",
-    intNode: [],
+    intNode: null,
     type: null,
     isFav: false,
     isLearning: false,
@@ -141,7 +141,7 @@ export const SkillData: skillType[] = [
     name: "MongoDB",
     icon: <SiMongodb style={{ color: "#4faa41" }} />,
     level: "Beginner",
-    intNode: [],
+    intNode: null,
     type: "Database",
     isFav: true,
     isLearning: true,
@@ -150,7 +150,7 @@ export const SkillData: skillType[] = [
     name: "NextJS",
     icon: <SiNextdotjs style={{ color: "#fff" }} />,
     level: "Beginner",
-    intNode: [],
+    intNode: null,
     type: "React Framework",
     isFav: true,
     isLearning: true,
@@ -160,7 +160,7 @@ export const SkillData: skillType[] = [
     name: "Python",
     icon: <SiPython style={{ color: "#000" }} />,
     level: "Beginner",
-    intNode: [],
+    intNode: null,
     type: "Language",
     isFav: true,
     isLearning: true,
@@ -172,7 +172,7 @@ export const ToolData: skillType[] = [
     name: "Linux",
     icon: <SiLinux style={{ color: "#000" }} />,
     level: "Beginner",
-    intNode: [],
+    intNode: null,
     type: "Operating System",
     isFav: true,
     isLearning: true,
@@ -181,8 +181,8 @@ export const ToolData: skillType[] = [
     name: "Git",
     icon: <SiGit style={{ color: "#f05033" }} />,
     level: "Beginner",
-    intNode: [],
-    type: "Version Control Software",
+    intNode: null,
+    type: "Version Control",
     isFav: true,
     isLearning: true,
   },

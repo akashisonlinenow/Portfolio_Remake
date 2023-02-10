@@ -56,7 +56,6 @@ export const ThemeSettings = () => {
       MuiButton: {
         defaultProps: {
           color: "inherit",
-          sx: { backgroundColor: "inherit" },
         },
       },
       MuiIconButton: {

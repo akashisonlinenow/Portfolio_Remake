@@ -1,16 +1,15 @@
 .card {
-  display: grid;
+  display: grid !important;
   grid-template-rows: 3fr 1fr;
-//   padding: 1rem;
-  // justify-items: center;
-  background-color: var(--activeTab);
-  border-radius: 30px;
+  background-color: var(--activeTab) !important;
+  border-radius: 30px !important;
+  justify-items: center;
 
   min-height: 36vh;
 
   &Name {
     font-size: 2rem;
-    @media (max-width:1024px) {
+    @media (max-width: 1024px) {
       font-size: 1.5rem;
     }
     font-weight: 900;
@@ -18,9 +17,8 @@
 
   .icon {
     font-size: 7rem;
-    @media (max-width:1024px) {
-        font-size: 6rem;
-        
+    @media (max-width: 1024px) {
+      font-size: 6rem;
     }
   }
 }
