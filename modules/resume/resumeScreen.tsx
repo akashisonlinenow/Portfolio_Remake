@@ -1,15 +1,15 @@
 import React from "react";
-import dynamic from "next/dynamic";
-
-const PDFViewer = dynamic(() => import("./components/resumePDF"), {
-  ssr: false,
-});
+import PDFViewer from "./components/resumePDF";
+import styles from "./styles/Resume.module.scss";
+// import Button from "@mui/material/Button";
 
 const ResumePage = () => {
   return (
-    <div>
-      <PDFViewer />
-    </div>
+    <>
+      <div className={styles.container}>
+        <PDFViewer />
+      </div>
+    </>
   );
 };
 

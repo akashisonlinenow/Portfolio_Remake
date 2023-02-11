@@ -1,4 +1,26 @@
-.document {
-//   user-select: none;
-//   cursor: pointer !important;
+.container {
+  //   display: flex;
 }
+
+.document {
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 1024px) {
+    padding: 0;
+  }
+
+  &Body {
+    position: relative;
+  }
+}
+
+// .download {
+//   position: absolute;
+//   top: -2rem;
+//   right: -2rem;
+//   background-color: hsl(199, 100%, 50%);
+//   border-radius: 50%;
+// }

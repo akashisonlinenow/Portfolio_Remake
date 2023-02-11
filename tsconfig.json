@@ -34,6 +34,6 @@
     "**/*.tsx",
     "temp/temp_fix.js",
     "test/temp.tsx"
-  ],
+, "pdf-worker.js"  ],
   "exclude": ["node_modules"]
 }

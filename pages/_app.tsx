@@ -26,7 +26,7 @@ export default function App({ Component, pageProps }: AppProps) {
   const ThemeData = ThemeSettings();
 
   useEffect(() => {
-    console.info(consoleMsg);
+    // console.info(consoleMsg);
   }, []);
 
   return (

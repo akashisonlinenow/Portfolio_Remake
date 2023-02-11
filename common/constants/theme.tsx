@@ -63,6 +63,13 @@ export const ThemeSettings = () => {
           color: "inherit",
         },
       },
+      MuiSkeleton: {
+        defaultProps: {
+          sx: {
+            bgcolor: "grey.700",
+          },
+        },
+      },
     },
   });
 };

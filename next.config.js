@@ -6,7 +6,8 @@ const nextConfig = {
     gitUser: "KingBael09",
     fName: "Jayesh",
     lName: "Singh",
-    location:"India"
+    location: "India",
+    repo: "Portfolio_Remake",
   },
 };
 
