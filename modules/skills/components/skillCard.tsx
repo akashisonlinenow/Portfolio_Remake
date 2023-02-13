@@ -2,20 +2,22 @@ import React from "react";
 import styles from "../styles/Card.module.scss";
 import useStore from "store/store";
 import Button from "@mui/material/Button";
-import { Transition, Variants } from "framer-motion";
+import { motion, MotionProps } from "framer-motion";
 import { skillType, SubSkillType } from "data/skillsData";
 
-type inputProps = {
+interface inputProps extends MotionProps {
   data: skillType | SubSkillType;
   style?: React.CSSProperties;
   className?: string;
-  component?: any;
-  variants?: Variants;
-  transition?: Transition;
-  whileInView?: any;
-};
+  hover?: boolean;
+}
 
-const SkillCard: React.FC<inputProps> = ({ data, className, ...rest }) => {
+const SkillCard: React.FC<inputProps> = ({
+  data,
+  className,
+  hover,
+  ...rest
+}) => {
   // const currentSelection = useStore((state: any) => state.currentSelection);
   const focusSelection = useStore((state) => state.focusSelection);
 
@@ -30,7 +32,16 @@ const SkillCard: React.FC<inputProps> = ({ data, className, ...rest }) => {
           initiateClick(data);
         }}
         className={`${styles.card} ${className}`}
+        component={motion.button}
         {...rest}
+        whileHover={
+          hover
+            ? {
+                scale: 1.03,
+                transition: { type: "spring" },
+              }
+            : undefined
+        }
       >
         <div className={styles.icon}>{data.icon}</div>
         <div className={styles.cardName}>{data.name}</div>

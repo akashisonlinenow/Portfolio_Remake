@@ -37,9 +37,9 @@ const ToolsPage = () => {
               <SkillCard
                 key={e.name}
                 data={e}
-                component={motion.button}
                 variants={ParentVariants}
                 transition={ParentTransition}
+                hover={true}
               />
             );
           })}

@@ -1,0 +1,27 @@
+.heading {
+  @media (max-width: 1024px) {
+    padding-top: 1rem;
+  }
+}
+
+.container {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.card {
+  display: grid;
+  background-color: var(--activeTab);
+  justify-items: center;
+  align-items: center;
+  border-radius: 30px;
+
+  // ! Extra
+  min-height: 10rem;
+  font-family: var(--codeFont);
+}

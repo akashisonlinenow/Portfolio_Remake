@@ -3,10 +3,12 @@ import { AnimatePresence, motion, Transition, Variants } from "framer-motion";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
 
 import styles from "@styles/BaseModal.module.scss";
+import Portal from "common/components/portal/portal";
 
 interface modalProps {
   activation: any;
   children: React.ReactNode;
+  style?: React.CSSProperties;
   handleClickAway: () => void;
 }
 
@@ -27,40 +29,37 @@ const ModalBase: React.FC<modalProps> = ({
   activation,
   children,
   handleClickAway,
+  ...rest
 }) => {
   return (
     <>
       <AnimatePresence mode="wait">
-        {activation && (
-          <>
-            <div className={styles.modal}>
-              <ClickAwayListener
-                touchEvent={false}
-                onClickAway={handleClickAway}
+        <Portal activate={activation}>
+          <div className={styles.modal}>
+            <ClickAwayListener touchEvent={false} onClickAway={handleClickAway}>
+              <motion.div
+                variants={modalVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                transition={modalTransition}
+                id="ModalBody"
+                layout
+                // !layout makes it Kinda FuckedUp
+                className={styles.modalBody}
+                {...rest}
               >
-                <motion.div
-                  variants={modalVariants}
-                  initial="hidden"
-                  animate="visible"
-                  exit="exit"
-                  transition={modalTransition}
-                  id="ModalBody"
-                  layout
-                  // !layout makes it Kinda FuckedUp
-                  className={styles.modalBody}
-                >
-                  {children}
-                </motion.div>
-              </ClickAwayListener>
-            </div>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className={styles.modalBackground}
-            />
-          </>
-        )}
+                {children}
+              </motion.div>
+            </ClickAwayListener>
+          </div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className={styles.modalBackground}
+          />
+        </Portal>
       </AnimatePresence>
     </>
   );

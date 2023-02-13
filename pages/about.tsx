@@ -20,7 +20,7 @@ const About = () => {
         <title>About</title>
       </Head>
       <div>
-        <InitialPage className="exception-about-page">
+        <InitialPage className="exception-mobile-page-height">
           <Heading title="About" disableMobileView />
           <AboutPage />
         </InitialPage>

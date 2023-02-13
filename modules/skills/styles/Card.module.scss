@@ -4,8 +4,7 @@
   background-color: var(--activeTab) !important;
   border-radius: 30px !important;
   justify-items: center;
-
-  min-height: 36vh;
+  min-height: 37vh;
 
   &Name {
     font-size: 2rem;
@@ -20,5 +19,8 @@
     @media (max-width: 1024px) {
       font-size: 6rem;
     }
+  }
+  &:hover {
+    background-color: var(--pannelItemHover) !important;
   }
 }

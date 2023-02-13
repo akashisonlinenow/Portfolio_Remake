@@ -38,7 +38,7 @@ const SkillModal = () => {
             {currentSelection?.intNode.map((e) => {
               return (
                 <SkillCard
-                  component={motion.button}
+                  // component={motion.button}
                   variants={childrenVariant}
                   transition={modalTransition}
                   key={e.name}

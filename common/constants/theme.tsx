@@ -66,7 +66,7 @@ export const ThemeSettings = () => {
       MuiSkeleton: {
         defaultProps: {
           sx: {
-            bgcolor: "grey.700",
+            bgcolor: "hsl(222, 12%, 25%)",
           },
         },
       },

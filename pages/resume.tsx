@@ -5,13 +5,17 @@ import Heading from "@components/heading/heading";
 import dynamic from "next/dynamic";
 import InitialPage from "@layout/initialPage";
 import Spinner from "@components/loader/Spinner";
-import Certificates from "@modules/resume/certificateScreen";
-import ResumePage from "@modules/resume/resumeScreen";
+// import Certificates from "@modules/resume/certificateScreen";
 
-
-// const ResumePage = dynamic(() => import("@modules/resume/resumeScreen"), {
-//   loading: () => <Spinner />,
-// });
+const ResumePage = dynamic(() => import("@modules/resume/resumeScreen"), {
+  loading: () => <Spinner />,
+});
+const Certificates = dynamic(
+  () => import("@modules/resume/certificateScreen"),
+  {
+    loading: () => <Spinner />,
+  }
+);
 
 const Resume = () => {
   return (
@@ -20,7 +24,7 @@ const Resume = () => {
         <title>Resume</title>
       </Head>
       <div>
-        <InitialPage>
+        <InitialPage className="exception-mobile-page-height">
           <Heading title="Resume" disableMobileView />
           <ResumePage />
         </InitialPage>
