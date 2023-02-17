@@ -1,6 +1,5 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
-import { createPortal } from "react-dom";
 import styles from "../styles/Calendar.module.scss";
 import Portal from "common/components/portal/portal";
 
@@ -51,7 +50,6 @@ const HoverPortal: React.FC<PortalProps> = ({ Select }) => {
           <span>
             <strong>{`${Select?.count} contributions `}</strong>on
           </span>
-          {/* <br /> */}
           <motion.span> {`${handleDate(Select?.date)}`}</motion.span>
         </motion.div>
       </Portal>

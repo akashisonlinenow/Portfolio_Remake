@@ -7,14 +7,14 @@ import {
 } from "react-icons/ai";
 import { BsCodeSlash } from "react-icons/bs";
 
-export type typeData = {
+export type PanelTypes = {
   id: number;
   title: string;
   link: string;
   icon: JSX.Element;
 };
 
-const _defMenu: typeData[] = [
+const _defMenu: PanelTypes[] = [
   { id: 1, title: "Home", link: "/", icon: <AiOutlineHome /> },
   { id: 2, title: "Projects", link: "/projects", icon: <AiOutlineBulb /> },
   { id: 3, title: "Skills", link: "/skills", icon: <BsCodeSlash /> },

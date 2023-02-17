@@ -4,13 +4,15 @@ import Button from "@mui/material/Button";
 import mStyles from "./styles/miniPannel.module.scss";
 import ItemData from "@data/pannelData";
 import { useRouter } from "next/router";
-import { useMenuContext } from "@context/applicationLayer";
-import { useDialogContext } from "@context/fuctionalLayer";
 import { AnimatePresence, motion, Transition, Variants } from "framer-motion";
+import useStore from "store/store";
+import type { PanelTypes } from "@data/pannelData";
 
 const MobilePannel = () => {
-  const [Menu, setMenu] = useMenuContext();
-  const [Modal, setModal] = useDialogContext();
+  const MenuStatus = useStore((state) => state.menuStatus);
+  const DialogStatus = useStore((state) => state.dialogStatus);
+  const SwitchMenu = useStore((state) => state.menuSwitch);
+  const SwitchDialog = useStore((state) => state.dialogSwitch);
   const router = useRouter();
 
   const mPannelVariants: Variants = {
@@ -39,10 +41,16 @@ const MobilePannel = () => {
 
   const MotionLink = motion(Link);
 
+  const handleClick = (e: PanelTypes) => {
+    if (e.title === "Contact") {
+      SwitchDialog();
+    }
+    SwitchMenu();
+  };
+
   return (
     <AnimatePresence mode="wait">
-      {/* <Fade in={Menu}> */}
-      {Menu && (
+      {MenuStatus && (
         <motion.div
           variants={mPannelVariants}
           initial="hidden"
@@ -60,12 +68,7 @@ const MobilePannel = () => {
                   variants={mPannelChildren}
                   transition={mPannelChildTransition}
                   key={e.id}
-                  onClick={() => {
-                    if (e.title === "Contact") {
-                      setModal(true);
-                    }
-                    setMenu(false);
-                  }}
+                  onClick={() => handleClick(e)}
                   href={e.link}
                   className={`${mStyles.item} ${
                     router.pathname === e.link ? mStyles.active : null
@@ -79,7 +82,6 @@ const MobilePannel = () => {
           </div>
         </motion.div>
       )}
-      {/* </Fade> */}
     </AnimatePresence>
   );
 };

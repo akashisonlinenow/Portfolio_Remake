@@ -25,23 +25,15 @@ const ToolsPage = () => {
       <Heading title="Tools" />
       <Component>
         <motion.div
-          variants={ParentVariants}
-          initial="hidden"
-          animate="visible"
-          transition={ParentTransition}
-          layout
+          // variants={ParentVariants}
+          // initial="hidden"
+          // animate="visible"
+          // transition={ParentTransition}
+          // layout
           className={styles.container}
         >
           {ToolData.map((e) => {
-            return (
-              <SkillCard
-                key={e.name}
-                data={e}
-                variants={ParentVariants}
-                transition={ParentTransition}
-                hover={true}
-              />
-            );
+            return <SkillCard key={e.name} data={e} />;
           })}
         </motion.div>
       </Component>

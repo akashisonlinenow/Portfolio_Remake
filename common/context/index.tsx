@@ -1,18 +1,14 @@
 import React, { PropsWithChildren } from "react";
 import { FontProvider } from "@constants/font";
 import { DataLayer } from "@context/dataLayer";
-import { ApplicationLayer } from "@context/applicationLayer";
-import { FunctionalLayer } from "@context/fuctionalLayer";
+// import { ApplicationLayer } from "@context/applicationLayer";
+// import { FunctionalLayer } from "@context/fuctionalLayer";
 
-const ContextProviders = (props: PropsWithChildren) => {
+const ContextProviders = ({children}: PropsWithChildren) => {
   return (
     <>
       <DataLayer>
-        <ApplicationLayer>
-          <FunctionalLayer>
-            <FontProvider>{props.children}</FontProvider>
-          </FunctionalLayer>
-        </ApplicationLayer>
+        <FontProvider>{children}</FontProvider>
       </DataLayer>
     </>
   );

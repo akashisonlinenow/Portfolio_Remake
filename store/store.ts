@@ -1,18 +1,34 @@
-import { skillType } from "@data/skillsData";
+import type { SkillTypes } from "@data/skillsData";
 import { create } from "zustand";
 
 interface storeInterface {
-  currentSelection: null | skillType;
-  focusSelection: (data: null | skillType) => void;
+  currentSelection: null | SkillTypes;
+  menuStatus: boolean;
+  dialogStatus: boolean;
+  focusSelection: (data: null | SkillTypes) => void;
+  menuSwitch: () => void;
+  dialogSwitch: () => void;
 }
 
 const useStore = create<storeInterface>((set) => ({
   currentSelection: null,
+  menuStatus: false,
+  dialogStatus: false,
 
-  focusSelection: (data) =>
+  focusSelection(data) {
+    set((state) => ({ currentSelection: data }));
+  },
+
+  menuSwitch() {
     set((state) => ({
-      currentSelection: data,
-    })),
+      menuStatus: !state.menuStatus,
+    }));
+  },
+  dialogSwitch() {
+    set((state) => ({
+      dialogStatus: !state.dialogStatus,
+    }));
+  },
 }));
 
 export default useStore;

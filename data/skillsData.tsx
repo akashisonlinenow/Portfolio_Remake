@@ -18,31 +18,22 @@ import {
   SiSass,
 } from "react-icons/si";
 
-export type skillType = {
+export interface SkillTypes {
   name: string;
   icon: JSX.Element;
-  level: string;
-  intNode: SubSkillType[] | null;
-  type: string | null;
-  isFav: boolean;
+  level: "Intermediate" | "Beginner" | "Expert";
+  intNode?: SkillTypes[] | null;
+  type: string;
   isLearning: boolean;
-};
+}
 
-export type SubSkillType = {
-  name: string;
-  icon: JSX.Element | null;
-  level: string;
-  isLearning: boolean;
-};
-
-export const SkillData: skillType[] = [
+export const SkillData: SkillTypes[] = [
   {
     name: "C",
     icon: <SiC style={{ color: "#fff" }} />,
     level: "Intermediate",
     intNode: null,
     type: "Language",
-    isFav: false,
     isLearning: false,
   },
   {
@@ -51,7 +42,6 @@ export const SkillData: skillType[] = [
     level: "Intermediate",
     intNode: null,
     type: "Language",
-    isFav: false,
     isLearning: false,
   },
 
@@ -60,8 +50,7 @@ export const SkillData: skillType[] = [
     icon: <SiHtml5 style={{ color: "#ff6d00" }} />,
     level: "Expert",
     intNode: null,
-    type: null,
-    isFav: false,
+    type: "Markup Language",
     isLearning: false,
   },
   {
@@ -73,17 +62,18 @@ export const SkillData: skillType[] = [
         name: "BootStrap",
         icon: <SiBootstrap style={{ color: "#a87cff" }} />,
         level: "Intermediate",
+        type: "CSS Framework",
         isLearning: false,
       },
       {
         name: "Sass",
         icon: <SiSass style={{ color: "#bf4080" }} />,
         level: "Beginner",
+        type: "CSS Preprocessor",
         isLearning: true,
       },
     ],
-    type: null,
-    isFav: false,
+    type: "CSS is CSS",
     isLearning: false,
   },
   {
@@ -95,11 +85,11 @@ export const SkillData: skillType[] = [
         name: "TypeScript",
         icon: <SiTypescript style={{ color: "#3178c6" }} />,
         level: "Beginner",
+        type: "Strongly Typed Language",
         isLearning: false,
       },
     ],
     type: "Language",
-    isFav: true,
     isLearning: false,
   },
   {
@@ -111,27 +101,27 @@ export const SkillData: skillType[] = [
         name: "ExpressJS",
         icon: <SiExpress style={{ color: "#353535" }} />,
         level: "Beginner",
+        type: "Node Framework",
         isLearning: true,
       },
     ],
-    type: "Backend",
-    isFav: true,
+    type: "Runtime Environment",
     isLearning: true,
   },
   {
     name: "React",
     icon: <SiReact style={{ color: "#61dbfb" }} />,
-    level: "Beginner",
+    level: "Intermediate",
     intNode: [
       {
         name: "Material UI",
         icon: <SiMaterialui style={{ color: "#007fff" }} />,
         level: "Beginner",
+        type: "React Component Library",
         isLearning: true,
       },
     ],
     type: "FrontEnd",
-    isFav: true,
     isLearning: true,
   },
   {
@@ -140,7 +130,6 @@ export const SkillData: skillType[] = [
     level: "Beginner",
     intNode: null,
     type: "Database",
-    isFav: true,
     isLearning: true,
   },
   {
@@ -149,7 +138,6 @@ export const SkillData: skillType[] = [
     level: "Beginner",
     intNode: null,
     type: "React Framework",
-    isFav: true,
     isLearning: true,
   },
 
@@ -159,19 +147,17 @@ export const SkillData: skillType[] = [
     level: "Beginner",
     intNode: null,
     type: "Language",
-    isFav: true,
     isLearning: true,
   },
 ];
 
-export const ToolData: skillType[] = [
+export const ToolData: SkillTypes[] = [
   {
     name: "Linux",
     icon: <SiLinux style={{ color: "#000" }} />,
     level: "Beginner",
     intNode: null,
     type: "Operating System",
-    isFav: true,
     isLearning: true,
   },
   {
@@ -180,7 +166,6 @@ export const ToolData: skillType[] = [
     level: "Beginner",
     intNode: null,
     type: "Version Control",
-    isFav: true,
     isLearning: true,
   },
 ];

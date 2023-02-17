@@ -1,4 +1,4 @@
-export type typeData = {
+export interface SafeTypes  {
   id: number;
   name: string;
   full_name: string;
@@ -19,7 +19,7 @@ export type typeData = {
   watchers: number;
 };
 
-const _defSafe: typeData[] = [
+const _defSafe: SafeTypes[] = [
   {
     id: 507264809,
     name: "Algorithms",

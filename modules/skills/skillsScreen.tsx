@@ -10,7 +10,7 @@ const SkillModal = dynamic(() => import("./components/customModal"));
 const ParentVariants: Variants = {
   hidden: { opacity: 0, y: 50 },
   visible: { opacity: 1, y: 0 },
-  // exit: { opacity: 0, x: 50 },
+  exit: { opacity: 0, x: 50 },
 };
 
 const ParentTransition: Transition = {
@@ -25,23 +25,15 @@ const SkillsPage = () => {
     <>
       <SkillModal />
       <motion.div
-        variants={ParentVariants}
-        initial="hidden"
-        animate="visible"
-        transition={ParentTransition}
-        layout
+        // variants={ParentVariants}
+        // initial="hidden"
+        // animate="visible"
+        // transition={ParentTransition}
+        // layout
         className={styles.container}
       >
         {SkillData.map((e) => {
-          return (
-            <SkillCard
-              key={e.name}
-              data={e}
-              variants={ParentVariants}
-              transition={ParentTransition}
-              hover={true}
-            />
-          );
+          return <SkillCard key={e.name} data={e} />;
         })}
       </motion.div>
     </>

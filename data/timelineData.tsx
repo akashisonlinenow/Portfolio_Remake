@@ -1,15 +1,15 @@
 import { FaGraduationCap, FaBirthdayCake, FaBuilding } from "react-icons/fa";
 
-type typeData = {
+interface TimelineTypes {
   id: number;
   date: string;
   icon: JSX.Element;
   title: string;
   location: string | null;
   info: string | null;
-};
+}
 
-const _defTimeLine: typeData[] = [
+const _defTimeLine: TimelineTypes[] = [
   {
     id: 1,
     date: "9th Nov 2002",

@@ -2,9 +2,9 @@ import type { AppProps } from "next/app";
 import "@styles/globals.scss";
 import styles from "@styles/Root.module.scss";
 import dynamic from "next/dynamic";
-import Pannel from "@modules/pannel/pannel";
+// import Pannel from "@modules/pannel/pannel";
 import Footer from "@modules/footer/footer";
-import MobilePannel from "@modules/pannel/mobilePannel";
+// import MobilePannel from "@modules/pannel/mobilePannel";
 import ContextProviders from "@context/index";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
@@ -19,6 +19,9 @@ const ContactDialog = dynamic(
   () => import("@components/contactDialog/contactDialog")
 );
 
+const MobilePannel = dynamic(() => import("@modules/pannel/mobilePannel"));
+const Pannel = dynamic(() => import("@modules/pannel/pannel"));
+
 const ScrollTop = dynamic(() => import("@components/scrollToTop/topButton"));
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -26,7 +29,7 @@ export default function App({ Component, pageProps }: AppProps) {
   const ThemeData = ThemeSettings();
 
   useEffect(() => {
-    // console.info(consoleMsg);
+    console.info(consoleMsg);
   }, []);
 
   return (

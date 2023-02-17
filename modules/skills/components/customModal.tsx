@@ -4,8 +4,7 @@ import useStore from "store/store";
 import SkillCard from "modules/skills/components/skillCard";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
-import ClickAwayListener from "@mui/material/ClickAwayListener";
-import { AnimatePresence, motion, Transition, Variants } from "framer-motion";
+import { Transition, Variants } from "framer-motion";
 import ModalBase from "common/components/modal/baseModal";
 
 const SkillModal = () => {
@@ -38,7 +37,6 @@ const SkillModal = () => {
             {currentSelection?.intNode.map((e) => {
               return (
                 <SkillCard
-                  // component={motion.button}
                   variants={childrenVariant}
                   transition={modalTransition}
                   key={e.name}
@@ -56,7 +54,7 @@ const SkillModal = () => {
   return (
     <>
       <ModalBase
-        activation={currentSelection}
+        activation={currentSelection ? true : false}
         handleClickAway={handleClickAway}
       >
         <div className={styles.modalMain}>

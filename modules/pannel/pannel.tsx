@@ -9,19 +9,25 @@ import ItemData from "@data/pannelData";
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 import { useDataContext } from "@context/dataLayer";
-import { useMenuContext } from "@context/applicationLayer";
-import { useDialogContext } from "@context/fuctionalLayer";
+// import { useMenuContext } from "@context/applicationLayer";
+// import { useDialogContext } from "@context/fuctionalLayer";
+import useStore from "store/store";
 
 const Pannel = () => {
   const router = useRouter();
   const currentWidth = useDataContext();
-  const [Menu, setMenu] = useMenuContext();
-  const [Modal, setModal] = useDialogContext();
+  // const [Menu, setMenu] = useMenuContext();
+  // const [Modal, setModal] = useDialogContext();
+  const MenuStatus = useStore((state) => state.menuStatus);
+  const DialogStatus = useStore((state) => state.dialogStatus);
+  const SwitchMenu = useStore((state) => state.menuSwitch);
+  const SwitchDialog = useStore((state) => state.dialogSwitch);
 
   const isDesktop = currentWidth > 1024;
 
   const handleClick = () => {
-    setMenu(!Menu);
+    // setMenu(!Menu);
+    SwitchMenu();
   };
   const pushHome = () => {
     router.push("/");
@@ -73,11 +79,7 @@ const Pannel = () => {
                   className={`${styles.item} ${
                     router.pathname === e.link ? styles.active : null
                   }`}
-                  onClick={() => {
-                    if (e.title === "Contact") {
-                      setModal(true);
-                    }
-                  }}
+                  onClick={e.title === "Contact" ? SwitchDialog : undefined}
                 >
                   <div className={styles.itemIcon}>{e.icon}</div>
                   <div className={styles.itemTitle}>{e.title}</div>

@@ -8,15 +8,15 @@ import {
 
 import styles from "@styles/Contact.module.scss";
 
-type data = {
+interface ContactTypes {
   id: number;
   name: string;
   link: string;
   color?: string;
-  component: JSX.Element | null;
-};
+  component: JSX.Element;
+}
 
-const _defContact: data[] = [
+const _defContact: ContactTypes[] = [
   {
     id: 1,
     name: styles.mail,

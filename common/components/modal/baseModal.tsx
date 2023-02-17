@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { AnimatePresence, motion, Transition, Variants } from "framer-motion";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
 
@@ -6,7 +6,7 @@ import styles from "@styles/BaseModal.module.scss";
 import Portal from "common/components/portal/portal";
 
 interface modalProps {
-  activation: any;
+  activation: boolean;
   children: React.ReactNode;
   style?: React.CSSProperties;
   handleClickAway: () => void;
@@ -31,6 +31,18 @@ const ModalBase: React.FC<modalProps> = ({
   handleClickAway,
   ...rest
 }) => {
+  useEffect(() => {
+    const scrollbarWidth = window.innerWidth - document.body.offsetWidth;
+
+    if (activation) {
+      document.documentElement.style.overflow = "hidden";
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
+    } else {
+      document.documentElement.style.removeProperty("overflow");
+      document.body.style.removeProperty("padding-right");
+    }
+  }, [activation]);
+
   return (
     <>
       <AnimatePresence mode="wait">
