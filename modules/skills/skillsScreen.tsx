@@ -3,7 +3,8 @@ import styles from "./styles/Skills.module.scss";
 import dynamic from "next/dynamic";
 import SkillCard from "./components/skillCard";
 import { SkillData } from "@data/skillsData";
-import { motion, Transition, Variants } from "framer-motion";
+import { motion } from "framer-motion";
+import type { Transition, Variants } from "framer-motion";
 
 const SkillModal = dynamic(() => import("./components/customModal"));
 

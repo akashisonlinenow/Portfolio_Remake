@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-// import "react-pdf/dist/esm/Page/AnnotationLayer.css";
-// import "react-pdf/dist/esm/Page/TextLayer.css";
-import { Document, Page, pdfjs } from "react-pdf";
 import styles from "../styles/Resume.module.scss";
+import resumeLink from "@data/link";
 import ResumePopup from "../components/resumePopup";
 import SkeletonPlaceHolder from "./skeleton";
+import { Document, Page, pdfjs } from "react-pdf";
 import { useDataContext } from "@context/dataLayer";
-import resumeLink from "@data/link";
+// import "react-pdf/dist/esm/Page/TextLayer.css";
+// import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 

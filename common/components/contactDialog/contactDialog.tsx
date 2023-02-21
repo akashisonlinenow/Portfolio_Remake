@@ -1,22 +1,17 @@
-import {
-  Button,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogTitle,
-} from "@mui/material";
 import React from "react";
-// import { useDialogContext } from "@context/fuctionalLayer";
+import Button from "@mui/material/Button";
+import Dialog from "@mui/material/Dialog";
 import Contact from "@components/contact/contact";
+import DialogTitle from "@mui/material/DialogTitle";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
 import useStore from "store/store";
 
 const ContactDialog = () => {
-  // const [Modal, setModal] = useDialogContext();
   const DialogStatus = useStore((state) => state.dialogStatus);
   const SwitchDialog = useStore((state) => state.dialogSwitch);
 
   const handleClose = () => {
-    // setModal(false);
     SwitchDialog();
   };
 

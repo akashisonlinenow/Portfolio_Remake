@@ -1,9 +1,9 @@
 import React from "react";
-import PDFViewer from "./components/resumePDF";
 import styles from "./styles/Resume.module.scss";
 import Button from "@mui/material/Button";
-import DownloadIcon from "@mui/icons-material/Download";
+import PDFViewer from "./components/resumePDF";
 import resumelink from "data/link";
+import DownloadIcon from "@mui/icons-material/Download";
 
 const ResumePage = () => {
   return (

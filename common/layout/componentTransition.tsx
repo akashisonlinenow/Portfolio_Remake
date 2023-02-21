@@ -1,5 +1,6 @@
-import React, { CSSProperties, PropsWithChildren } from "react";
-import { AnimatePresence, motion, Transition, Variants } from "framer-motion";
+import React from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import type { Transition, Variants } from "framer-motion";
 import { useDataContext } from "@context/dataLayer";
 
 const transition: Transition = {
@@ -16,9 +17,9 @@ const variants: Variants = {
 
 const viewPort = { once: true, amount: 0.8 };
 
-interface propOptions extends PropsWithChildren {
+interface propOptions extends React.PropsWithChildren {
   className?: string;
-  style?: CSSProperties;
+  style?: React.CSSProperties;
   ref?: any;
 }
 

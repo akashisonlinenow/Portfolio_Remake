@@ -2,12 +2,12 @@ import React from "react";
 import styles from "../styles/Resume.module.scss";
 import ModalBase from "@components/modal/baseModal";
 import resumeLink from "@data/link";
+import CloseIcon from "@mui/icons-material/Close";
+import IconButton from "@mui/material/IconButton";
 import SkeletonPlaceHolder from "./skeleton";
 import { motion } from "framer-motion";
-import { useDataContext } from "@context/dataLayer";
 import { Document, Page, pdfjs } from "react-pdf";
-import IconButton from "@mui/material/IconButton";
-import CloseIcon from "@mui/icons-material/Close";
+import { useDataContext } from "@context/dataLayer";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 

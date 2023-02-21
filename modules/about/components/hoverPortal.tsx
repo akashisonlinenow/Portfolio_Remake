@@ -1,7 +1,7 @@
-import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import styles from "../styles/Calendar.module.scss";
-import Portal from "common/components/portal/portal";
+import Portal from "@components/portal/portal";
+import { motion } from "framer-motion";
 
 interface PortalProps {
   Select: CalendarDataType | null;

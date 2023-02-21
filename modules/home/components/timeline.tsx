@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "../styles/TimelineComponent.module.scss";
-import { motion, Transition, Variants } from "framer-motion";
+import { motion } from "framer-motion";
+import type { Transition, Variants } from "framer-motion";
 import { useDataContext } from "@context/dataLayer";
 
 const variants: Variants = {

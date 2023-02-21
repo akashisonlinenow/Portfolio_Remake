@@ -1,11 +1,11 @@
 import React from "react";
 import styles from "./../styles/Modal.module.scss";
-import useStore from "store/store";
-import SkillCard from "modules/skills/components/skillCard";
-import IconButton from "@mui/material/IconButton";
+import SkillCard from "@modules/skills/components/skillCard";
+import ModalBase from "@components/modal/baseModal";
 import CloseIcon from "@mui/icons-material/Close";
-import { Transition, Variants } from "framer-motion";
-import ModalBase from "common/components/modal/baseModal";
+import IconButton from "@mui/material/IconButton";
+import useStore from "store/store";
+import type { Transition, Variants } from "framer-motion";
 
 const SkillModal = () => {
   const currentSelection = useStore((state) => state.currentSelection);

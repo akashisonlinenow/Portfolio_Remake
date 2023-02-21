@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import { AnimatePresence, motion, Transition, Variants } from "framer-motion";
-import ClickAwayListener from "@mui/material/ClickAwayListener";
-
 import styles from "@styles/BaseModal.module.scss";
-import Portal from "common/components/portal/portal";
+import Portal from "@components/portal/portal";
+import ClickAwayListener from "@mui/material/ClickAwayListener";
+import { AnimatePresence, motion } from "framer-motion";
+import type { Transition, Variants } from "framer-motion";
 
 interface modalProps {
   activation: boolean;
@@ -56,7 +56,7 @@ const ModalBase: React.FC<modalProps> = ({
                 exit="exit"
                 transition={modalTransition}
                 id="ModalBody"
-                layout
+                // layout
                 // !layout makes it Kinda FuckedUp
                 className={styles.modalBody}
                 {...rest}

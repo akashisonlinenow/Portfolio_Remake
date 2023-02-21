@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "@styles/Contact.module.scss";
+import IconButton from "@mui/material/IconButton";
 import ContactData from "@data/contactData";
-import { IconButton } from "@mui/material";
 import { useDataContext } from "@context/dataLayer";
 
 const Contact = () => {

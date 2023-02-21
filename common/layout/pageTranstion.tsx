@@ -1,8 +1,9 @@
-import React, { PropsWithChildren } from "react";
-import { motion, Transition, Variants } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
+import type { Transition, Variants } from "framer-motion";
 import { useDataContext } from "@context/dataLayer";
 
-export const Container: React.FC<PropsWithChildren> = ({ children }) => {
+export const Container: React.FC<React.PropsWithChildren> = ({ children }) => {
   const variants: Variants = {
     hidden: { opacity: 0, x: 50, y: 0 },
     enter: { opacity: 1, x: 0, y: 0 },

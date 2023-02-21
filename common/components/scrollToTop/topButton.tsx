@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "@styles/ScrollTop.module.scss";
-import { Button } from "@mui/material";
+import Button from "@mui/material/Button";
 import { TiArrowUpThick } from "react-icons/ti";
 import { useScroll, motion } from "framer-motion";
 

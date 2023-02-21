@@ -1,4 +1,4 @@
-import React, { CSSProperties } from "react";
+import React from "react";
 import styles from "@styles/Heading.module.scss";
 import Component from "@layout/componentTransition";
 import { useDataContext } from "@context/dataLayer";
@@ -7,14 +7,14 @@ type DefaultProps = {
   title: string;
   type?: "default" | "small";
   disableMobileView?: boolean;
-  style?: CSSProperties;
+  style?: React.CSSProperties;
   className?: string;
 };
 type CustomProps = {
   title: string;
   type: "custom";
   disableMobileView?: boolean;
-  style?: CSSProperties;
+  style?: React.CSSProperties;
   className: string;
 };
 

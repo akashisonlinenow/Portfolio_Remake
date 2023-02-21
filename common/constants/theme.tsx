@@ -1,5 +1,4 @@
 import { createTheme } from "@mui/material";
-import Spinner from "@components/loader/Spinner";
 
 export const ThemeSettings = () => {
   return createTheme({

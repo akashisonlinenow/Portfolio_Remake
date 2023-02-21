@@ -1,10 +1,11 @@
 import React from "react";
-import SkillCard from "modules/skills/components/skillCard";
 import styles from "./styles/Skills.module.scss";
 import Heading from "@components/heading/heading";
 import Component from "@layout/componentTransition";
-import { ToolData } from "data/skillsData";
-import { motion, Transition, Variants } from "framer-motion";
+import SkillCard from "@modules/skills/components/skillCard";
+import { motion } from "framer-motion";
+import { ToolData } from "@data/skillsData";
+import type { Transition, Variants } from "framer-motion";
 
 const ParentVariants: Variants = {
   hidden: { opacity: 0, y: 50 },

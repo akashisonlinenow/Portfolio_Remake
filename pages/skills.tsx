@@ -1,9 +1,9 @@
 import React from "react";
 import Head from "next/head";
-import Container from "@layout/pageTranstion";
-import Heading from "@components/heading/heading";
 import dynamic from "next/dynamic";
 import Spinner from "@components/loader/Spinner";
+import Heading from "@components/heading/heading";
+import Container from "@layout/pageTranstion";
 import InitialPage from "@layout/initialPage";
 
 const SkillsPage = dynamic(() => import("@modules/skills/skillsScreen"), {

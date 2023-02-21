@@ -9,8 +9,6 @@ import ItemData from "@data/pannelData";
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 import { useDataContext } from "@context/dataLayer";
-// import { useMenuContext } from "@context/applicationLayer";
-// import { useDialogContext } from "@context/fuctionalLayer";
 import useStore from "store/store";
 
 const Pannel = () => {

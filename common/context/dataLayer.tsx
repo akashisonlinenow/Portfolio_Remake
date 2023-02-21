@@ -1,10 +1,5 @@
-import {
-  PropsWithChildren,
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
+import { createContext, useContext, useEffect, useState } from "react";
+import type { PropsWithChildren } from "react";
 
 export const DataContext = createContext({} as number);
 

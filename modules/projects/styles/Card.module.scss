@@ -1,0 +1,67 @@
+.mui-button-reset {
+  justify-content: stretch !important;
+  justify-items: stretch !important;
+  position: relative !important;
+}
+
+.card {
+  position: relative;
+  display: grid;
+  border-radius: 20px;
+  overflow: hidden;
+
+  &Extra {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    & > button {
+      padding: 1rem !important;
+    }
+  }
+
+  &Body {
+    flex-direction: column !important;
+    background-color: var(--projColor) !important;
+    padding: 1rem !important;
+    min-height: 37vh !important;
+    gap: 1rem !important;
+    font-family: var(--codeFont);
+
+    .heading {
+      font-size: 2.5rem;
+      @media (max-width: 1024px) {
+        font-size: max(1.5rem, 4vw);
+      }
+      font-weight: 900;
+    }
+    .lang {
+      font-size: 1.2rem;
+      @media (max-width: 1024px) {
+        font-size: 1rem;
+      }
+      font-weight: 900;
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    .stats {
+      position: absolute;
+      display: flex;
+      gap: 1rem;
+      right: 1.5rem;
+      top: 1rem;
+
+      > span {
+        display: flex;
+        align-items: center;
+        color: hsla(0, 0%, 100%, 0.5);
+        font-size: 1.1rem;
+        gap: 8px;
+      }
+    }
+  }
+}

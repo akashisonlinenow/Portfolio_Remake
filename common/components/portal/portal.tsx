@@ -1,6 +1,6 @@
-import { AnimatePresence } from "framer-motion";
-import React, { PropsWithChildren, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
+import { AnimatePresence } from "framer-motion";
 
 interface portalProps {
   children: React.ReactNode;

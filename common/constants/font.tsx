@@ -4,7 +4,7 @@ import {
   Readex_Pro,
   Lobster_Two,
 } from "@next/font/google";
-import { PropsWithChildren } from "react";
+import type { PropsWithChildren } from "react";
 
 const defaultFont = Poppins({
   subsets: ["latin"],
