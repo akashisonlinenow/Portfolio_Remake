@@ -1,8 +1,8 @@
 import Head from "next/head";
 import dynamic from "next/dynamic";
-import Spinner from "@components/loader/Spinner";
+import { Spinner } from "@components/loader/";
 import Container from "@layout/pageTranstion";
-import Heading from "@components/heading/heading";
+import Heading from "@components/heading";
 import InitialPage from "@layout/initialPage";
 
 const HomePage = dynamic(() => import("@modules/home/homeScreen"), {

@@ -13,17 +13,13 @@ import { AnimatePresence } from "framer-motion";
 
 const RouterEvent = dynamic(() => import("@hooks/routerEvents"));
 
-const ContactDialog = dynamic(
-  () => import("@components/contactDialog/contactDialog")
-);
-const SnackBar = dynamic(
-  () => import("@components/snackbar/snackbar")
-);
+const ContactDialog = dynamic(() => import("@components/contactDialog"));
+const SnackBar = dynamic(() => import("@components/snackbar"));
 
 const MobilePannel = dynamic(() => import("@modules/pannel/mobilePannel"));
 const Pannel = dynamic(() => import("@modules/pannel/pannel"));
 
-const ScrollTop = dynamic(() => import("@components/scrollToTop/topButton"));
+const ScrollTop = dynamic(() => import("@components/scrollToTop"));
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -38,7 +34,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <ThemeProvider theme={ThemeData}>
         <ContextProviders>
           <ContactDialog />
-          <SnackBar/>
+          <SnackBar />
           <ScrollTop />
           <div className={styles.app}>
             <div className={styles.main}>

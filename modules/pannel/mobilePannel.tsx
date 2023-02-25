@@ -3,11 +3,11 @@ import Link from "next/link";
 import Button from "@mui/material/Button";
 import mStyles from "./styles/miniPannel.module.scss";
 import ItemData from "@data/pannelData";
+import useStore from "store/store";
 import { useRouter } from "next/router";
 import { AnimatePresence, motion, useWillChange } from "framer-motion";
 import type { Transition, Variants } from "framer-motion";
 import type { PanelTypes } from "@data/pannelData";
-import useStore from "store/store";
 
 const MobilePannel = () => {
   const MenuStatus = useStore((state) => state.menuStatus);

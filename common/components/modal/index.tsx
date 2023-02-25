@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import styles from "@styles/BaseModal.module.scss";
-import Portal from "@components/portal/portal";
+import Portal from "@components/portal";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
 import { motion, useWillChange } from "framer-motion";
 import type { Transition, Variants } from "framer-motion";
@@ -46,7 +46,7 @@ const ModalBase: React.FC<modalProps> = ({
   const willChange = useWillChange();
 
   return (
-    <Portal activate={activation}>
+    <Portal>
       {activation && (
         <>
           <div className={styles.modal}>

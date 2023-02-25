@@ -1,6 +1,6 @@
 import React from "react";
-import Heading from "@components/heading/heading";
 import styles from "./styles/Certificates.module.scss";
+import Heading from "@components/heading";
 import Component from "@layout/componentTransition";
 
 const Certificates = () => {

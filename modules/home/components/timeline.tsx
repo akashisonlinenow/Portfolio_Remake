@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "../styles/TimelineComponent.module.scss";
+import { useDataContext } from "@context/dataLayer";
 import { motion, useWillChange } from "framer-motion";
 import type { Transition, Variants } from "framer-motion";
-import { useDataContext } from "@context/dataLayer";
 
 const variants: Variants = {
   visible: { opacity: 1, y: 0 },

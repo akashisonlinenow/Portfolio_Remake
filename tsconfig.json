@@ -18,14 +18,16 @@
     "paths": {
       "*": ["./*"],
       "@styles/*": ["./common/styles/*"],
-      "@components/*": ["./common/components/*"],
+      "@components/*": ["./common/components/*/index"],
       "@constants/*": ["./common/constants/*"],
       "@context/*": ["./common/context/*"],
       "@hooks/*": ["./common/hooks/*"],
       "@layout/*": ["./common/layout/*"],
       "@modules/*": ["./modules/*"],
       "@data/*": ["./data/*"],
-      "@test/*": ["./test/*"]
+      "@test/*": ["./test/*"],
+      "@types/*": ["./types/*"],
+      "@store/*": ["./store/*"]
     }
   },
   "include": [
@@ -33,7 +35,8 @@
     "**/*.ts",
     "**/*.tsx",
     "temp/temp_fix.js",
-    "test/temp.tsx"
-, "pdf-worker.js"  ],
+    "test/temp.tsx",
+    "pdf-worker.js"
+  ],
   "exclude": ["node_modules"]
 }

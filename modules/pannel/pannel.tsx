@@ -1,34 +1,28 @@
 import React from "react";
-import styles from "./styles/Pannel.module.scss";
 import Link from "next/link";
+import styles from "./styles/Pannel.module.scss";
 import Button from "@mui/material/Button";
-import MenuIcon from "@mui/icons-material/Menu";
-import Heading from "@components/heading/heading";
-import Component from "@layout/componentTransition";
+import Heading from "@components/heading";
 import ItemData from "@data/pannelData";
+import useStore from "store/store";
+import MenuIcon from "@mui/icons-material/Menu";
+import Component from "@layout/componentTransition";
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 import { useDataContext } from "@context/dataLayer";
-import useStore from "store/store";
 
 const Pannel = () => {
   const router = useRouter();
   const currentWidth = useDataContext();
-  // const [Menu, setMenu] = useMenuContext();
-  // const [Modal, setModal] = useDialogContext();
-  const MenuStatus = useStore((state) => state.menuStatus);
-  const DialogStatus = useStore((state) => state.dialogStatus);
+  // const MenuStatus = useStore((state) => state.menuStatus);
+  // const DialogStatus = useStore((state) => state.dialogStatus);
   const SwitchMenu = useStore((state) => state.menuSwitch);
   const SwitchDialog = useStore((state) => state.dialogSwitch);
 
   const isDesktop = currentWidth > 1024;
 
   const handleClick = () => {
-    // setMenu(!Menu);
     SwitchMenu();
-  };
-  const pushHome = () => {
-    router.push("/");
   };
 
   const getHeading = () => {

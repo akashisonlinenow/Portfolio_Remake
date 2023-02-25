@@ -1,7 +1,7 @@
 import React from "react";
+import { useDataContext } from "@context/dataLayer";
 import { AnimatePresence, motion, useWillChange } from "framer-motion";
 import type { Transition, Variants } from "framer-motion";
-import { useDataContext } from "@context/dataLayer";
 
 const transition: Transition = {
   type: "spring",

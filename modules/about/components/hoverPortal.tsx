@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
+import Portal from "@components/portal";
 import styles from "../styles/Calendar.module.scss";
-import Portal from "@components/portal/portal";
 import { motion, useWillChange } from "framer-motion";
 
 interface PortalProps {
@@ -41,7 +41,7 @@ const HoverPortal: React.FC<PortalProps> = ({ Select }) => {
 
   return (
     <>
-      <Portal activate={Select}>
+      <Portal>
         {Select && (
           <motion.div
             animate={{ scale: 1, x: 20, y: -20 }}

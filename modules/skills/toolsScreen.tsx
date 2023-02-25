@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./styles/Skills.module.scss";
-import Heading from "@components/heading/heading";
+import Heading from "@components/heading";
 import Component from "@layout/componentTransition";
-import SkillCard from "@modules/skills/components/skillCard";
+import SkillCard from "./components/skillCard";
 import { motion } from "framer-motion";
 import { ToolData } from "@data/skillsData";
 import type { Transition, Variants } from "framer-motion";

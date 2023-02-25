@@ -1,6 +1,6 @@
-import { CircularProgress } from "@mui/material";
-import type {  SxProps } from "@mui/material";
 import React from "react";
+import { CircularProgress } from "@mui/material";
+import type { SxProps } from "@mui/material";
 
 interface SpinnerProps {
   size?: number;

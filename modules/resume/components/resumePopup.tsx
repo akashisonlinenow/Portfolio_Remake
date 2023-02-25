@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "../styles/Resume.module.scss";
-import ModalBase from "@components/modal/baseModal";
-import resumeLink from "@data/link";
+import ModalBase from "@components/modal";
 import CloseIcon from "@mui/icons-material/Close";
+import resumeLink from "@data/link";
 import IconButton from "@mui/material/IconButton";
 import SkeletonPlaceHolder from "./skeleton";
 import { motion } from "framer-motion";

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 import styles from "../styles/Card.module.scss";
+import useStore from "store/store";
 import ButtonBase from "@mui/material/ButtonBase";
 import ActionButtons from "./actionButtons";
 import { TbGitFork, TbStar } from "react-icons/tb";
 import { motion, AnimatePresence, useWillChange } from "framer-motion";
-import useStore from "store/store";
 import type { SafeTypes } from "@data/failSafe";
-import axios from "axios";
 
 interface cardProps {
   data: SafeTypes;
@@ -39,7 +39,9 @@ const ProjectCard = ({ data, isMobile, ...rest }: cardProps) => {
   const [langData, setLangData] = useState<langType | null>(null);
 
   const getLangData = async () => {
+    console.log("fetching fn");
     try {
+      // const req = axios.get("lmao");
       const req = axios.get(e.languages_url);
       const res = await req;
       setLangData(res.data);
@@ -50,7 +52,6 @@ const ProjectCard = ({ data, isMobile, ...rest }: cardProps) => {
 
   useEffect(() => {
     getLangData();
-    console.log("fetching");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

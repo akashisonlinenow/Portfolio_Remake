@@ -1,13 +1,12 @@
-import React, { useEffect, useState, useLayoutEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { AnimatePresence } from "framer-motion";
 
 interface portalProps {
   children: React.ReactNode;
-  activate: any;
 }
 
-const Portal: React.FC<portalProps> = ({ children, activate }) => {
+const Portal: React.FC<portalProps> = ({ children }) => {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -18,10 +17,7 @@ const Portal: React.FC<portalProps> = ({ children, activate }) => {
   return mounted ? (
     <>
       {createPortal(
-        <AnimatePresence mode="wait">
-          {/* {activate && <>{children}</>} */}
-          {children}
-        </AnimatePresence>,
+        <AnimatePresence mode="wait">{children}</AnimatePresence>,
         document.querySelector("#portal_holder") as Element
       )}
     </>

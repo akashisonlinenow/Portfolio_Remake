@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import styles from "./styles/Calendar.module.scss";
-import Heading from "@components/heading/heading";
-import GitHubCalendar from "react-github-calendar";
+import Heading from "@components/heading";
 import Component from "@layout/componentTransition";
 import HoverPortal from "./components/hoverPortal";
+import GitHubCalendar from "react-github-calendar";
 import { useDataContext } from "@context/dataLayer";
 import type { CalendarDataType } from "./components/hoverPortal";
 

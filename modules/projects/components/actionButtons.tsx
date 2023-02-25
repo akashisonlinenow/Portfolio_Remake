@@ -1,10 +1,10 @@
 import Button from "@mui/material/Button";
 import React from "react";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import PublicIcon from "@mui/icons-material/Public";
-import type { SafeTypes } from "data/failSafe";
 import useStore from "store/store";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import PublicIcon from "@mui/icons-material/Public";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import type { SafeTypes } from "data/failSafe";
 
 interface ActionInterface {
   data: SafeTypes;

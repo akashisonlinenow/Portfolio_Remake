@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import styles from "../styles/Modal.module.scss";
 import Image from "next/image";
-import Spinner from "@components/loader/Spinner";
 import useStore from "store/store";
 import PieChart from "./pieChart";
-import ModalBase from "@components/modal/baseModal";
+import ModalBase from "@components/modal";
+import Component from "@layout/componentTransition";
 import CloseIcon from "@mui/icons-material/Close";
 import IconButton from "@mui/material/IconButton";
-import Component from "@layout/componentTransition";
 import ActionButtons from "../components/actionButtons";
+import { Spinner } from "@components/loader";
 import { TbStar, TbGitFork } from "react-icons/tb";
 import type { DataProps } from "./pieChart";
 
@@ -111,7 +110,7 @@ const ProjectModal = () => {
                   ))}
                 </div>
                 <div className={styles.desc}>
-                  {currentSelection.description}
+                  {currentSelection.description?currentSelection.description:"No Description Available"}
                 </div>
                 <div className={styles.action}>
                   <ActionButtons data={currentSelection} variant="withText" />

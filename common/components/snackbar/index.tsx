@@ -1,6 +1,7 @@
-import { Alert, Button, Snackbar } from "@mui/material";
 import React from "react";
+import Alert from "@mui/material/Alert";
 import useStore from "store/store";
+import Snackbar from "@mui/material/Snackbar";
 
 const SnackBar = () => {
   const Notice = useStore((state) => state.notification);

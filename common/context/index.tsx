@@ -1,7 +1,7 @@
 import React from "react";
-import type { PropsWithChildren } from "react";
-import { FontProvider } from "@constants/font";
 import { DataLayer } from "@context/dataLayer";
+import { FontProvider } from "@constants/font";
+import type { PropsWithChildren } from "react";
 
 const ContextProviders = ({ children }: PropsWithChildren) => {
   return (

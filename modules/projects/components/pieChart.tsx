@@ -1,6 +1,6 @@
+import { useState } from "react";
 import { ResponsivePie } from "@nivo/pie";
 import { useDataContext } from "@context/dataLayer";
-import { useState } from "react";
 
 export interface DataProps {
   id: string;
@@ -66,7 +66,7 @@ const PieChart = ({ data }: PieProps) => {
               {current ? (
                 <>
                   {current.id
-                    .match(/[\+\-*/!@#$%^&(){}\[\],.<>?\\|:;"'_~`\s]|[A-Z]+/g)
+                    .match(/[\+\-*/!@#$%^&(){}\[\],.<>?\\|:;"'_~`\s\d]|[A-Z]/g)
                     .join("")}{" "}
                   : {current.value}%
                 </>
@@ -104,7 +104,7 @@ const PieChart = ({ data }: PieProps) => {
           itemWidth: isMobile ? 100 : 150,
           itemHeight: 18,
           translateX: 0,
-          translateY: isMobile?50:80,
+          translateY: isMobile ? 50 : 80,
           itemDirection: "top-to-bottom",
           symbolShape: "circle",
           itemTextColor: "#fff",
@@ -133,3 +133,5 @@ const PieChart = ({ data }: PieProps) => {
   );
 };
 export default PieChart;
+
+//.match(/[\+\-*/!@#$%^&(){}\[\],.<>?\\|:;"'_~`\s]|[A-Z]+/g).join("")

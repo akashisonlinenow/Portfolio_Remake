@@ -1,12 +1,15 @@
-import { create } from "zustand";
 import axios from "axios";
+import dummyData from "data/failSafe";
+import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 import type { SafeTypes } from "data/failSafe";
-import dummyData from "data/failSafe";
+
+interface langType {
+  [key: string]: number;
+}
 
 interface storeInterface {
   projectData: null | SafeTypes[];
-
   getProjectData: (currentData: null | SafeTypes[]) => void;
 }
 

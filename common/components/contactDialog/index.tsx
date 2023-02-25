@@ -1,11 +1,11 @@
 import React from "react";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
-import Contact from "@components/contact/contact";
+import Contact from "@components/contact";
+import useStore from "@store/store";
 import DialogTitle from "@mui/material/DialogTitle";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
-import useStore from "store/store";
 
 const ContactDialog = () => {
   const DialogStatus = useStore((state) => state.dialogStatus);

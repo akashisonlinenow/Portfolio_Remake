@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import LoadingIcon from "@components/loader/loadingIcon";
 import { useRouter } from "next/router";
+import { LoadingIcon } from "@components/loader/";
 import { AnimatePresence } from "framer-motion";
 
 const RouterEvent = () => {

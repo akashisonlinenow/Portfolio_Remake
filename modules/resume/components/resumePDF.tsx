@@ -3,8 +3,8 @@ import styles from "../styles/Resume.module.scss";
 import resumeLink from "@data/link";
 import ResumePopup from "../components/resumePopup";
 import SkeletonPlaceHolder from "./skeleton";
-import { Document, Page, pdfjs } from "react-pdf";
 import { useDataContext } from "@context/dataLayer";
+import { Document, Page, pdfjs } from "react-pdf";
 // import "react-pdf/dist/esm/Page/TextLayer.css";
 // import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 

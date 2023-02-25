@@ -30,3 +30,6 @@ const AboutData = (props: props) => {
 };
 
 export default AboutData;
+
+
+// TODO : Give type to Default Types
