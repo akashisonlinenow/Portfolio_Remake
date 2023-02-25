@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
 import styles from "./styles/Projects.module.scss";
 import dynamic from "next/dynamic";
 import ProjectCard from "./components/card";
 import useDataStore from "@store/dataStore";
 import { Spinner } from "@components/loader";
 import { useDataContext } from "@context/dataLayer";
-import type { SafeTypes } from "@data/failSafe";
+import { useEffect, useState } from "react";
+import type { SafeTypes } from "types/DataTypes";
 
 const ProjectModal = dynamic(() => import("./components/projectModal"));
 

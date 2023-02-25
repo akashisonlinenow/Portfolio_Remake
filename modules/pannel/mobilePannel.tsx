@@ -1,4 +1,3 @@
-import React from "react";
 import Link from "next/link";
 import Button from "@mui/material/Button";
 import mStyles from "./styles/miniPannel.module.scss";
@@ -7,11 +6,11 @@ import useStore from "store/store";
 import { useRouter } from "next/router";
 import { AnimatePresence, motion, useWillChange } from "framer-motion";
 import type { Transition, Variants } from "framer-motion";
-import type { PanelTypes } from "@data/pannelData";
+import type { PanelTypes } from "types/DataTypes";
 
 const MobilePannel = () => {
   const MenuStatus = useStore((state) => state.menuStatus);
-  const DialogStatus = useStore((state) => state.dialogStatus);
+  // const DialogStatus = useStore((state) => state.dialogStatus);
   const SwitchMenu = useStore((state) => state.menuSwitch);
   const SwitchDialog = useStore((state) => state.dialogSwitch);
   const router = useRouter();
@@ -60,7 +59,7 @@ const MobilePannel = () => {
           animate="visibile"
           exit="exit"
           transition={mPannelTransition}
-          style={{willChange}}
+          style={{ willChange }}
           className={mStyles.container}
         >
           <div className={mStyles.pannel}>

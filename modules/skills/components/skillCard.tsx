@@ -1,27 +1,15 @@
-import React from "react";
 import styles from "../styles/Card.module.scss";
 import Button from "@mui/material/Button";
 import useStore from "store/store";
 import { motion } from "framer-motion";
 import { useDataContext } from "@context/dataLayer";
-import type { SkillTypes } from "@data/skillsData";
-import type { Transition, Variant } from "framer-motion";
-
-interface inputProps {
-  data: SkillTypes;
-  style?: React.CSSProperties;
-  className?: string;
-  variants?: Variant;
-  transition?: Transition;
-  node?: "true" | "false";
-}
+import type { SkillCardProps } from "types/skillPageType";
 
 // ! Experemental
 
 // TODO:  Learn how to do Conditional Types to inherit MotionProps when enableMotion prop in passed
 
-const SkillCard: React.FC<inputProps> = ({ data, className, ...rest }) => {
-  // const currentSelection = useStore((state: any) => state.currentSelection);
+const SkillCard: React.FC<SkillCardProps> = ({ data, className, ...rest }) => {
   const focusSelection = useStore((state) => state.focusSelection);
   const currentWidth = useDataContext();
   const isMobile = currentWidth < 1024;

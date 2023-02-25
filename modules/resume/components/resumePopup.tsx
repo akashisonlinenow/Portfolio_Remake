@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "../styles/Resume.module.scss";
 import ModalBase from "@components/modal";
 import CloseIcon from "@mui/icons-material/Close";

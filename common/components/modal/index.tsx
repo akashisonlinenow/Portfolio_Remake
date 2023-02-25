@@ -1,16 +1,11 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import styles from "@styles/BaseModal.module.scss";
 import Portal from "@components/portal";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
 import { motion, useWillChange } from "framer-motion";
+import type { FC } from "react";
 import type { Transition, Variants } from "framer-motion";
-
-interface modalProps {
-  activation: boolean;
-  children: React.ReactNode;
-  style?: React.CSSProperties;
-  handleClickAway: () => void;
-}
+import type { ModalProps } from "types/modalProps";
 
 const modalTransition: Transition = {
   type: "spring",
@@ -25,7 +20,7 @@ const modalVariants: Variants = {
   exit: { opacity: 0, y: 100 },
 };
 
-const ModalBase: React.FC<modalProps> = ({
+const ModalBase: FC<ModalProps> = ({
   activation,
   children,
   handleClickAway,

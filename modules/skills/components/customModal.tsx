@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./../styles/Modal.module.scss";
 import useStore from "@store/store";
 import ModalBase from "@components/modal";

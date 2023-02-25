@@ -1,6 +1,6 @@
-import type { SkillTypes } from "@data/skillsData";
-import type { SafeTypes } from "data/failSafe";
 import { create } from "zustand";
+import type { SkillTypes } from "types/DataTypes";
+import type { SafeTypes } from "types/DataTypes";
 
 interface NoticeType {
   activation: boolean;

@@ -1,16 +1,10 @@
 import { useState } from "react";
 import { ResponsivePie } from "@nivo/pie";
 import { useDataContext } from "@context/dataLayer";
+import type { FC } from "react";
+import type { PieProps } from "types/projectPageType";
 
-export interface DataProps {
-  id: string;
-  value: number;
-}
-interface PieProps {
-  data: DataProps[];
-}
-
-const PieChart = ({ data }: PieProps) => {
+const PieChart: FC<PieProps> = ({ data }) => {
   const currentWidth = useDataContext();
   const [current, setCurrent] = useState<any>(null);
   const isMobile = currentWidth < 1024;
@@ -135,3 +129,5 @@ const PieChart = ({ data }: PieProps) => {
 export default PieChart;
 
 //.match(/[\+\-*/!@#$%^&(){}\[\],.<>?\\|:;"'_~`\s]|[A-Z]+/g).join("")
+
+// TODO : Optimize Code

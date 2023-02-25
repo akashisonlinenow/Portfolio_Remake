@@ -1,13 +1,8 @@
-import React from "react";
 import { CircularProgress } from "@mui/material";
-import type { SxProps } from "@mui/material";
+import type { SpinnerProps } from "types/spinnerProps";
+import type { CSSProperties } from "react";
 
-interface SpinnerProps {
-  size?: number;
-  sx?: SxProps;
-}
-
-const SpinnerStyles: React.CSSProperties = {
+const SpinnerStyles: CSSProperties = {
   display: "flex",
   alignItems: "center",
   justifyContent: "center",

@@ -1,9 +1,8 @@
-import React from "react";
 import { DataLayer } from "@context/dataLayer";
 import { FontProvider } from "@constants/font";
-import type { PropsWithChildren } from "react";
+import type { PropsWithChildren, FC } from "react";
 
-const ContextProviders = ({ children }: PropsWithChildren) => {
+const ContextProviders: FC<PropsWithChildren> = ({ children }) => {
   return (
     <>
       <DataLayer>

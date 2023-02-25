@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./styles/Home.module.scss";
 import TimeData from "@data/timelineData";
 import TimelineComponent from "./components/timeline";

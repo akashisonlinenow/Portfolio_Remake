@@ -1,8 +1,10 @@
-import React from "react";
 import styles from "../styles/TimelineComponent.module.scss";
+import { Fragment } from "react";
 import { useDataContext } from "@context/dataLayer";
 import { motion, useWillChange } from "framer-motion";
+import type { FC } from "react";
 import type { Transition, Variants } from "framer-motion";
+import type { TimelineTypes } from "types/DataTypes";
 
 const variants: Variants = {
   visible: { opacity: 1, y: 0 },
@@ -34,31 +36,22 @@ const transition: Transition = {
 
 const viewPort = { once: true, amount: 0.2, margin: "90px 0px 50px 0px" };
 
-type inputProps = {
-  data: timelineItem[];
-};
+interface inputProps {
+  data: TimelineTypes[];
+}
 
-type timelineItem = {
-  id?: number;
-  date: string;
-  icon: JSX.Element;
-  title: string;
-  location?: string | null;
-  info?: string | null;
-};
-
-const TimelineComponent: React.FC<inputProps> = (props) => {
+const TimelineComponent: FC<inputProps> = ({ data }) => {
   const currentWidth = useDataContext();
   const isMobile = currentWidth < 1024;
 
   const willChange = useWillChange();
 
-  const item = props.data;
+  const item = data;
   return (
     <div className={styles.main}>
       {item.map((e) => {
         return (
-          <React.Fragment key={e.id}>
+          <Fragment key={e.id}>
             <div className={styles.item}>
               <motion.div
                 style={{ willChange }}
@@ -126,7 +119,7 @@ const TimelineComponent: React.FC<inputProps> = (props) => {
                 <div>{e.date}</div>
               </motion.div>
             </div>
-          </React.Fragment>
+          </Fragment>
         );
       })}
     </div>
@@ -136,3 +129,5 @@ const TimelineComponent: React.FC<inputProps> = (props) => {
 export default TimelineComponent;
 
 // TODO : Optimize Code
+
+// TODO :A Type Still Remains Here

@@ -1,24 +1,10 @@
-import React from "react";
 import styles from "@styles/Heading.module.scss";
 import Component from "@layout/componentTransition";
 import { useDataContext } from "@context/dataLayer";
+import type { FC } from "react";
+import type { HeadingProps } from "types/headingProps";
 
-type DefaultProps = {
-  title: string;
-  type?: "default" | "small";
-  disableMobileView?: boolean;
-  style?: React.CSSProperties;
-  className?: string;
-};
-type CustomProps = {
-  title: string;
-  type: "custom";
-  disableMobileView?: boolean;
-  style?: React.CSSProperties;
-  className: string;
-};
-
-const Heading: React.FC<DefaultProps | CustomProps> = ({
+const Heading: FC<HeadingProps> = ({
   title,
   type,
   disableMobileView,

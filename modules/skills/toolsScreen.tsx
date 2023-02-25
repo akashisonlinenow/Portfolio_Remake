@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./styles/Skills.module.scss";
 import Heading from "@components/heading";
 import Component from "@layout/componentTransition";

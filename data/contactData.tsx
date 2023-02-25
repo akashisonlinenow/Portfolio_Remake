@@ -7,14 +7,8 @@ import {
 } from "react-icons/ai";
 
 import styles from "@styles/Contact.module.scss";
+import type { ContactTypes } from "types/DataTypes";
 
-interface ContactTypes {
-  id: number;
-  name: string;
-  link: string;
-  color?: string;
-  component: JSX.Element;
-}
 
 const _defContact: ContactTypes[] = [
   {

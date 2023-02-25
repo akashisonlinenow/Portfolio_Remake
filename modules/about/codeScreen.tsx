@@ -1,11 +1,11 @@
-import React, { useState } from "react";
 import styles from "./styles/Calendar.module.scss";
 import Heading from "@components/heading";
 import Component from "@layout/componentTransition";
 import HoverPortal from "./components/hoverPortal";
 import GitHubCalendar from "react-github-calendar";
+import { useState } from "react";
 import { useDataContext } from "@context/dataLayer";
-import type { CalendarDataType } from "./components/hoverPortal";
+import type { CalendarDataType } from "types/aboutPageType";
 
 const Calendar = () => {
   const [Select, setSelect] = useState<CalendarDataType | null>(null);

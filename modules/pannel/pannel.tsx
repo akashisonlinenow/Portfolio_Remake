@@ -1,4 +1,3 @@
-import React from "react";
 import Link from "next/link";
 import styles from "./styles/Pannel.module.scss";
 import Button from "@mui/material/Button";
@@ -58,7 +57,6 @@ const Pannel = () => {
       <div className={styles.parent}>
         <div className={styles.container}>
           <Component className={styles.pannel}>
-            {/* <LayoutGroup> */}
             {ItemData.map((e) => {
               return (
                 <Button
@@ -78,7 +76,6 @@ const Pannel = () => {
                 </Button>
               );
             })}
-            {/* </LayoutGroup> */}
           </Component>
         </div>
       </div>

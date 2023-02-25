@@ -1,10 +1,7 @@
-import React from "react";
+import type { FC } from "react";
+import type { AboutProps } from "types/DataTypes";
 
-interface props {
-  defaultStyles?: any;
-}
-
-const AboutData = (props: props) => {
+const AboutData: FC<AboutProps> = (props) => {
   const styles = props.defaultStyles;
 
   return (
@@ -30,6 +27,5 @@ const AboutData = (props: props) => {
 };
 
 export default AboutData;
-
 
 // TODO : Give type to Default Types

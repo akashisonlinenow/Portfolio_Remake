@@ -1,41 +1,4 @@
-interface userTypes {
-  avatar_url: string;
-  html_url: string;
-}
-
-interface licenseType {
-  key: string;
-  name: string;
-}
-
-export interface SafeTypes {
-  id: number;
-  name: string;
-  full_name: string;
-  owner: userTypes;
-  private: boolean;
-  html_url: string;
-  description: string | null;
-  fork: boolean;
-  url: string;
-  clone_url: string;
-  homepage: string | null;
-  size: number;
-  stargazers_count: number | string;
-  watchers_count: number | string;
-  language: string | null;
-  forks_count: number | string;
-  forks: number | string;
-  topics: string[];
-  watchers: number;
-  // Extra
-  languages_url: string;
-  created_at: string;
-  updated_at: string;
-  archived: boolean;
-  open_issues: number;
-  license: licenseType | null;
-}
+import type { SafeTypes } from "types/DataTypes";
 
 const _defSafe: SafeTypes[] = [
   {

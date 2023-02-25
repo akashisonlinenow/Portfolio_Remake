@@ -1,22 +1,12 @@
-import React, { useEffect, useState } from "react";
-import Portal from "@components/portal";
 import styles from "../styles/Calendar.module.scss";
+import Portal from "@components/portal";
+import { useEffect, useState } from "react";
 import { motion, useWillChange } from "framer-motion";
+import type { FC } from "react";
+import type { PositionType, AboutPortalProps } from "types/aboutPageType";
 
-interface PortalProps {
-  Select: CalendarDataType | null;
-}
-
-export interface CalendarDataType {
-  date: string;
-  count: number;
-  level: number;
-}
-
-type positionType = { x: number; y: number };
-
-const HoverPortal: React.FC<PortalProps> = ({ Select }) => {
-  const [MousePos, setMousePos] = useState({} as positionType);
+const HoverPortal: FC<AboutPortalProps> = ({ Select }) => {
+  const [MousePos, setMousePos] = useState({} as PositionType);
 
   const handleMouseMove = (event: MouseEvent) => {
     setMousePos({ x: event.clientX, y: event.clientY });

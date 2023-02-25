@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./styles/Resume.module.scss";
 import Button from "@mui/material/Button";
 import PDFViewer from "./components/resumePDF";

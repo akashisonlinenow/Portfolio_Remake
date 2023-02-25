@@ -35,3 +35,4 @@ const SkeletonPlaceHolder: React.FC<SkletionProps> = ({ width }) => {
 export default SkeletonPlaceHolder;
 
 // TODO: Change Lorem Ipsum for mapping
+// TODO: Type Still Remaining Here

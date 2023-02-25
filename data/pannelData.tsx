@@ -6,13 +6,7 @@ import {
   AiOutlineIdcard,
 } from "react-icons/ai";
 import { BsCodeSlash } from "react-icons/bs";
-
-export type PanelTypes = {
-  id: number;
-  title: string;
-  link: string;
-  icon: JSX.Element;
-};
+import type { PanelTypes } from "types/DataTypes";
 
 const _defMenu: PanelTypes[] = [
   { id: 1, title: "Home", link: "/", icon: <AiOutlineHome /> },

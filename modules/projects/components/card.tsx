@@ -1,24 +1,15 @@
-import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "../styles/Card.module.scss";
 import useStore from "store/store";
 import ButtonBase from "@mui/material/ButtonBase";
 import ActionButtons from "./actionButtons";
 import { TbGitFork, TbStar } from "react-icons/tb";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence, useWillChange } from "framer-motion";
-import type { SafeTypes } from "@data/failSafe";
+import type { FC } from "react";
+import type { LanguageProps, ProjectCardProps } from "types/projectPageType";
 
-interface cardProps {
-  data: SafeTypes;
-  isMobile: boolean;
-  failCase?: boolean;
-}
-
-interface langType {
-  [key: string]: number;
-}
-
-const ProjectCard = ({ data, isMobile, ...rest }: cardProps) => {
+const ProjectCard: FC<ProjectCardProps> = ({ data, isMobile, ...rest }) => {
   const [hover, setHover] = useState(isMobile ? true : false);
   const focusSelection = useStore((state) => state.focusProject);
   const focusLang = useStore((state) => state.focusProjLang);
@@ -33,15 +24,11 @@ const ProjectCard = ({ data, isMobile, ...rest }: cardProps) => {
 
   const willChange = useWillChange();
 
-  // TODO : Somehow find a way to bind the lang data to the card so that it dosent refetch everytime the user visits projects page
-
   // ! Experemental
-  const [langData, setLangData] = useState<langType | null>(null);
+  const [langData, setLangData] = useState<LanguageProps | null>(null);
 
   const getLangData = async () => {
-    console.log("fetching fn");
     try {
-      // const req = axios.get("lmao");
       const req = axios.get(e.languages_url);
       const res = await req;
       setLangData(res.data);
@@ -102,3 +89,5 @@ const ProjectCard = ({ data, isMobile, ...rest }: cardProps) => {
 };
 
 export default ProjectCard;
+
+// TODO : Somehow find a way to bind the lang data to the card so that it dosent refetch everytime the user visits projects page

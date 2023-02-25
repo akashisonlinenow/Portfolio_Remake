@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
-import styles from "../styles/Modal.module.scss";
 import Image from "next/image";
+import styles from "../styles/Modal.module.scss";
 import useStore from "store/store";
 import PieChart from "./pieChart";
 import ModalBase from "@components/modal";
@@ -10,14 +9,12 @@ import IconButton from "@mui/material/IconButton";
 import ActionButtons from "../components/actionButtons";
 import { Spinner } from "@components/loader";
 import { TbStar, TbGitFork } from "react-icons/tb";
-import type { DataProps } from "./pieChart";
-
-interface langType {
-  [key: string]: number;
-}
+import { useEffect, useState } from "react";
+import type { DataProps } from "types/projectPageType";
+import type { LanguageProps } from "types/projectPageType";
 
 const ProjectModal = () => {
-  const [language, setLanguage] = useState<langType | null>(null);
+  const [language, setLanguage] = useState<LanguageProps | null>(null);
   const currentSelection = useStore((state) => state.currentProject);
   const currentLang = useStore((state) => state.currentLang);
   const focusSelection = useStore((state) => state.focusProject);
@@ -110,7 +107,9 @@ const ProjectModal = () => {
                   ))}
                 </div>
                 <div className={styles.desc}>
-                  {currentSelection.description?currentSelection.description:"No Description Available"}
+                  {currentSelection.description
+                    ? currentSelection.description
+                    : "No Description Available"}
                 </div>
                 <div className={styles.action}>
                   <ActionButtons data={currentSelection} variant="withText" />
@@ -145,3 +144,5 @@ const ProjectModal = () => {
 };
 
 export default ProjectModal;
+
+// TODO: Optimize Code

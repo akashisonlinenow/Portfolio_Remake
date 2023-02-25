@@ -1,10 +1,9 @@
-import React, { useEffect } from "react";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 import Heading from "@components/heading";
-import { Spinner } from "@components/loader";
 import Container from "@layout/pageTranstion";
 import InitialPage from "@layout/initialPage";
+import { Spinner } from "@components/loader";
 
 const ProjectPage = dynamic(() => import("@modules/projects/projectsScreen"), {
   loading: () => <Spinner />,

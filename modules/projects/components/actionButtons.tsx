@@ -1,17 +1,12 @@
 import Button from "@mui/material/Button";
-import React from "react";
 import useStore from "store/store";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import PublicIcon from "@mui/icons-material/Public";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import type { SafeTypes } from "data/failSafe";
+import type { FC } from "react";
+import type { ActionInterface } from "types/projectPageType";
 
-interface ActionInterface {
-  data: SafeTypes;
-  variant?: "default" | "withText";
-}
-
-const ActionButtons = ({ data, variant }: ActionInterface) => {
+const ActionButtons: FC<ActionInterface> = ({ data, variant }) => {
   const SetNotice = useStore((state) => state.setNotification);
   const copyLink = () => {
     navigator.clipboard.writeText(data.clone_url).then(() => {
@@ -26,10 +21,10 @@ const ActionButtons = ({ data, variant }: ActionInterface) => {
   return (
     <>
       <Button href={data.html_url} target="_blank" referrerPolicy="no-referrer">
-        <GitHubIcon /> {variant==="withText"? "View Source":null}
+        <GitHubIcon /> {variant === "withText" ? "View Source" : null}
       </Button>
       <Button onClick={copyLink}>
-        <ContentCopyIcon /> {variant==="withText"? "Clone":null}
+        <ContentCopyIcon /> {variant === "withText" ? "Clone" : null}
       </Button>
       {data.homepage && (
         <Button
@@ -37,7 +32,7 @@ const ActionButtons = ({ data, variant }: ActionInterface) => {
           target="_blank"
           referrerPolicy="no-referrer"
         >
-          <PublicIcon /> {variant==="withText"? "Visit":null}
+          <PublicIcon /> {variant === "withText" ? "Visit" : null}
         </Button>
       )}
     </>

@@ -1,9 +1,9 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import type { PropsWithChildren } from "react";
+import type { PropsWithChildren, FC } from "react";
 
 export const DataContext = createContext({} as number);
 
-export const DataLayer: React.FC<PropsWithChildren> = ({ children }) => {
+export const DataLayer: FC<PropsWithChildren> = ({ children }) => {
   const [GlobalWidth, setGlobalWidth] = useState({} as number);
 
   const handleResize = () => {

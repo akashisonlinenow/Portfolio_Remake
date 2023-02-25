@@ -1,7 +1,8 @@
-import React from "react";
 import { useDataContext } from "@context/dataLayer";
 import { AnimatePresence, motion, useWillChange } from "framer-motion";
+import type { FC } from "react";
 import type { Transition, Variants } from "framer-motion";
+import type { ComponentTransitionProps } from "types/layoutProps";
 
 const transition: Transition = {
   type: "spring",
@@ -17,13 +18,7 @@ const variants: Variants = {
 
 const viewPort = { once: true, amount: 0.8 };
 
-interface propOptions extends React.PropsWithChildren {
-  className?: string;
-  style?: React.CSSProperties;
-  ref?: any;
-}
-
-const Component: React.FC<propOptions> = ({ children, ...rest }) => {
+const Component: FC<ComponentTransitionProps> = ({ children, ...rest }) => {
   const currentWidth = useDataContext();
   const isMobile = currentWidth < 1024;
 

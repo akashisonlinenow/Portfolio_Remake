@@ -1,12 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { AnimatePresence } from "framer-motion";
+import type { PropsWithChildren, FC } from "react";
 
-interface portalProps {
-  children: React.ReactNode;
-}
-
-const Portal: React.FC<portalProps> = ({ children }) => {
+const Portal: FC<PropsWithChildren> = ({ children }) => {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {

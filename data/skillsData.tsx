@@ -17,15 +17,7 @@ import {
   SiExpress,
   SiSass,
 } from "react-icons/si";
-
-export interface SkillTypes {
-  name: string;
-  icon: JSX.Element;
-  level: "Intermediate" | "Beginner" | "Expert";
-  intNode?: SkillTypes[] | null;
-  type: string;
-  isLearning: boolean;
-}
+import type { SkillTypes } from "types/DataTypes";
 
 export const SkillData: SkillTypes[] = [
   {

@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { LoadingIcon } from "@components/loader/";
 import { AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
 
 const RouterEvent = () => {
   const Router = useRouter();

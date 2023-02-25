@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styles from "../styles/Resume.module.scss";
 import resumeLink from "@data/link";
 import ResumePopup from "../components/resumePopup";

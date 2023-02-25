@@ -1,13 +1,12 @@
-import React from "react";
 import styles from "@styles/InitialPage.module.scss";
+import type { FC } from "react";
+import type { InitialPageProps } from "types/layoutProps";
 
-interface propType {
-  children: React.ReactNode;
-  className?: string;
-  style?: React.CSSProperties;
-}
-
-const InitialPage: React.FC<propType> = ({ children, className, ...rest }) => {
+const InitialPage: FC<InitialPageProps> = ({
+  children,
+  className,
+  ...rest
+}) => {
   return (
     <div className={`${styles.container} ${className}`} {...rest}>
       {children}
