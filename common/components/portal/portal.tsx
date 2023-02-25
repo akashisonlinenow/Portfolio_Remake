@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useLayoutEffect } from "react";
 import { createPortal } from "react-dom";
 import { AnimatePresence } from "framer-motion";
 
@@ -9,9 +9,9 @@ interface portalProps {
 
 const Portal: React.FC<portalProps> = ({ children, activate }) => {
   const [mounted, setMounted] = useState(false);
+
   useEffect(() => {
     setMounted(true);
-
     return () => setMounted(false);
   }, []);
 
@@ -19,7 +19,8 @@ const Portal: React.FC<portalProps> = ({ children, activate }) => {
     <>
       {createPortal(
         <AnimatePresence mode="wait">
-          {activate && <>{children}</>}
+          {/* {activate && <>{children}</>} */}
+          {children}
         </AnimatePresence>,
         document.querySelector("#portal_holder") as Element
       )}

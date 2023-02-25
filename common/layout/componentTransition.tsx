@@ -1,5 +1,5 @@
 import React from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useWillChange } from "framer-motion";
 import type { Transition, Variants } from "framer-motion";
 import { useDataContext } from "@context/dataLayer";
 
@@ -27,6 +27,8 @@ const Component: React.FC<propOptions> = ({ children, ...rest }) => {
   const currentWidth = useDataContext();
   const isMobile = currentWidth < 1024;
 
+  const willChange = useWillChange();
+
   return (
     <AnimatePresence mode="wait">
       {!isMobile ? (
@@ -37,6 +39,7 @@ const Component: React.FC<propOptions> = ({ children, ...rest }) => {
             whileInView="visible"
             viewport={viewPort}
             transition={transition}
+            style={{ willChange }}
             {...rest}
           >
             {children}

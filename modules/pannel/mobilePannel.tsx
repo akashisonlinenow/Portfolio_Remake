@@ -4,7 +4,7 @@ import Button from "@mui/material/Button";
 import mStyles from "./styles/miniPannel.module.scss";
 import ItemData from "@data/pannelData";
 import { useRouter } from "next/router";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useWillChange } from "framer-motion";
 import type { Transition, Variants } from "framer-motion";
 import type { PanelTypes } from "@data/pannelData";
 import useStore from "store/store";
@@ -49,6 +49,8 @@ const MobilePannel = () => {
     SwitchMenu();
   };
 
+  const willChange = useWillChange();
+
   return (
     <AnimatePresence mode="wait">
       {MenuStatus && (
@@ -58,6 +60,7 @@ const MobilePannel = () => {
           animate="visibile"
           exit="exit"
           transition={mPannelTransition}
+          style={{willChange}}
           className={mStyles.container}
         >
           <div className={mStyles.pannel}>

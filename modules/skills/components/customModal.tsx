@@ -5,7 +5,7 @@ import ModalBase from "@components/modal/baseModal";
 import CloseIcon from "@mui/icons-material/Close";
 import IconButton from "@mui/material/IconButton";
 import useStore from "store/store";
-import type { Transition, Variants } from "framer-motion";
+import { Transition, useWillChange, Variants } from "framer-motion";
 
 const SkillModal = () => {
   const currentSelection = useStore((state) => state.currentSelection);
@@ -29,6 +29,9 @@ const SkillModal = () => {
     exit: { opacity: 0, scale: 0 },
   };
 
+  const willChange: any = useWillChange();
+  // TODO : Try to sole any here
+
   const OtherSkillSet = () => {
     return (
       <>
@@ -40,8 +43,10 @@ const SkillModal = () => {
                   variants={childrenVariant}
                   transition={modalTransition}
                   key={e.name}
+                  style={{ willChange }}
                   data={e}
                   className={styles.card}
+                  node={"true"}
                 />
               );
             })}

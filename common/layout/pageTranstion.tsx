@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, useWillChange } from "framer-motion";
 import type { Transition, Variants } from "framer-motion";
 import { useDataContext } from "@context/dataLayer";
 
@@ -20,6 +20,9 @@ export const Container: React.FC<React.PropsWithChildren> = ({ children }) => {
   const isMobile = currentWidth < 1024;
   // debugger;
 
+  const willChange = useWillChange();
+
+
   return (
     <>
       {!isMobile ? (
@@ -31,6 +34,7 @@ export const Container: React.FC<React.PropsWithChildren> = ({ children }) => {
             exit="exit"
             transition={transition}
             className="page-ani"
+            style={{willChange}}
           >
             {children}
           </motion.div>

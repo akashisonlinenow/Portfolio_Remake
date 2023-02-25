@@ -38,8 +38,37 @@ export interface SafeTypes {
 }
 
 const _defSafe: SafeTypes[] = [
-  // TODO : Get languages data in languages_url
-
+  {
+    id: 5503169678,
+    name: "API Failed",
+    full_name: "API Failed/Something Went Wrong",
+    owner: {
+      avatar_url: "https://avatars.githubusercontent.com/u/84223691?v=4",
+      html_url: "https://github.com/KingBael09",
+    },
+    private: false,
+    html_url: "https://github.com/KingBael09",
+    description:
+      "If you are seeing this, then someting went wrong (API Limit Reached). Try again Later",
+    fork: false,
+    url: "https://exmaple.com,",
+    languages_url: "lol",
+    created_at: "2022-10-12T14:55:46Z",
+    updated_at: "2023-02-01T19:51:34Z",
+    clone_url: "Apologies",
+    homepage: "",
+    size: 0,
+    stargazers_count: 0,
+    watchers_count: 0,
+    language: "404",
+    forks_count: 0,
+    archived: false,
+    license: null,
+    topics: [],
+    forks: 0,
+    open_issues: 0,
+    watchers: 0,
+  },
   {
     id: 507264809,
     name: "Algorithms",

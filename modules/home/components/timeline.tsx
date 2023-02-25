@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../styles/TimelineComponent.module.scss";
-import { motion } from "framer-motion";
+import { motion, useWillChange } from "framer-motion";
 import type { Transition, Variants } from "framer-motion";
 import { useDataContext } from "@context/dataLayer";
 
@@ -51,6 +51,8 @@ const TimelineComponent: React.FC<inputProps> = (props) => {
   const currentWidth = useDataContext();
   const isMobile = currentWidth < 1024;
 
+  const willChange = useWillChange();
+
   const item = props.data;
   return (
     <div className={styles.main}>
@@ -59,6 +61,7 @@ const TimelineComponent: React.FC<inputProps> = (props) => {
           <React.Fragment key={e.id}>
             <div className={styles.item}>
               <motion.div
+                style={{ willChange }}
                 variants={variants}
                 initial="hidden"
                 whileInView="visible"
@@ -68,6 +71,7 @@ const TimelineComponent: React.FC<inputProps> = (props) => {
               >
                 <div>
                   <motion.div
+                    style={{ willChange }}
                     variants={childVariant}
                     transition={childTransitions}
                     className={styles.header}
@@ -77,6 +81,7 @@ const TimelineComponent: React.FC<inputProps> = (props) => {
                   </motion.div>
                   {e.info ? (
                     <motion.div
+                      style={{ willChange }}
                       variants={childVariant}
                       transition={childTransitions}
                       className={styles.info}
@@ -86,6 +91,7 @@ const TimelineComponent: React.FC<inputProps> = (props) => {
                   ) : null}
                   {isMobile ? (
                     <motion.div
+                      style={{ willChange }}
                       variants={childVariant}
                       transition={childTransitions}
                       className={`${styles.info} ${styles.date}`}
@@ -97,6 +103,7 @@ const TimelineComponent: React.FC<inputProps> = (props) => {
               </motion.div>
               <div id="timeline">
                 <motion.div
+                  style={{ willChange }}
                   variants={nodeVariant}
                   initial="hidden"
                   whileInView="visible"
@@ -108,6 +115,7 @@ const TimelineComponent: React.FC<inputProps> = (props) => {
                 </motion.div>
               </div>
               <motion.div
+                style={{ willChange }}
                 variants={variants}
                 initial="hidden"
                 whileInView="visible"

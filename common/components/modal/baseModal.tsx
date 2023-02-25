@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import styles from "@styles/BaseModal.module.scss";
 import Portal from "@components/portal/portal";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion, useWillChange } from "framer-motion";
 import type { Transition, Variants } from "framer-motion";
 
 interface modalProps {
@@ -43,10 +43,12 @@ const ModalBase: React.FC<modalProps> = ({
     }
   }, [activation]);
 
+  const willChange = useWillChange();
+
   return (
-    <>
-      <AnimatePresence mode="wait">
-        <Portal activate={activation}>
+    <Portal activate={activation}>
+      {activation && (
+        <>
           <div className={styles.modal}>
             <ClickAwayListener touchEvent={false} onClickAway={handleClickAway}>
               <motion.div
@@ -56,9 +58,8 @@ const ModalBase: React.FC<modalProps> = ({
                 exit="exit"
                 transition={modalTransition}
                 id="ModalBody"
-                // layout
-                // !layout makes it Kinda FuckedUp
                 className={styles.modalBody}
+                style={{ willChange }}
                 {...rest}
               >
                 {children}
@@ -69,11 +70,12 @@ const ModalBase: React.FC<modalProps> = ({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            style={{ willChange }}
             className={styles.modalBackground}
           />
-        </Portal>
-      </AnimatePresence>
-    </>
+        </>
+      )}
+    </Portal>
   );
 };
 

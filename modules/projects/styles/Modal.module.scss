@@ -163,7 +163,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  > button {
+  > button,a {
     flex-grow: 1;
     background-color: var(--activeTab) !important;
     padding: 1rem !important;

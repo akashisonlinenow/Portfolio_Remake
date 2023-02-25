@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "../styles/Calendar.module.scss";
 import Portal from "@components/portal/portal";
-import { motion } from "framer-motion";
+import { motion, useWillChange } from "framer-motion";
 
 interface PortalProps {
   Select: CalendarDataType | null;
@@ -37,21 +37,25 @@ const HoverPortal: React.FC<PortalProps> = ({ Select }) => {
     }
   };
 
+  const willChange = useWillChange();
+
   return (
     <>
       <Portal activate={Select}>
-        <motion.div
-          animate={{ scale: 1, x: 20, y: -20 }}
-          exit={{ scale: 0.7, opacity: 0 }}
-          transition={{ type: "spring", stiffness: 300, damping: 30 }}
-          className={styles.tooltip}
-          style={{ top: MousePos.y, left: MousePos.x }}
-        >
-          <span>
-            <strong>{`${Select?.count} contributions `}</strong>on
-          </span>
-          <motion.span> {`${handleDate(Select?.date)}`}</motion.span>
-        </motion.div>
+        {Select && (
+          <motion.div
+            animate={{ scale: 1, x: 20, y: -20 }}
+            exit={{ scale: 0.7, opacity: 0 }}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            className={styles.tooltip}
+            style={{ top: MousePos.y, left: MousePos.x, willChange }}
+          >
+            <span>
+              <strong>{`${Select?.count} contributions `}</strong>on
+            </span>
+            <motion.span> {`${handleDate(Select?.date)}`}</motion.span>
+          </motion.div>
+        )}
       </Portal>
     </>
   );

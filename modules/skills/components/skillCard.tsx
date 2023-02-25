@@ -1,11 +1,11 @@
 import React from "react";
 import styles from "../styles/Card.module.scss";
-import useStore from "store/store";
 import Button from "@mui/material/Button";
+import useStore from "store/store";
 import { motion } from "framer-motion";
-import type { Transition, Variant } from "framer-motion";
 import { useDataContext } from "@context/dataLayer";
 import type { SkillTypes } from "@data/skillsData";
+import type { Transition, Variant } from "framer-motion";
 
 interface inputProps {
   data: SkillTypes;
@@ -13,6 +13,7 @@ interface inputProps {
   className?: string;
   variants?: Variant;
   transition?: Transition;
+  node?: "true" | "false";
 }
 
 // ! Experemental
@@ -33,6 +34,7 @@ const SkillCard: React.FC<inputProps> = ({ data, className, ...rest }) => {
         className={`${styles.card} ${className}`}
         component={!isMobile ? motion.button : Button}
         {...rest}
+        data-node={rest.node == "true" ? true : false}
       >
         <div className={styles.icon}>{data.icon}</div>
         <div className={styles.cardName}>{data.name}</div>

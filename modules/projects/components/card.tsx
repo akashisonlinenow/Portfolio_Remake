@@ -1,20 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../styles/Card.module.scss";
 import ButtonBase from "@mui/material/ButtonBase";
 import ActionButtons from "./actionButtons";
 import { TbGitFork, TbStar } from "react-icons/tb";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useWillChange } from "framer-motion";
 import useStore from "store/store";
 import type { SafeTypes } from "@data/failSafe";
+import axios from "axios";
 
 interface cardProps {
   data: SafeTypes;
   isMobile: boolean;
+  failCase?: boolean;
 }
 
-const ProjectCard = ({ data, isMobile }: cardProps) => {
+interface langType {
+  [key: string]: number;
+}
+
+const ProjectCard = ({ data, isMobile, ...rest }: cardProps) => {
   const [hover, setHover] = useState(isMobile ? true : false);
   const focusSelection = useStore((state) => state.focusProject);
+  const focusLang = useStore((state) => state.focusProjLang);
 
   const e = data;
   const startHover = () => {
@@ -24,12 +31,36 @@ const ProjectCard = ({ data, isMobile }: cardProps) => {
     !isMobile && setHover(false);
   };
 
+  const willChange = useWillChange();
+
+  // TODO : Somehow find a way to bind the lang data to the card so that it dosent refetch everytime the user visits projects page
+
+  // ! Experemental
+  const [langData, setLangData] = useState<langType | null>(null);
+
+  const getLangData = async () => {
+    try {
+      const req = axios.get(e.languages_url);
+      const res = await req;
+      setLangData(res.data);
+    } catch {
+      setLangData({ Error: 1, "???": 0, "404": 1 });
+    }
+  };
+
+  useEffect(() => {
+    getLangData();
+    console.log("fetching");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <>
       <motion.div
         onHoverStart={startHover}
         onHoverEnd={endHover}
         className={styles.card}
+        style={{ willChange }}
       >
         <AnimatePresence mode="wait">
           {hover && (
@@ -37,17 +68,21 @@ const ProjectCard = ({ data, isMobile }: cardProps) => {
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 50 }}
+              transition={{ type: "spring" }}
               className={styles.cardExtra}
+              style={{ willChange }}
             >
-              <ActionButtons />
+              <ActionButtons data={e} />
             </motion.div>
           )}
         </AnimatePresence>
         <ButtonBase
           onClick={() => {
             focusSelection(e);
+            focusLang(langData);
           }}
           className={styles.cardBody}
+          data-error={rest.failCase}
         >
           <div className={styles.heading}>{e.name}</div>
           <div className={styles.lang}>{e.language}</div>

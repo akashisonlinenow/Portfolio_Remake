@@ -2,18 +2,15 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "../styles/Modal.module.scss";
 import Image from "next/image";
+import Spinner from "@components/loader/Spinner";
+import useStore from "store/store";
 import PieChart from "./pieChart";
 import ModalBase from "@components/modal/baseModal";
-import Spinner from "@components/loader/Spinner";
 import CloseIcon from "@mui/icons-material/Close";
-import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import PublicIcon from "@mui/icons-material/Public";
 import Component from "@layout/componentTransition";
+import ActionButtons from "../components/actionButtons";
 import { TbStar, TbGitFork } from "react-icons/tb";
-import useStore from "store/store";
 import type { DataProps } from "./pieChart";
 
 interface langType {
@@ -23,22 +20,11 @@ interface langType {
 const ProjectModal = () => {
   const [language, setLanguage] = useState<langType | null>(null);
   const currentSelection = useStore((state) => state.currentProject);
+  const currentLang = useStore((state) => state.currentLang);
   const focusSelection = useStore((state) => state.focusProject);
 
   const handleClickAway = () => {
     focusSelection(null);
-  };
-
-  const getLangData = async () => {
-    if (currentSelection) {
-      try {
-        const req = axios.get(currentSelection.languages_url);
-        const res = await req;
-        setLanguage(res.data);
-      } catch {
-        setLanguage({ Error: 1, "???": 0, "404": 1 });
-      }
-    }
   };
 
   let subData: DataProps[] = [];
@@ -59,9 +45,8 @@ const ProjectModal = () => {
   };
 
   useEffect(() => {
-    getLangData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentSelection]);
+    setLanguage(currentLang);
+  }, [currentLang]);
 
   return (
     <>
@@ -129,17 +114,7 @@ const ProjectModal = () => {
                   {currentSelection.description}
                 </div>
                 <div className={styles.action}>
-                  <Button>
-                    <GitHubIcon /> View Source
-                  </Button>
-                  <Button>
-                    <ContentCopyIcon /> Clone
-                  </Button>
-                  {currentSelection.homepage && (
-                    <Button>
-                      <PublicIcon /> Visit
-                    </Button>
-                  )}
+                  <ActionButtons data={currentSelection} variant="withText" />
                 </div>
               </div>
               <Component>

@@ -4,8 +4,9 @@ import {
   Readex_Pro,
   Lobster_Two,
 } from "@next/font/google";
+import { MotionConfig } from "framer-motion";
 import type { PropsWithChildren } from "react";
-
+import { useDataContext } from "@context/dataLayer";
 const defaultFont = Poppins({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
@@ -20,6 +21,9 @@ const logoFont = Lobster_Two({
 });
 
 export const FontProvider: React.FC<PropsWithChildren> = ({ children }) => {
+  const cWidth = useDataContext();
+  // const isMobile = cWidth < 700;
+  const isMobile = false;
   return (
     <>
       <style jsx global>
@@ -33,7 +37,10 @@ export const FontProvider: React.FC<PropsWithChildren> = ({ children }) => {
           }
         `}
       </style>
-      {children}
+
+      <MotionConfig reducedMotion={isMobile ? "always" : "never"}>
+        {children}
+      </MotionConfig>
     </>
   );
 };

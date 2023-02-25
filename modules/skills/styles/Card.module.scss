@@ -1,10 +1,13 @@
 .card {
   display: grid !important;
   grid-template-rows: 3fr 1fr;
-  background-color: var(--activeTab) !important;
+  // background-color: var(--activeTab) !important;
+  background-color: var(--projColor) !important;
   border-radius: 30px !important;
   justify-items: center;
   min-height: 37vh;
+
+  box-shadow: -2px 2px 2px black;
 
   &Name {
     font-size: 2rem;
@@ -20,7 +23,16 @@
       font-size: 6rem;
     }
   }
-  &:hover {
-    background-color: var(--pannelItemHover) !important;
+}
+
+.card[data-node="false"] {
+  transition: all 0.3s ease-in-out;
+
+  @media (min-width: 1024px) {
+    &:hover {
+      box-shadow: -10px 10px 10px black;
+      translate: 10px -10px;
+      background-color: var(--activeTab) !important;
+    }
   }
 }

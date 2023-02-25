@@ -16,6 +16,9 @@ const RouterEvent = dynamic(() => import("@hooks/routerEvents"));
 const ContactDialog = dynamic(
   () => import("@components/contactDialog/contactDialog")
 );
+const SnackBar = dynamic(
+  () => import("@components/snackbar/snackbar")
+);
 
 const MobilePannel = dynamic(() => import("@modules/pannel/mobilePannel"));
 const Pannel = dynamic(() => import("@modules/pannel/pannel"));
@@ -35,6 +38,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <ThemeProvider theme={ThemeData}>
         <ContextProviders>
           <ContactDialog />
+          <SnackBar/>
           <ScrollTop />
           <div className={styles.app}>
             <div className={styles.main}>

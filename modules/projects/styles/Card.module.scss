@@ -10,6 +10,20 @@
   border-radius: 20px;
   overflow: hidden;
 
+  transition: all 0.3s ease-in-out;
+  box-shadow: -2px 2px 2px black;
+
+  &:hover {
+    @media (min-width: 1024px) {
+      box-shadow: -10px 10px 10px black;
+      translate: 10px -10px;
+      .cardBody {
+        background-color: var(--activeTab) !important;
+        // background-color: hsl(152, 54%, 39%) !important;
+      }
+    }
+  }
+
   &Extra {
     position: absolute;
     z-index: 1;
@@ -17,7 +31,8 @@
     right: 0;
     bottom: 0;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    // grid-template-columns: repeat(3, 1fr);
+    grid-auto-flow: column;
 
     & > button {
       padding: 1rem !important;
@@ -31,9 +46,11 @@
     min-height: 37vh !important;
     gap: 1rem !important;
     font-family: var(--codeFont);
+    transition: background-color 0.3s ease-in-out;
 
     .heading {
       font-size: 2.5rem;
+
       @media (max-width: 1024px) {
         font-size: max(1.5rem, 4vw);
       }
@@ -62,6 +79,15 @@
         font-size: 1.1rem;
         gap: 8px;
       }
+    }
+  }
+
+  &Body[data-error="true"] {
+    background-color: hsl(152, 54%, 39%) !important;
+
+    &:hover {
+      // background-color: hsl(152, 54%, 39%) !important;
+      background-color: hsl(152, 54%, 39%) !important;
     }
   }
 }
