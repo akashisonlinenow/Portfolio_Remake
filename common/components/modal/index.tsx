@@ -75,3 +75,4 @@ const ModalBase: FC<ModalProps> = ({
 };
 
 export default ModalBase;
+// TODO: Try to Optimize Animation props

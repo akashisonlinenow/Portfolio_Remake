@@ -11,14 +11,15 @@ const Portal: FC<PropsWithChildren> = ({ children }) => {
     return () => setMounted(false);
   }, []);
 
-  return mounted ? (
+  return (
     <>
-      {createPortal(
-        <AnimatePresence mode="wait">{children}</AnimatePresence>,
-        document.querySelector("#portal_holder") as Element
-      )}
+      {mounted &&
+        createPortal(
+          <AnimatePresence mode="wait">{children}</AnimatePresence>,
+          document.querySelector("#portal_holder") as Element
+        )}
     </>
-  ) : null;
+  );
 };
 
 export default Portal;

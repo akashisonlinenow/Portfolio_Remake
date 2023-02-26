@@ -1,7 +1,6 @@
 .modal {
   &Main {
     display: grid;
-    // gap: 0.5rem;
   }
 
   &Heading {
@@ -36,9 +35,11 @@
     align-items: center;
     gap: 10px;
     font-size: 1.5rem;
+
     @media (max-width: 1024px) {
       font-size: max(5vw, 1.2rem);
     }
+
     padding: 1rem 0;
 
     & > span {

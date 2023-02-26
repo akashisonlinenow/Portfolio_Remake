@@ -10,12 +10,8 @@ const ContactDialog = () => {
   const DialogStatus = useStore((state) => state.dialogStatus);
   const SwitchDialog = useStore((state) => state.dialogSwitch);
 
-  const handleClose = () => {
-    SwitchDialog();
-  };
-
   return (
-    <Dialog open={DialogStatus} onClose={handleClose}>
+    <Dialog open={DialogStatus} onClose={SwitchDialog}>
       <DialogTitle>Contact Me</DialogTitle>
       <DialogContent>
         <Contact />
@@ -24,8 +20,7 @@ const ContactDialog = () => {
         <Button
           fullWidth
           variant="contained"
-          color="inherit"
-          onClick={handleClose}
+          onClick={SwitchDialog}
           sx={{ color: "#000", fontWeight: 900, marginInline: "10px" }}
         >
           Close

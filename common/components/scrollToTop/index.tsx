@@ -12,19 +12,7 @@ const ScrollTop = () => {
 
   return (
     <motion.div style={{ scale: scrollYProgress }} className={styles.container}>
-      <Button
-        sx={{
-          fontSize: "2rem",
-          color: "#fff",
-          backgroundColor: "var(--pannelColor) !important",
-          borderRadius: "50%",
-          height: "4rem",
-          width: "4rem",
-          p: 0,
-        }}
-        onClick={handleClick}
-        variant="contained"
-      >
+      <Button onClick={handleClick} variant="contained">
         <TiArrowUpThick />
       </Button>
     </motion.div>

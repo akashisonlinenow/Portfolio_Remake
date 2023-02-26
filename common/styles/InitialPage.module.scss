@@ -1,11 +1,6 @@
-// @media (max-width: 1024px) {
-//   .container {
-//     min-height: calc(100vh - var(--mobileTopSpace)) !important;
-//   }
-// }
-
 .container {
   min-height: 100vh;
+
   @media (max-width: 1024px) {
     margin-top: 10px;
     min-height: calc(100vh - var(--mobileTopSpace));

@@ -1,32 +1,5 @@
 import { create } from "zustand";
-import type { SkillTypes } from "types/DataTypes";
-import type { SafeTypes } from "types/DataTypes";
-
-interface NoticeType {
-  activation: boolean;
-  msg: string;
-  status?: "success" | "error" | "info" | "warning";
-}
-
-interface langType {
-  [key: string]: number;
-}
-
-interface storeInterface {
-  currentSelection: null | SkillTypes;
-  menuStatus: boolean;
-  dialogStatus: boolean;
-  currentProject: null | SafeTypes;
-  notification: NoticeType;
-  currentLang: null | langType;
-  focusProjLang: (data: langType | null) => void;
-  focusSelection: (data: null | SkillTypes) => void;
-  focusProject: (data: null | SafeTypes) => void;
-  menuSwitch: () => void;
-  dialogSwitch: () => void;
-  setNotification: (data: NoticeType) => void;
-  clearNotification: () => void;
-}
+import type { StoreInterface, NoticeType } from "types/storeInterface";
 
 const defaultNotice: NoticeType = {
   activation: false,
@@ -34,7 +7,7 @@ const defaultNotice: NoticeType = {
   status: "success",
 };
 
-const useStore = create<storeInterface>((set) => ({
+const useStore = create<StoreInterface>((set) => ({
   currentSelection: null,
   menuStatus: false,
   dialogStatus: false,

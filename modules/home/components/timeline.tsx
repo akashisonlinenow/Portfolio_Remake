@@ -49,79 +49,77 @@ const TimelineComponent: FC<inputProps> = ({ data }) => {
   const item = data;
   return (
     <div className={styles.main}>
-      {item.map((e) => {
-        return (
-          <Fragment key={e.id}>
-            <div className={styles.item}>
-              <motion.div
-                style={{ willChange }}
-                variants={variants}
-                initial="hidden"
-                whileInView="visible"
-                transition={transition}
-                viewport={viewPort}
-                className={styles.content}
-              >
-                <div>
+      {item.map((e) => (
+        <Fragment key={e.id}>
+          <div className={styles.item}>
+            <motion.div
+              style={{ willChange }}
+              variants={variants}
+              initial="hidden"
+              whileInView="visible"
+              transition={transition}
+              viewport={viewPort}
+              className={styles.content}
+            >
+              <div>
+                <motion.div
+                  style={{ willChange }}
+                  variants={childVariant}
+                  transition={childTransitions}
+                  className={styles.header}
+                >
+                  <div>{e.title}</div>
+                  {e.location ? <div>{e.location}</div> : null}
+                </motion.div>
+                {e.info ? (
                   <motion.div
                     style={{ willChange }}
                     variants={childVariant}
                     transition={childTransitions}
-                    className={styles.header}
+                    className={styles.info}
                   >
-                    <div>{e.title}</div>
-                    {e.location ? <div>{e.location}</div> : null}
+                    {e.info}
                   </motion.div>
-                  {e.info ? (
-                    <motion.div
-                      style={{ willChange }}
-                      variants={childVariant}
-                      transition={childTransitions}
-                      className={styles.info}
-                    >
-                      {e.info}
-                    </motion.div>
-                  ) : null}
-                  {isMobile ? (
-                    <motion.div
-                      style={{ willChange }}
-                      variants={childVariant}
-                      transition={childTransitions}
-                      className={`${styles.info} ${styles.date}`}
-                    >
-                      {e.date}
-                    </motion.div>
-                  ) : null}
-                </div>
-              </motion.div>
-              <div id="timeline">
-                <motion.div
-                  style={{ willChange }}
-                  variants={nodeVariant}
-                  initial="hidden"
-                  whileInView="visible"
-                  transition={transition}
-                  viewport={viewPort}
-                  className={styles.centerNode}
-                >
-                  {e.icon}
-                </motion.div>
+                ) : null}
+                {isMobile ? (
+                  <motion.div
+                    style={{ willChange }}
+                    variants={childVariant}
+                    transition={childTransitions}
+                    className={`${styles.info} ${styles.date}`}
+                  >
+                    {e.date}
+                  </motion.div>
+                ) : null}
               </div>
+            </motion.div>
+            <div id="timeline">
               <motion.div
                 style={{ willChange }}
-                variants={variants}
+                variants={nodeVariant}
                 initial="hidden"
                 whileInView="visible"
                 transition={transition}
                 viewport={viewPort}
-                className={`${styles.space} ${styles.date}`}
+                className={styles.centerNode}
               >
-                <div>{e.date}</div>
+                {e.icon}
               </motion.div>
             </div>
-          </Fragment>
-        );
-      })}
+            <motion.div
+              style={{ willChange }}
+              variants={variants}
+              initial="hidden"
+              whileInView="visible"
+              transition={transition}
+              viewport={viewPort}
+              className={`${styles.space} ${styles.date}`}
+            >
+              <div>{e.date}</div>
+            </motion.div>
+          </div>
+        </Fragment>
+      ))}
     </div>
   );
 };
@@ -130,4 +128,4 @@ export default TimelineComponent;
 
 // TODO : Optimize Code
 
-// TODO :A Type Still Remains Here
+// TODO : A Type Still Remains Here

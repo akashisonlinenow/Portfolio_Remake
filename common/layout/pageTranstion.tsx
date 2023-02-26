@@ -3,22 +3,21 @@ import { motion, useWillChange } from "framer-motion";
 import type { Transition, Variants } from "framer-motion";
 import type { PropsWithChildren, FC } from "react";
 
+const variants: Variants = {
+  hidden: { opacity: 0, x: 50, y: 0 },
+  enter: { opacity: 1, x: 0, y: 0 },
+  exit: { opacity: 0, x: 0, y: -50 },
+};
+
+const transition: Transition = {
+  type: "spring",
+  stiffness: 260,
+  damping: 30,
+};
+
 export const Container: FC<PropsWithChildren> = ({ children }) => {
-  const variants: Variants = {
-    hidden: { opacity: 0, x: 50, y: 0 },
-    enter: { opacity: 1, x: 0, y: 0 },
-    exit: { opacity: 0, x: 0, y: -50 },
-  };
-
-  const transition: Transition = {
-    type: "spring",
-    stiffness: 260,
-    damping: 30,
-  };
-
   const currentWidth = useDataContext();
   const isMobile = currentWidth < 1024;
-  // debugger;
 
   const willChange = useWillChange();
 

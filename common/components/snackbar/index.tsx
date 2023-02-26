@@ -1,5 +1,5 @@
 import Alert from "@mui/material/Alert";
-import useStore from "store/store";
+import useStore from "@store/store";
 import Snackbar from "@mui/material/Snackbar";
 
 const SnackBar = () => {

@@ -57,25 +57,23 @@ const Pannel = () => {
       <div className={styles.parent}>
         <div className={styles.container}>
           <Component className={styles.pannel}>
-            {ItemData.map((e) => {
-              return (
-                <Button
-                  component={Link}
-                  // component={MotionLink}
-                  // ? MotionLink for framer-motion enabled Button
-                  scroll={false}
-                  href={e.link}
-                  key={e.id}
-                  className={`${styles.item} ${
-                    router.pathname === e.link ? styles.active : null
-                  }`}
-                  onClick={e.title === "Contact" ? SwitchDialog : undefined}
-                >
-                  <div className={styles.itemIcon}>{e.icon}</div>
-                  <div className={styles.itemTitle}>{e.title}</div>
-                </Button>
-              );
-            })}
+            {ItemData.map((e) => (
+              <Button
+                component={Link}
+                // component={MotionLink}
+                // ? MotionLink for framer-motion enabled Button
+                scroll={false}
+                href={e.link}
+                key={e.id}
+                className={`${styles.item} ${
+                  router.pathname === e.link ? styles.active : null
+                }`}
+                onClick={e.title === "Contact" ? SwitchDialog : undefined}
+              >
+                <div className={styles.itemIcon}>{e.icon}</div>
+                <div className={styles.itemTitle}>{e.title}</div>
+              </Button>
+            ))}
           </Component>
         </div>
       </div>

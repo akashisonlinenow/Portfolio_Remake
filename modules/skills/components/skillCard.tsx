@@ -5,8 +5,6 @@ import { motion } from "framer-motion";
 import { useDataContext } from "@context/dataLayer";
 import type { SkillCardProps } from "types/skillPageType";
 
-// ! Experemental
-
 // TODO:  Learn how to do Conditional Types to inherit MotionProps when enableMotion prop in passed
 
 const SkillCard: React.FC<SkillCardProps> = ({ data, className, ...rest }) => {

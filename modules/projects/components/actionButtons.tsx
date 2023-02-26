@@ -8,6 +8,7 @@ import type { ActionInterface } from "types/projectPageType";
 
 const ActionButtons: FC<ActionInterface> = ({ data, variant }) => {
   const SetNotice = useStore((state) => state.setNotification);
+
   const copyLink = () => {
     navigator.clipboard.writeText(data.clone_url).then(() => {
       SetNotice({
@@ -40,3 +41,5 @@ const ActionButtons: FC<ActionInterface> = ({ data, variant }) => {
 };
 
 export default ActionButtons;
+
+// TODO : Set Color for each Snackbar Severity in Theme

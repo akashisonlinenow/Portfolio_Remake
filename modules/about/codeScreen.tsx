@@ -17,7 +17,9 @@ const Calendar = () => {
       <Heading title="Days I Code" type="small" />
       <Component className={styles.container}>
         <a
-          href={`https://github.com/${process.env.gitUser}`}
+          href={`https://github.com/${
+            process.env.GITHUB_USERNAME || "KingBael09"
+          }`}
           target="_blank"
           rel="noreferrer"
         >
@@ -28,7 +30,7 @@ const Calendar = () => {
             transformData={(e) => {
               return isMobile ? e.slice(196) : e;
             }}
-            username={process.env.gitUser as string}
+            username={process.env.GITHUB_USERNAME || "KingBael09"}
             eventHandlers={{
               onMouseEnter: (event) => (data) => {
                 !isMobile ? setSelect(data) : null;

@@ -3,7 +3,6 @@
   --white: hsl(0, 0%, 100%);
   --black: hsl(0, 0%, 0%);
   --pannelWidth: max(9rem, 10vw);
-  // --pannelWidth: max(10rem, 11vw);
   --pannelColor: hsl(222, 12%, 20%, 0.9);
   --mPannelColor: hsl(222, 12%, 20%);
   --pannelItemHover: hsl(222, 12%, 35%);
@@ -14,7 +13,6 @@
   --mobileTopSpace: max(4rem, 8vh);
   --accent: hsl(220, 12%, 30%);
   --projColor: hsl(222, 12%, 27%);
-
 }
 
 body {
@@ -22,15 +20,13 @@ body {
 }
 
 html {
-  // scroll-behavior: smooth;
-  //   -webkit-tap-highlight-color: rgb(0, 0, 0, 0.1);
   background-color: var(--bgColor);
   color: var(--white);
   overflow-y: scroll;
   overflow-x: hidden;
 }
 
-// To compensate pageshift during loading
+// ? To compensate pageshift during loading
 
 *,
 *::before,

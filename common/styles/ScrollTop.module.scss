@@ -7,10 +7,19 @@
 .container {
   position: fixed;
   bottom: 2rem;
-  // right: calc(var(--pannelWidth) + 2rem);
   left: calc(100vw - calc(var(--pannelWidth) + 7.5rem));
   z-index: 80;
   overflow: hidden;
+
+  > button {
+    font-size: 2rem !important;
+    color: white !important;
+    background-color: var(--pannelColor) !important;
+    border-radius: 50% !important;
+    height: 4rem !important;
+    width: 4rem !important;
+    padding: 0 !important;
+  }
 }
 
 // ? Starting from left to compensate for layout shift due to contact dialog scroll lock

@@ -6,7 +6,7 @@ const HomePage = () => {
     <div className={styles.container}>
       <div className={styles.splash}>{"<Hello World>"}</div>
       <div className={styles.greet}>
-        <span>{process.env.fName}</span> <span> Here!</span>
+        <span>{process.env.FIRST_NAME || "Jayesh"}</span> <span> Here!</span>
       </div>
       <div className={styles.writter}>
         <div>I&apos;m a </div>

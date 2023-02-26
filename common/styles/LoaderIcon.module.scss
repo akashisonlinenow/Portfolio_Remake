@@ -6,6 +6,10 @@
 }
 
 .pl {
+  position: relative;
+  width: 3em;
+  height: 3em;
+
   animation-duration: 2s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
@@ -24,10 +28,6 @@
     transform-origin: 50% 100%;
     clip-path: polygon(0 0, 100% 0, 50% 100%);
   }
-
-  position: relative;
-  width: 3em;
-  height: 3em;
 
   &Leapfrog {
     &::before,

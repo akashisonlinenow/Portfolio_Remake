@@ -7,26 +7,26 @@ import IconButton from "@mui/material/IconButton";
 import { useWillChange } from "framer-motion";
 import type { Transition, Variants } from "framer-motion";
 
+const modalTransition: Transition = {
+  type: "spring",
+  stiffness: 200,
+  damping: 20,
+  staggerChildren: 0.1,
+  delayChildren: 0.2,
+};
+
+const childrenVariant: Variants = {
+  hidden: { opacity: 0, x: 100 },
+  visible: { opacity: 1, x: 0 },
+  exit: { opacity: 0, scale: 0 },
+};
+
 const SkillModal = () => {
   const currentSelection = useStore((state) => state.currentSelection);
   const focusSelection = useStore((state) => state.focusSelection);
 
   const handleClickAway = () => {
     focusSelection(null);
-  };
-
-  const modalTransition: Transition = {
-    type: "spring",
-    stiffness: 200,
-    damping: 20,
-    staggerChildren: 0.1,
-    delayChildren: 0.2,
-  };
-
-  const childrenVariant: Variants = {
-    hidden: { opacity: 0, x: 100 },
-    visible: { opacity: 1, x: 0 },
-    exit: { opacity: 0, scale: 0 },
   };
 
   const willChange: any = useWillChange();
@@ -37,19 +37,17 @@ const SkillModal = () => {
       <>
         {currentSelection?.intNode ? (
           <>
-            {currentSelection?.intNode.map((e) => {
-              return (
-                <SkillCard
-                  variants={childrenVariant}
-                  transition={modalTransition}
-                  key={e.name}
-                  style={{ willChange }}
-                  data={e}
-                  className={styles.card}
-                  node={"true"}
-                />
-              );
-            })}
+            {currentSelection?.intNode.map((e) => (
+              <SkillCard
+                variants={childrenVariant}
+                transition={modalTransition}
+                key={e.name}
+                style={{ willChange }}
+                data={e}
+                className={styles.card}
+                node={"true"}
+              />
+            ))}
           </>
         ) : null}
       </>

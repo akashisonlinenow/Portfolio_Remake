@@ -6,11 +6,11 @@ const nextConfig = {
     domains: ["avatars.githubusercontent.com"],
   },
   env: {
-    gitUser: "KingBael09",
-    fName: "Jayesh",
-    lName: "Singh",
-    location: "India",
-    repo: "Portfolio_Remake",
+    GITHUB_USERNAME: "KingBael09",
+    GITHUB_REPO_NAME: "Portfolio_Remake",
+    FIRST_NAME: "Jayesh",
+    LAST_NAME: "Singh",
+    LOCATION: "India",
   },
 };
 

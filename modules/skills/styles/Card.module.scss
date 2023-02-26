@@ -1,7 +1,6 @@
 .card {
   display: grid !important;
   grid-template-rows: 3fr 1fr;
-  // background-color: var(--activeTab) !important;
   background-color: var(--projColor) !important;
   border-radius: 30px !important;
   justify-items: center;
@@ -11,14 +10,16 @@
 
   &Name {
     font-size: 2rem;
+    font-weight: 900;
+
     @media (max-width: 1024px) {
       font-size: 1.5rem;
     }
-    font-weight: 900;
   }
 
   .icon {
     font-size: 7rem;
+
     @media (max-width: 1024px) {
       font-size: 6rem;
     }

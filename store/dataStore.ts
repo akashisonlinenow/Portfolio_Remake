@@ -2,16 +2,13 @@ import axios from "axios";
 import dummyData from "data/failSafe";
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
-import type { SafeTypes } from "types/DataTypes";
+import type { DataStoreInterface } from "types/storeInterface";
 
-interface storeInterface {
-  projectData: null | SafeTypes[];
-  getProjectData: (currentData: null | SafeTypes[]) => void;
-}
+const baseURL: string = `https://api.github.com/users/${
+  process.env.GITHUB_USERNAME || "KingBael09"
+}/repos`;
 
-const baseURL: string = `https://api.github.com/users/${process.env.gitUser}/repos`;
-
-const useDataStore = create<storeInterface>()(
+const useDataStore = create<DataStoreInterface>()(
   persist(
     (set) => ({
       projectData: null,

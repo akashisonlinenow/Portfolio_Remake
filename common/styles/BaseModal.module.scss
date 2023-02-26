@@ -1,9 +1,6 @@
-// ! Modal Experemental Features
-
 .modalBackground {
   position: fixed;
   inset: 0;
-  // background-color: hsla(220%, 12%, 5%, 0.4);
   background-color: hsla(220%, 12%, 5%, 0.4);
   backdrop-filter: blur(3px);
   z-index: 50;
@@ -14,10 +11,11 @@
   justify-content: center;
   align-items: center;
   position: fixed;
-  width: calc(100vw - var(--pannelWidth) - 1rem);
+  z-index: 90;
   top: 0;
   bottom: 0;
   left: 0;
+  width: calc(100vw - var(--pannelWidth) - 1rem);
 
   @media (max-width: 1024px) {
     width: unset;
@@ -25,9 +23,33 @@
     margin-top: var(--mobileTopSpace);
   }
 
-  z-index: 90;
-
   &Body {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 32px;
+    padding: 2rem;
+    max-height: 80vh;
+    min-width: 40vw;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-radius: 20px;
+    background-color: hsl(220, 12%, 15%);
+    box-shadow: 0px 11px 15px -7px rgb(0 0 0 / 20%),
+      0px 24px 38px 3px rgb(0 0 0 / 14%), 0px 9px 46px 8px rgb(0 0 0 / 12%);
+
+    @media (max-width: 1024px) {
+      padding: 1.5rem 1rem;
+      min-width: 80vw;
+      max-height: calc(80vh - var(--mobileTopSpace));
+    }
+
+    @media (max-width: 700px) {
+      margin: 0 1rem;
+      flex: 1 !important;
+      max-height: calc(80vh - var(--mobileTopSpace));
+    }
+
     &::-webkit-scrollbar {
       width: 5px !important;
     }
@@ -41,34 +63,6 @@
       margin-block: 2.5rem !important;
       border-radius: 100px;
       background-color: var(--bgColor);
-    }
-
-    background-color: hsl(220, 12%, 15%);
-    padding: 2rem;
-
-    box-shadow: 0px 11px 15px -7px rgb(0 0 0 / 20%),
-      0px 24px 38px 3px rgb(0 0 0 / 14%), 0px 9px 46px 8px rgb(0 0 0 / 12%);
-
-    margin: 32px;
-
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    min-width: 40vw;
-    overflow-y: auto;
-    overflow-x: hidden;
-    max-height: 80vh;
-
-    @media (max-width: 1024px) {
-      padding: 1.5rem 1rem;
-      min-width: 80vw;
-    }
-
-    @media (max-width: 700px) {
-      margin: 0 1rem;
-      flex: 1 !important;
-      max-height: calc(80vh - var(--mobileTopSpace));
     }
   }
 }

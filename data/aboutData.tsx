@@ -9,9 +9,10 @@ const AboutData: FC<AboutProps> = (props) => {
       <span className={styles.greet}>Hello!</span>
       <br /> I am{" "}
       <span className={styles.name}>
-        {process.env.fName} {process.env.lName}
+        {process.env.FIRST_NAME || "Jayesh"} {process.env.LAST_NAME || "Singh"}
       </span>{" "}
-      from <span className={styles.country}>{process.env.location}</span>.
+      from{" "}
+      <span className={styles.country}>{process.env.LOCATION || "India"}</span>.
       <br /> An Aspiring Full-Stack Developer looking for Opportunities
       <br />
       Apart from Coding I have a wide range of interests:

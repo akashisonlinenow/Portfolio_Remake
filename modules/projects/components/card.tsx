@@ -11,21 +11,19 @@ import type { LanguageProps, ProjectCardProps } from "types/projectPageType";
 
 const ProjectCard: FC<ProjectCardProps> = ({ data, isMobile, ...rest }) => {
   const [hover, setHover] = useState(isMobile ? true : false);
+  const [langData, setLangData] = useState<LanguageProps | null>(null);
+
   const focusSelection = useStore((state) => state.focusProject);
   const focusLang = useStore((state) => state.focusProjLang);
 
   const e = data;
+
   const startHover = () => {
     !isMobile && setHover(true);
   };
   const endHover = () => {
     !isMobile && setHover(false);
   };
-
-  const willChange = useWillChange();
-
-  // ! Experemental
-  const [langData, setLangData] = useState<LanguageProps | null>(null);
 
   const getLangData = async () => {
     try {
@@ -41,6 +39,8 @@ const ProjectCard: FC<ProjectCardProps> = ({ data, isMobile, ...rest }) => {
     getLangData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const willChange = useWillChange();
 
   return (
     <>
