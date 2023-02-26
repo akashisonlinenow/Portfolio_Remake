@@ -26,6 +26,7 @@ const ProjectCard: FC<ProjectCardProps> = ({ data, isMobile, ...rest }) => {
   };
 
   const getLangData = async () => {
+    console.log("Fetching");
     try {
       const req = axios.get(e.languages_url);
       const res = await req;
@@ -36,9 +37,9 @@ const ProjectCard: FC<ProjectCardProps> = ({ data, isMobile, ...rest }) => {
   };
 
   useEffect(() => {
-    getLangData();
+    focusLang(langData);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [langData]);
 
   const willChange = useWillChange();
 
@@ -67,7 +68,7 @@ const ProjectCard: FC<ProjectCardProps> = ({ data, isMobile, ...rest }) => {
         <ButtonBase
           onClick={() => {
             focusSelection(e);
-            focusLang(langData);
+            getLangData();
           }}
           className={styles.cardBody}
           data-error={rest.failCase}

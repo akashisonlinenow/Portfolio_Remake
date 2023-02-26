@@ -52,3 +52,5 @@ export default function App({ Component, pageProps }: AppProps) {
     </>
   );
 }
+
+// TODO: Create 404 Page
