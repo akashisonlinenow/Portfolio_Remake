@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import ContextProviders from "@context/index";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import { Analytics } from "@vercel/analytics/react";
 import { consoleMsg } from "@test/consoleMsg";
 import { ThemeSettings } from "@constants/theme";
 import { ThemeProvider } from "@mui/material";
@@ -49,6 +50,7 @@ export default function App({ Component, pageProps }: AppProps) {
         </ContextProviders>
       </ThemeProvider>
       <RouterEvent />
+      <Analytics />
     </>
   );
 }
