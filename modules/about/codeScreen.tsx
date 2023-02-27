@@ -47,9 +47,7 @@ const Calendar = () => {
               level4: "hsl(223, 14%, 85%)",
             }}
             labels={
-              isMobile
-                ? { totalCount: "{{count}} contributions in last 6 Months" }
-                : undefined
+              isMobile ? { totalCount: "{{count}} contributions" } : undefined
             }
           />
         </a>

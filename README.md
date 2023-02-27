@@ -1,38 +1,82 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Personal Portfolio
 
-## Getting Started
+My Portfolio to showcase projects. Build with [Next.js](https://nextjs.org/), [Material UI](https://mui.com/) and [Framer Motion](https://www.framer.com/motion/).
 
-First, run the development server:
+Checkout the **[Live Site](https://example.com)**.
 
-```bash
-npm run dev
+## Install & Run
+
+Make Sure you have Node `18.0.0` or higher and prefer pnpm `7.28.0` or higher to install stuff
+
+Install dependencies  with:
+
+``` bash
+pnpm install
 # or
-yarn dev
-# or
-pnpm dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Once done, Startup a local server with:
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+``` bash
+pnpm dev
+# or
+npm run dev
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+To create a production build:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+``` bash
+pnpm build
+# or
+npm run build
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+***
 
-## Learn More
+## To Personalize
 
-To learn more about Next.js, take a look at the following resources:
+**Step I :**  [Fork the Repo](https://github.com/KingBael09/Portfolio_Remake/fork)[^1].
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Step II :** Then navigate to `next.config.js` file & update relevant info.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+**Step III :** Then navigate to `/data` folder & update relevant data
 
-## Deploy on Vercel
+### Details
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<details><summary>Next Config Environment Variables</summary>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+#### Environment Variables
+
+| Variables | Default | Description |
+| :---: | :---: | :---: |
+| `GITHUB_USERNAME` | KingBael09 | Your Github Username |
+| `GITHUB_REPO_NAME` | Portfolio_Remake | Name of the Forked Repo |
+| `FIRST_NAME` | Jayesh |  First Name to be displayed  |
+| `LAST_NAME` | Singh |  Last Name to be displayed   |
+| `LOCATION` | India |  Location to be displayed   |
+
+</details>
+
+<details><summary>Content of /data Folder
+</summary>
+
+#### Files
+
+| Variables | Description |
+| :--- | :--- |
+| `aboutData.tsx` | Contains HTML for About Page |
+| `contactData.tsx` | Array of objects containing links & icons for contact <br/><sub>Used in Footer and Contact Modal</sub> |
+| `failSafe.tsx` | Contains the fail safe data of Projects <br/> In case GitHub's API Reaches its limit [^2]  |
+| `link.ts` |  Contains the link to Resume [^3]   |
+| `pannelData.tsx` |  Array of Panel Items<br/><sub>Used in Vertical Navbar/Panel</sub>   |
+| `Resume.pdf` |  Your Resume [^3]   |
+| `skillsData.tsx` |  Contains Array of Skills and Tools [^4]  |
+| `timelineData.tsx` |  Contains the timeline data <br/><sub>Used in Timeline on Homepage</sub>   |
+
+</details>
+
+[^1]: *Forking Repo is actually needed to get the Resume.*
+[^2]: *It is reccomended to create a Fail Safe from : [API Link](https://api.github.com/users/KingBael09/repos)*
+[^3]: *Link String remains unchanged if resume uploaded in same folder*
+[^4]: *Each Skill can contain SubSkills*
