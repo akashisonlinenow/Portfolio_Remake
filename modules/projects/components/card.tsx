@@ -26,13 +26,15 @@ const ProjectCard: FC<ProjectCardProps> = ({ data, isMobile, ...rest }) => {
   };
 
   const getLangData = async () => {
-    console.log("Fetching");
-    try {
-      const req = axios.get(e.languages_url);
-      const res = await req;
-      setLangData(res.data);
-    } catch {
-      setLangData({ Error: 1, "???": 0, "404": 1 });
+    if (!langData) {
+      console.log("Fetching");
+      try {
+        const req = axios.get(e.languages_url);
+        const res = await req;
+        setLangData(res.data);
+      } catch {
+        setLangData({ Error: 1, "???": 0, "404": 1 });
+      }
     }
   };
 

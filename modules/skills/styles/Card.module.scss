@@ -6,7 +6,9 @@
   justify-items: center;
   min-height: 37vh;
 
-  box-shadow: -2px 2px 2px black;
+  @media (min-width: 800px) {
+    box-shadow: -2px 2px 2px black;
+  }
 
   &Name {
     font-size: 2rem;

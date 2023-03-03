@@ -2,7 +2,7 @@
 
 My Portfolio to showcase projects. Build with [Next.js](https://nextjs.org/), [Material UI](https://mui.com/) and [Framer Motion](https://www.framer.com/motion/).
 
-Checkout the **[Live Site](https://example.com)**.
+Checkout the **[Live Site](https://jayesh-singh.vercel.app/)**.
 
 ## Install & Run
 
