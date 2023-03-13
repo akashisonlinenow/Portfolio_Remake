@@ -2,6 +2,7 @@ import "@styles/globals.scss";
 import styles from "@styles/Root.module.scss";
 import Footer from "@modules/footer/footer";
 import dynamic from "next/dynamic";
+import HeadComponent from "@components/head/";
 import ContextProviders from "@context/index";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
@@ -29,6 +30,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <>
+      <HeadComponent />
       <ThemeProvider theme={ThemeData}>
         <ContextProviders>
           <ContactDialog />
@@ -55,4 +57,5 @@ export default function App({ Component, pageProps }: AppProps) {
   );
 }
 
-// TODO: Create 404 Page
+// TODO: Create Initial Loader, something like this initial https://haveraw-app.vercel.app/
+// TODO: ADD Favicon

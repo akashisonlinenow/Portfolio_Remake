@@ -9,16 +9,15 @@ import type { CalendarDataType } from "types/aboutPageType";
 
 const Calendar = () => {
   const [Select, setSelect] = useState<CalendarDataType | null>(null);
-  const currentWidth = useDataContext();
+  const isMobile = useDataContext().device !== "lg";
 
-  const isMobile = currentWidth < 1024;
   return (
     <>
       <Heading title="Days I Code" type="small" />
       <Component className={styles.container}>
         <a
           href={`https://github.com/${
-            process.env.GITHUB_USERNAME || "KingBael09"
+            process.env.NEXT_PUBLIC_GITHUB_USERNAME || "KingBael09"
           }`}
           target="_blank"
           rel="noreferrer"
@@ -30,7 +29,7 @@ const Calendar = () => {
             transformData={(e) => {
               return isMobile ? e.slice(196) : e;
             }}
-            username={process.env.GITHUB_USERNAME || "KingBael09"}
+            username={process.env.NEXT_PUBLIC_GITHUB_USERNAME || "KingBael09"}
             eventHandlers={{
               onMouseEnter: (event) => (data) => {
                 !isMobile ? setSelect(data) : null;

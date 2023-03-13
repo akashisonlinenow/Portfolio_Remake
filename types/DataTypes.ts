@@ -1,5 +1,5 @@
 export interface AboutProps {
-  defaultStyles?: any;
+  defaultStyles: { [key: string]: string };
 }
 
 export interface ContactTypes {
@@ -40,7 +40,6 @@ export interface SafeTypes {
   forks: number | string;
   topics: string[];
   watchers: number;
-  // Extra
   languages_url: string;
   created_at: string;
   updated_at: string;
@@ -66,11 +65,14 @@ export interface SkillTypes {
 }
 
 export interface TimelineTypes {
-    id: number;
-    date: string;
-    icon: JSX.Element;
-    title: string;
-    location: string | null;
-    info: string | null;
-  }
-  
+  id: number;
+  date: string;
+  icon: JSX.Element;
+  title: string;
+  location: string | null;
+  info: string | null;
+}
+
+export interface TimelineInputProps {
+  data: TimelineTypes[];
+}

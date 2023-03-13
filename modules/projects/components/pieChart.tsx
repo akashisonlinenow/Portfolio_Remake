@@ -5,13 +5,11 @@ import type { FC } from "react";
 import type { PieProps } from "types/projectPageType";
 
 const PieChart: FC<PieProps> = ({ data }) => {
-  const currentWidth = useDataContext();
   const [current, setCurrent] = useState<any>(null);
-  const isMobile = currentWidth < 1024;
+  const isMobile = useDataContext().device !== "lg";
+
   return (
     <ResponsivePie
-      // data={data.sort(() => Math.random() - 0.5)}
-      // randomize data position
       data={data
         .map((value) => ({ value, sort: Math.random() }))
         .sort((a, b) => a.sort - b.sort)
@@ -22,23 +20,16 @@ const PieChart: FC<PieProps> = ({ data }) => {
           : { top: 50, right: 120, bottom: 120, left: 120 }
       }
       innerRadius={isMobile ? 0.5 : 0.6}
-      // innerRadius={0.6}
       enableArcLinkLabels={!isMobile}
-      // arcLinkLabelsSkipAngle={5}
       arcLabelsSkipAngle={30}
       padAngle={isMobile ? 2 : 4}
       cornerRadius={8}
-      //   startAngle={isMobile ? -120 : 0}
-      // arrow target color
       arcLinkLabelsTextColor={{ from: "color", modifiers: [] }}
-      // arrowColor
       arcLinkLabelsColor={{ from: "color", modifiers: [] }}
-      // hover effect inner
-      // activeInnerRadiusOffset={0.5}
-      // hover effect outer
       arcLabel={({ formattedValue }) => `${formattedValue}%`}
       activeOuterRadiusOffset={isMobile ? 0 : 8}
-      // tooltip
+      arcLinkLabelsStraightLength={isMobile ? 10 : undefined}
+      arcLinkLabelsDiagonalLength={isMobile ? 5 : undefined}
       layers={[
         "arcLinkLabels",
         "arcs",
@@ -52,7 +43,6 @@ const PieChart: FC<PieProps> = ({ data }) => {
               textAnchor="middle"
               dominantBaseline="central"
               style={{
-                // fontSize: "10px",
                 fontWeight: 600,
                 fill: "#fff",
               }}
@@ -105,8 +95,6 @@ const PieChart: FC<PieProps> = ({ data }) => {
           symbolSize: 20,
         },
       ]}
-      arcLinkLabelsStraightLength={isMobile ? 10 : undefined}
-      arcLinkLabelsDiagonalLength={isMobile ? 5 : undefined}
       theme={{
         fontFamily: "var(--codeFont)",
         labels: {
@@ -128,6 +116,4 @@ const PieChart: FC<PieProps> = ({ data }) => {
 };
 export default PieChart;
 
-//.match(/[\+\-*/!@#$%^&(){}\[\],.<>?\\|:;"'_~`\s]|[A-Z]+/g).join("")
-
-// TODO : Optimize Code
+// TODO: Make custom chainable functions

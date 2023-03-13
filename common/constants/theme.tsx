@@ -69,6 +69,16 @@ export const ThemeSettings = () => {
           },
         },
       },
+      MuiAlert: {
+        variants: [
+          {
+            props: { severity: "success" },
+            style: {
+              backgroundColor: "hsl(137, 68%, 25%)",
+            },
+          },
+        ],
+      },
     },
   });
 };

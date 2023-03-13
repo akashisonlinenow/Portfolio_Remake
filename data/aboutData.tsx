@@ -1,18 +1,20 @@
 import type { FC } from "react";
 import type { AboutProps } from "types/DataTypes";
 
-const AboutData: FC<AboutProps> = (props) => {
-  const styles = props.defaultStyles;
-
+const AboutData: FC<AboutProps> = ({ defaultStyles: styles }) => {
   return (
     <div>
       <span className={styles.greet}>Hello!</span>
       <br /> I am{" "}
       <span className={styles.name}>
-        {process.env.FIRST_NAME || "Jayesh"} {process.env.LAST_NAME || "Singh"}
+        {process.env.NEXT_PUBLIC_FIRST_NAME || "Jayesh"}{" "}
+        {process.env.NEXT_PUBLIC_LAST_NAME || "Singh"}
       </span>{" "}
       from{" "}
-      <span className={styles.country}>{process.env.LOCATION || "India"}</span>.
+      <span className={styles.country}>
+        {process.env.NEXT_PUBLIC_LOCATION || "India"}
+      </span>
+      .
       <br /> An Aspiring Full-Stack Developer looking for Opportunities
       <br />
       Apart from Coding I have a wide range of interests:
@@ -28,5 +30,3 @@ const AboutData: FC<AboutProps> = (props) => {
 };
 
 export default AboutData;
-
-// TODO : Give type to Default Types

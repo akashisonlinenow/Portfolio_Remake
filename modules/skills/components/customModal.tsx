@@ -29,8 +29,7 @@ const SkillModal = () => {
     focusSelection(null);
   };
 
-  const willChange: any = useWillChange();
-  // TODO : Try to sole any here
+  const willChange = useWillChange();
 
   const OtherSkillSet = () => {
     return (
@@ -42,7 +41,7 @@ const SkillModal = () => {
                 variants={childrenVariant}
                 transition={modalTransition}
                 key={e.name}
-                style={{ willChange }}
+                style={{ willChange } as any}
                 data={e}
                 className={styles.card}
                 node={"true"}

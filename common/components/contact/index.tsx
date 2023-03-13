@@ -4,14 +4,14 @@ import ContactData from "@data/contactData";
 import { useDataContext } from "@context/dataLayer";
 
 const Contact = () => {
-  const width = useDataContext();
+  const isMobile = useDataContext().device !== "lg";
   return (
     <div className={styles.container}>
       {ContactData.map((e) => (
         <IconButton
           className={styles.Icon}
           sx={{
-            fontSize: width > 1024 ? "2.5rem" : "2rem",
+            fontSize: !isMobile ? "2.5rem" : "2rem",
             ":hover": {
               color: e["color"],
             },

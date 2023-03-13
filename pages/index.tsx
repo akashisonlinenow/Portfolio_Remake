@@ -17,9 +17,6 @@ export default function Home() {
     <Container>
       <Head>
         <title>Portfolio</title>
-        <meta name="description" content="Portfolio" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
         <InitialPage>
@@ -31,3 +28,5 @@ export default function Home() {
     </Container>
   );
 }
+
+// TODO: Add ScrollDown arrow for Mobile Mode

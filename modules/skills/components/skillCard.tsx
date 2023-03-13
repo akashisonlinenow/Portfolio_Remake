@@ -9,18 +9,18 @@ import type { SkillCardProps } from "types/skillPageType";
 
 const SkillCard: React.FC<SkillCardProps> = ({ data, className, ...rest }) => {
   const focusSelection = useStore((state) => state.focusSelection);
-  const currentWidth = useDataContext();
-  const isMobile = currentWidth < 1024;
+  const isMobile = useDataContext().device !== "lg";
+
   return (
     <>
       <Button
         onClick={() => {
           focusSelection(data);
         }}
-        className={`${styles.card} ${className}`}
-        component={!isMobile ? motion.button : Button}
-        {...rest}
         data-node={rest.node == "true" ? true : false}
+        className={`${styles.card} ${className}`}
+        component={!isMobile ? motion.button : "button"}
+        {...rest}
       >
         <div className={styles.icon}>{data.icon}</div>
         <div className={styles.cardName}>{data.name}</div>

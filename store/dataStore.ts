@@ -5,7 +5,7 @@ import { persist, createJSONStorage } from "zustand/middleware";
 import type { DataStoreInterface } from "types/storeInterface";
 
 const baseURL: string = `https://api.github.com/users/${
-  process.env.GITHUB_USERNAME || "KingBael09"
+  process.env.NEXT_PUBLIC_GITHUB_USERNAME || "KingBael09"
 }/repos`;
 
 const useDataStore = create<DataStoreInterface>()(

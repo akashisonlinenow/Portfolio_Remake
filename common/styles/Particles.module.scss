@@ -1,0 +1,14 @@
+.container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: -1;
+
+  .content {
+    height: 100%;
+  }
+
+  .temp {
+    color: hsla(0, 0%, 0%, 0.5);
+  }
+}

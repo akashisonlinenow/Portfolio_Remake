@@ -12,12 +12,14 @@ import {
   SiGit,
   SiPython,
   SiTypescript,
-  SiMaterialui,
+  SiMui,
   SiBootstrap,
   SiExpress,
   SiSass,
 } from "react-icons/si";
 import type { SkillTypes } from "types/DataTypes";
+
+// ? Icons from https://simpleicons.org/ & https://react-icons.github.io/react-icons
 
 export const SkillData: SkillTypes[] = [
   {
@@ -107,7 +109,8 @@ export const SkillData: SkillTypes[] = [
     intNode: [
       {
         name: "Material UI",
-        icon: <SiMaterialui style={{ color: "#007fff" }} />,
+        icon: <SiMui style={{ color: "#007fff" }} />,
+        // icon: <SiMaterialui style={{ color: "#007fff" }} />,
         level: "Beginner",
         type: "React Component Library",
         isLearning: true,

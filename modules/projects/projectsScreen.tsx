@@ -11,10 +11,8 @@ const ProjectModal = dynamic(() => import("./components/projectModal"));
 
 const ProjectPage = () => {
   const [Data, setData] = useState<SafeTypes[] | null>(null);
-  const currenWidth = useDataContext();
-  const isMobile = currenWidth < 1024;
-
   const ProjData = useDataStore((state) => state.projectData);
+  const isMobile = useDataContext().device !== "lg";
   const FetchProjects = useDataStore((state) => state.getProjectData);
 
   useEffect(() => {
@@ -22,6 +20,13 @@ const ProjectPage = () => {
     setData(ProjData);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ProjData]);
+
+  const len: SafeTypes[] = [];
+  Data?.filter((e) => {
+    if (!e.fork && e.language) {
+      len.push(e);
+    }
+  });
 
   return (
     <>
@@ -41,6 +46,9 @@ const ProjectPage = () => {
         </div>
       ) : (
         <Spinner />
+      )}
+      {Data && len.length === 0 && (
+        <div className={styles.empty}>Nothing to Show Here.</div>
       )}
     </>
   );

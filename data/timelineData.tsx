@@ -47,3 +47,4 @@ const _defTimeLine: TimelineTypes[] = [
 export default _defTimeLine;
 
 // TODO: Ask for Birthday idk
+// TODO: Create a Rust Program which asks for data req in /data folder

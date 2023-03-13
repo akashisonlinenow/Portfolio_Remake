@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from "../styles/Resume.module.scss";
-import resumeLink from "@data/link";
+import { resumelink } from "@data/link";
 import ResumePopup from "../components/resumePopup";
 import SkeletonPlaceHolder from "./skeleton";
 import { useDataContext } from "@context/dataLayer";
@@ -11,7 +11,7 @@ import { Document, Page, pdfjs } from "react-pdf";
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
 const PDFViewer = () => {
-  const currentWidth = useDataContext();
+  const currentWidth = useDataContext().value;
   const isMobile = currentWidth < 1024;
   const subTablet = currentWidth < 1480;
 
@@ -30,7 +30,7 @@ const PDFViewer = () => {
     <>
       <div className={styles.document}>
         <Document
-          file={resumeLink}
+          file={resumelink}
           className={styles.documentBody}
           loading={<SkeletonPlaceHolder width={widthParam} />}
         >
