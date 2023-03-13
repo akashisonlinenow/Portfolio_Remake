@@ -3,8 +3,9 @@ import { Fragment } from "react";
 import { useDataContext } from "@context/dataLayer";
 import { motion, useWillChange } from "framer-motion";
 import type { FC } from "react";
+import type { MotionProps } from "framer-motion";
 import type { Transition, Variants } from "framer-motion";
-import type { TimelineTypes } from "types/DataTypes";
+import type { TimelineInputProps } from "types/DataTypes";
 
 const variants: Variants = {
   visible: { opacity: 1, y: 0 },
@@ -36,15 +37,22 @@ const transition: Transition = {
 
 const viewPort = { once: true, amount: 0.2, margin: "90px 0px 50px 0px" };
 
-interface inputProps {
-  data: TimelineTypes[];
-}
-
-const TimelineComponent: FC<inputProps> = ({ data }) => {
-  const currentWidth = useDataContext();
-  const isMobile = currentWidth < 1024;
-
+const TimelineComponent: FC<TimelineInputProps> = ({ data }) => {
+  const isMobile = useDataContext().device !== "lg";
   const willChange = useWillChange();
+
+  const commonParentProps: MotionProps = {
+    style: { willChange },
+    initial: "hidden",
+    whileInView: "visible",
+    transition: transition,
+    viewport: viewPort,
+  };
+  const commonChildProps: MotionProps = {
+    style: { willChange },
+    variants: childVariant,
+    transition: childTransitions,
+  };
 
   const item = data;
   return (
@@ -53,39 +61,23 @@ const TimelineComponent: FC<inputProps> = ({ data }) => {
         <Fragment key={e.id}>
           <div className={styles.item}>
             <motion.div
-              style={{ willChange }}
               variants={variants}
-              initial="hidden"
-              whileInView="visible"
-              transition={transition}
-              viewport={viewPort}
+              {...commonParentProps}
               className={styles.content}
             >
               <div>
-                <motion.div
-                  style={{ willChange }}
-                  variants={childVariant}
-                  transition={childTransitions}
-                  className={styles.header}
-                >
+                <motion.div {...commonChildProps} className={styles.header}>
                   <div>{e.title}</div>
                   {e.location ? <div>{e.location}</div> : null}
                 </motion.div>
                 {e.info ? (
-                  <motion.div
-                    style={{ willChange }}
-                    variants={childVariant}
-                    transition={childTransitions}
-                    className={styles.info}
-                  >
+                  <motion.div {...commonChildProps} className={styles.info}>
                     {e.info}
                   </motion.div>
                 ) : null}
                 {isMobile ? (
                   <motion.div
-                    style={{ willChange }}
-                    variants={childVariant}
-                    transition={childTransitions}
+                    {...commonChildProps}
                     className={`${styles.info} ${styles.date}`}
                   >
                     {e.date}
@@ -95,24 +87,16 @@ const TimelineComponent: FC<inputProps> = ({ data }) => {
             </motion.div>
             <div id="timeline">
               <motion.div
-                style={{ willChange }}
                 variants={nodeVariant}
-                initial="hidden"
-                whileInView="visible"
-                transition={transition}
-                viewport={viewPort}
+                {...commonParentProps}
                 className={styles.centerNode}
               >
                 {e.icon}
               </motion.div>
             </div>
             <motion.div
-              style={{ willChange }}
               variants={variants}
-              initial="hidden"
-              whileInView="visible"
-              transition={transition}
-              viewport={viewPort}
+              {...commonParentProps}
               className={`${styles.space} ${styles.date}`}
             >
               <div>{e.date}</div>
@@ -125,7 +109,3 @@ const TimelineComponent: FC<inputProps> = ({ data }) => {
 };
 
 export default TimelineComponent;
-
-// TODO : Optimize Code
-
-// TODO : A Type Still Remains Here

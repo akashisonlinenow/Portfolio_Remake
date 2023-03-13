@@ -1,7 +1,7 @@
 import styles from "../styles/Resume.module.scss";
 import ModalBase from "@components/modal";
 import CloseIcon from "@mui/icons-material/Close";
-import resumeLink from "@data/link";
+import { resumelink } from "@data/link";
 import IconButton from "@mui/material/IconButton";
 import SkeletonPlaceHolder from "./skeleton";
 import { motion } from "framer-motion";
@@ -16,7 +16,7 @@ interface popupProps {
 }
 
 const ResumePopup: React.FC<popupProps> = ({ modal, closeFunc }) => {
-  const currentWidth = useDataContext();
+  const currentWidth = useDataContext().value;
   const isMobile = currentWidth < 1024;
   const subTablet = currentWidth < 1280;
 
@@ -44,7 +44,7 @@ const ResumePopup: React.FC<popupProps> = ({ modal, closeFunc }) => {
             className={styles.popup}
           >
             <Document
-              file={resumeLink}
+              file={resumelink}
               className={styles.popupBody}
               loading={<SkeletonPlaceHolder width={widthParam} />}
             >

@@ -23,6 +23,7 @@ const ProjectModal = () => {
     focusSelection(null);
   };
 
+
   let subData: DataProps[] = [];
 
   if (language) {
@@ -75,7 +76,7 @@ const ProjectModal = () => {
                       sizes={"100px"}
                       unoptimized
                       src={currentSelection.owner.avatar_url}
-                      alt="==T_T=="
+                      alt=""
                     />
                   </a>
                 </div>
@@ -97,7 +98,6 @@ const ProjectModal = () => {
                     This Project is <span>Archived!</span>
                   </div>
                 ) : null}
-
                 <div className={styles.tags}>
                   {currentSelection.topics.map((e, i) => (
                     <span key={i}>

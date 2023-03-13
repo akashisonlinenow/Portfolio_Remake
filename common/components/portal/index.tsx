@@ -6,8 +6,8 @@ import { useDataContext } from "common/context/dataLayer";
 
 const Portal: FC<PropsWithChildren> = ({ children }) => {
   const [mounted, setMounted] = useState(false);
-  const currentWidth = useDataContext();
-  const isMobile = currentWidth < 1024;
+  const isMobile = useDataContext().device === "sm";
+
   useEffect(() => {
     setMounted(true);
     return () => setMounted(false);
@@ -15,11 +15,25 @@ const Portal: FC<PropsWithChildren> = ({ children }) => {
 
   return (
     <>
-      {mounted &&
+      {/* {mounted &&
         createPortal(
           <AnimatePresence mode="wait">{children}</AnimatePresence>,
           document.querySelector("#portal_holder") as Element
-        )}
+        )} */}
+      {mounted && (
+        <>
+          {isMobile ? (
+            <>{children}</>
+          ) : (
+            <>
+              {createPortal(
+                <AnimatePresence mode="wait">{children}</AnimatePresence>,
+                document.querySelector("#portal_holder") as Element
+              )}
+            </>
+          )}
+        </>
+      )}
     </>
   );
 };

@@ -1,13 +1,32 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import type { DataContextProps } from "types/contextTypes";
 import type { PropsWithChildren, FC } from "react";
 
-export const DataContext = createContext({} as number);
+export const DataContext = createContext({} as DataContextProps);
+
+const getDeviceConfig = (width: number) => {
+  if (width < 320) {
+    return "xs";
+  } else if (width >= 320 && width < 720) {
+    return "sm";
+  } else if (width >= 720 && width < 1024) {
+    return "md";
+  } else if (width >= 1024) {
+    return "lg";
+  }
+};
 
 export const DataLayer: FC<PropsWithChildren> = ({ children }) => {
-  const [GlobalWidth, setGlobalWidth] = useState({} as number);
+  const [GlobalWidth, setGlobalWidth] = useState<DataContextProps>({
+    device: undefined,
+    value: 0,
+  });
 
   const handleResize = () => {
-    setGlobalWidth(window.innerWidth);
+    setGlobalWidth({
+      device: getDeviceConfig(window.innerWidth),
+      value: window.innerWidth,
+    });
   };
 
   useEffect(() => {

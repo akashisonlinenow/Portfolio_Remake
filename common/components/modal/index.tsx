@@ -1,12 +1,12 @@
-import { useEffect } from "react";
 import styles from "@styles/BaseModal.module.scss";
 import Portal from "@components/portal";
+import ScrollDisable from "@hooks/scrollDisable";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
+import { useDataContext } from "@context/dataLayer";
 import { motion, useWillChange } from "framer-motion";
 import type { FC } from "react";
 import type { Transition, Variants } from "framer-motion";
 import type { ModalProps } from "types/modalProps";
-import { useDataContext } from "common/context/dataLayer";
 
 const modalTransition: Transition = {
   type: "spring",
@@ -32,21 +32,17 @@ const ModalBase: FC<ModalProps> = ({
   handleClickAway,
   ...rest
 }) => {
-  useEffect(() => {
-    const scrollbarWidth = window.innerWidth - document.body.offsetWidth;
-
-    if (activation) {
-      document.documentElement.style.overflow = "hidden";
-      document.body.style.paddingRight = `${scrollbarWidth}px`;
-    } else {
-      document.documentElement.style.removeProperty("overflow");
-      document.body.style.removeProperty("padding-right");
-    }
-  }, [activation]);
+  ScrollDisable(activation);
 
   const willChange = useWillChange();
-  const currentWidth = useDataContext();
-  const isMobile = currentWidth < 1024;
+  const isMobile = useDataContext().device !== "lg";
+
+  const commonProps = {
+    initial: "hidden",
+    animate: "visible",
+    exit: "exit",
+    style: { willChange },
+  };
 
   return (
     <Portal>
@@ -56,13 +52,10 @@ const ModalBase: FC<ModalProps> = ({
             <ClickAwayListener touchEvent={false} onClickAway={handleClickAway}>
               <motion.div
                 variants={!isMobile ? modalVariants : undefined}
-                initial="hidden"
-                animate="visible"
-                exit="exit"
                 transition={modalTransition}
                 id="ModalBody"
                 className={styles.modalBody}
-                style={{ willChange }}
+                {...commonProps}
                 {...rest}
               >
                 {children}
@@ -71,11 +64,8 @@ const ModalBase: FC<ModalProps> = ({
           </div>
           <motion.div
             variants={!isMobile ? backgroundVariants : undefined}
-            initial={"hidden"}
-            animate={"visible"}
-            exit={"exit"}
-            style={{ willChange }}
             className={styles.modalBackground}
+            {...commonProps}
           />
         </>
       )}
@@ -84,4 +74,3 @@ const ModalBase: FC<ModalProps> = ({
 };
 
 export default ModalBase;
-// TODO: Try to Optimize Animation props

@@ -14,3 +14,18 @@
 
   gap: 2rem;
 }
+
+.empty {
+  // padding: 1rem;
+  padding: 2rem 1rem;
+  background-color: var(--projColor);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 900;
+  @media (max-width: 1024px) {
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+  }
+  font-family: var(--codeFont);
+}

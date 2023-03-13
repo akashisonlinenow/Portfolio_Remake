@@ -1,7 +1,7 @@
 import styles from "./styles/Resume.module.scss";
 import Button from "@mui/material/Button";
 import PDFViewer from "./components/resumePDF";
-import resumelink from "data/link";
+import { resumelink } from "data/link";
 import DownloadIcon from "@mui/icons-material/Download";
 
 const ResumePage = () => {
@@ -21,9 +21,10 @@ const ResumePage = () => {
             Download Resume
           </Button>
           <Button
-            // href={resumelink}
-            // target="_blank"
-            // referrerPolicy="no-referrer"
+            href="#"
+            target="_blank"
+            referrerPolicy="no-referrer"
+            disabled
             className={styles.button}
             sx={{ p: "1rem" }}
             startIcon={<DownloadIcon />}

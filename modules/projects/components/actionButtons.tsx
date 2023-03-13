@@ -41,6 +41,3 @@ const ActionButtons: FC<ActionInterface> = ({ data, variant }) => {
 };
 
 export default ActionButtons;
-
-// TODO : Set Color for each Snackbar Severity in Theme
-// TODO : For Some reason Copy to clipboard is not working in mobile mode

@@ -1,17 +1,17 @@
 /** @type {import('next').NextConfig} */
+const shouldAnalyzeBundles = process.env.ANALYZE === true;
 
-const nextConfig = {
+let nextConfig = {
   reactStrictMode: true,
   images: {
     domains: ["avatars.githubusercontent.com"],
   },
-  env: {
-    GITHUB_USERNAME: "KingBael09",
-    GITHUB_REPO_NAME: "Portfolio_Remake",
-    FIRST_NAME: "Jayesh",
-    LAST_NAME: "Singh",
-    LOCATION: "India",
-  },
 };
+
+if (shouldAnalyzeBundles) {
+  const withNextBundleAnalyzer =
+    require("next-bundle-analyzer")(/* options come there */);
+  nextConfig = withNextBundleAnalyzer(nextConfig);
+}
 
 module.exports = nextConfig;

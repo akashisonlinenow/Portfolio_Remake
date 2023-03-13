@@ -10,8 +10,7 @@ const Heading: FC<HeadingProps> = ({
   disableMobileView,
   ...rest
 }) => {
-  const currentWidth = useDataContext();
-  const isMobile = currentWidth < 1024;
+  const isMobile = useDataContext().device !== "lg";
 
   return (
     <Component

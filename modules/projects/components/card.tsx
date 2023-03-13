@@ -9,14 +9,12 @@ import { motion, AnimatePresence, useWillChange } from "framer-motion";
 import type { FC } from "react";
 import type { LanguageProps, ProjectCardProps } from "types/projectPageType";
 
-const ProjectCard: FC<ProjectCardProps> = ({ data, isMobile, ...rest }) => {
+const ProjectCard: FC<ProjectCardProps> = ({ data: e, isMobile, ...rest }) => {
   const [hover, setHover] = useState(isMobile ? true : false);
   const [langData, setLangData] = useState<LanguageProps | null>(null);
 
   const focusSelection = useStore((state) => state.focusProject);
   const focusLang = useStore((state) => state.focusProjLang);
-
-  const e = data;
 
   const startHover = () => {
     !isMobile && setHover(true);
@@ -94,3 +92,4 @@ const ProjectCard: FC<ProjectCardProps> = ({ data, isMobile, ...rest }) => {
 export default ProjectCard;
 
 // TODO : Somehow find a way to bind the lang data to the card so that it dosent refetch everytime the user visits projects page
+// TODO : optimize ani props

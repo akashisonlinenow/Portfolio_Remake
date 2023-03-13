@@ -22,7 +22,9 @@ const Resume = () => {
         <title>Resume</title>
       </Head>
       <div>
-        <InitialPage className="exception-mobile-page-height">
+        <InitialPage
+        // className="exception-mobile-page-height"
+        >
           <Heading title="Resume" disableMobileView />
           <ResumePage />
         </InitialPage>

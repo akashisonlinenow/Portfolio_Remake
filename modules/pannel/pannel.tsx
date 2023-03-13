@@ -9,16 +9,15 @@ import Component from "@layout/componentTransition";
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 import { useDataContext } from "@context/dataLayer";
+import ScrollDisable from "common/hooks/scrollDisable";
 
 const Pannel = () => {
-  const router = useRouter();
-  const currentWidth = useDataContext();
-  // const MenuStatus = useStore((state) => state.menuStatus);
-  // const DialogStatus = useStore((state) => state.dialogStatus);
+  const MenuStatus = useStore((state) => state.menuStatus);
   const SwitchMenu = useStore((state) => state.menuSwitch);
   const SwitchDialog = useStore((state) => state.dialogSwitch);
-
-  const isDesktop = currentWidth > 1024;
+  const router = useRouter();
+  const isMobile = useDataContext().device !== "lg";
+  ScrollDisable(MenuStatus);
 
   const handleClick = () => {
     SwitchMenu();
@@ -52,7 +51,7 @@ const Pannel = () => {
   // ! Experemental Stuff
   const MotionLink = motion(Link);
 
-  if (isDesktop) {
+  if (!isMobile) {
     return (
       <div className={styles.parent}>
         <div className={styles.container}>
@@ -80,14 +79,20 @@ const Pannel = () => {
     );
   } else {
     return (
-      <div className={styles.parent}>
+      <motion.div
+        initial={{ opacity: 0, y: -70 }}
+        animate={{ opacity: 1, y: 0 }}
+        className={styles.parent}
+      >
         <Heading title={getHeading()} type="custom" className={styles.logo} />
         <Button sx={{ backgroundColor: "transparent" }} onClick={handleClick}>
           <MenuIcon sx={{ fontSize: "2rem" }} />
         </Button>
-      </div>
+      </motion.div>
     );
   }
 };
 
 export default Pannel;
+
+// TODO: Try to get animation props in common area

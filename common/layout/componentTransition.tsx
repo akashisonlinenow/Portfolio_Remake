@@ -19,9 +19,7 @@ const variants: Variants = {
 const viewPort = { once: true, amount: 0.8 };
 
 const Component: FC<ComponentTransitionProps> = ({ children, ...rest }) => {
-  const currentWidth = useDataContext();
-  const isMobile = currentWidth < 1024;
-
+  const isMobile = useDataContext().device !== "lg";
   const willChange = useWillChange();
 
   return (
