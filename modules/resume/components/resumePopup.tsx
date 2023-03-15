@@ -7,6 +7,7 @@ import SkeletonPlaceHolder from "./skeleton";
 import { motion } from "framer-motion";
 import { Document, Page, pdfjs } from "react-pdf";
 import { useDataContext } from "@context/dataLayer";
+import { AbstractTransition, DefaultVariant } from "common/animation/framer";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
@@ -37,10 +38,11 @@ const ResumePopup: React.FC<popupProps> = ({ modal, closeFunc }) => {
             </IconButton>
           </div>
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ type: "spring" }}
+            variants={DefaultVariant}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            transition={AbstractTransition}
             className={styles.popup}
           >
             <Document

@@ -19,7 +19,10 @@ const About = () => {
         <title>About</title>
       </Head>
       <div>
-        <InitialPage className="exception-mobile-page-height">
+        <InitialPage
+          style={{ position: "relative" }}
+          className="exception-mobile-page-height"
+        >
           <Heading title="About" disableMobileView />
           <AboutPage />
         </InitialPage>

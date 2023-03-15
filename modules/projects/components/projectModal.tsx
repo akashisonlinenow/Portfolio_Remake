@@ -12,6 +12,7 @@ import { TbStar, TbGitFork } from "react-icons/tb";
 import { useEffect, useState } from "react";
 import type { DataProps } from "types/projectPageType";
 import type { LanguageProps } from "types/projectPageType";
+import { AnimatePresence } from "framer-motion";
 
 const ProjectModal = () => {
   const [language, setLanguage] = useState<LanguageProps | null>(null);
@@ -22,7 +23,6 @@ const ProjectModal = () => {
   const handleClickAway = () => {
     focusSelection(null);
   };
-
 
   let subData: DataProps[] = [];
 
@@ -46,7 +46,7 @@ const ProjectModal = () => {
   }, [currentLang]);
 
   return (
-    <>
+    <AnimatePresence>
       <ModalBase
         activation={currentSelection ? true : false}
         handleClickAway={handleClickAway}
@@ -139,7 +139,7 @@ const ProjectModal = () => {
           </IconButton>
         </div>
       </ModalBase>
-    </>
+    </AnimatePresence>
   );
 };
 

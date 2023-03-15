@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-const shouldAnalyzeBundles = process.env.ANALYZE === true;
+const shouldAnalyzeBundles = process.env.ANALYZE === "true";
 
 let nextConfig = {
   reactStrictMode: true,

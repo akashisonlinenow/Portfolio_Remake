@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence, useWillChange } from "framer-motion";
 import type { FC } from "react";
 import type { LanguageProps, ProjectCardProps } from "types/projectPageType";
+import { AbstractTransition, ModalVariants } from "common/animation/framer";
 
 const ProjectCard: FC<ProjectCardProps> = ({ data: e, isMobile, ...rest }) => {
   const [hover, setHover] = useState(isMobile ? true : false);
@@ -54,10 +55,11 @@ const ProjectCard: FC<ProjectCardProps> = ({ data: e, isMobile, ...rest }) => {
         <AnimatePresence mode="wait">
           {hover && (
             <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 50 }}
-              transition={{ type: "spring" }}
+              variants={ModalVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              transition={AbstractTransition}
               className={styles.cardExtra}
               style={{ willChange }}
             >
