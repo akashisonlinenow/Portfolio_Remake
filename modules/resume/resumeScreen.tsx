@@ -1,8 +1,8 @@
 import styles from "./styles/Resume.module.scss";
 import Button from "@mui/material/Button";
 import PDFViewer from "./components/resumePDF";
-import { resumelink } from "data/link";
 import DownloadIcon from "@mui/icons-material/Download";
+import { resumelink } from "data/link";
 
 const ResumePage = () => {
   return (

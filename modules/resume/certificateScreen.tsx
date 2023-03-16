@@ -21,5 +21,3 @@ const Certificates = () => {
 };
 
 export default Certificates;
-
-// TODO: Change The Key

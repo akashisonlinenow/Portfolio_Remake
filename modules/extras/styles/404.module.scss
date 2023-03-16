@@ -18,10 +18,6 @@
   color: black;
   user-select: none;
   pointer-events: none;
-  // background-color: red;
-  // padding: 2rem;
-  // border-radius: 20px;
-  // background-color: var(--bgColor);
 
   @media (max-width: 1024px) {
     grid-template-columns: none;
@@ -34,10 +30,6 @@
       display: grid;
       justify-self: center;
     }
-  }
-
-  .zoro {
-    mix-blend-mode: darken;
   }
 
   .banner {

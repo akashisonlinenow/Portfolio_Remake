@@ -5,10 +5,11 @@ import ClickAwayListener from "@mui/material/ClickAwayListener";
 import { useDataContext } from "@context/dataLayer";
 import { motion, useWillChange } from "framer-motion";
 import {
+  AnimatePropsFull,
   DefaultVariant,
   ModalVariants,
   StaggeredTransition,
-} from "common/animation/framer";
+} from "@animate/framer";
 import type { FC } from "react";
 import type { ModalProps } from "types/modalProps";
 
@@ -23,13 +24,6 @@ const ModalBase: FC<ModalProps> = ({
   const willChange = useWillChange();
   const isMobile = useDataContext().device !== "lg";
 
-  const commonProps = {
-    initial: "hidden",
-    animate: "visible",
-    exit: "exit",
-    style: { willChange },
-  };
-
   return (
     <Portal>
       {activation && (
@@ -39,9 +33,10 @@ const ModalBase: FC<ModalProps> = ({
               <motion.div
                 variants={!isMobile ? ModalVariants : undefined}
                 transition={StaggeredTransition}
+                style={{ willChange }}
                 id="ModalBody"
                 className={styles.modalBody}
-                {...commonProps}
+                {...AnimatePropsFull}
                 {...rest}
               >
                 {children}
@@ -51,7 +46,7 @@ const ModalBase: FC<ModalProps> = ({
           <motion.div
             variants={!isMobile ? DefaultVariant : undefined}
             className={styles.modalBackground}
-            {...commonProps}
+            {...AnimatePropsFull}
           />
         </>
       )}

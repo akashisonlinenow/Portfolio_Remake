@@ -1,30 +1,11 @@
-import {
-  SiC,
-  SiCplusplus,
-  SiJavascript,
-  SiHtml5,
-  SiCss3,
-  SiNodedotjs,
-  SiReact,
-  SiMongodb,
-  SiNextdotjs,
-  SiLinux,
-  SiGit,
-  SiPython,
-  SiTypescript,
-  SiMui,
-  SiBootstrap,
-  SiExpress,
-  SiSass,
-} from "react-icons/si";
 import type { SkillTypes } from "types/DataTypes";
 
-// ? Icons from https://simpleicons.org/ & https://react-icons.github.io/react-icons
+// ? Icons from https://simpleicons.org/ => https://github.com/simple-icons/simple-icons/blob/master/slugs.md
 
-export const SkillData: SkillTypes[] = [
+const SkillData: SkillTypes[] = [
   {
     name: "C",
-    icon: <SiC style={{ color: "#fff" }} />,
+    iconName: "c",
     level: "Intermediate",
     intNode: null,
     type: "Language",
@@ -32,7 +13,7 @@ export const SkillData: SkillTypes[] = [
   },
   {
     name: "C++",
-    icon: <SiCplusplus style={{ color: "#0086d4" }} />,
+    iconName: "cplusplus",
     level: "Intermediate",
     intNode: null,
     type: "Language",
@@ -41,7 +22,7 @@ export const SkillData: SkillTypes[] = [
 
   {
     name: "HTML",
-    icon: <SiHtml5 style={{ color: "#ff6d00" }} />,
+    iconName: "html5",
     level: "Expert",
     intNode: null,
     type: "Markup Language",
@@ -49,19 +30,19 @@ export const SkillData: SkillTypes[] = [
   },
   {
     name: "CSS",
-    icon: <SiCss3 style={{ color: "#2196f3" }} />,
+    iconName: "css3",
     level: "Expert",
     intNode: [
       {
         name: "BootStrap",
-        icon: <SiBootstrap style={{ color: "#a87cff" }} />,
+        iconName: "bootstrap",
         level: "Intermediate",
         type: "CSS Framework",
         isLearning: false,
       },
       {
         name: "Sass",
-        icon: <SiSass style={{ color: "#bf4080" }} />,
+        iconName: "sass",
         level: "Beginner",
         type: "CSS Preprocessor",
         isLearning: true,
@@ -72,12 +53,12 @@ export const SkillData: SkillTypes[] = [
   },
   {
     name: "JavaScript",
-    icon: <SiJavascript style={{ color: "#f7df1e" }} />,
+    iconName: "javascript",
     level: "Intermediate",
     intNode: [
       {
         name: "TypeScript",
-        icon: <SiTypescript style={{ color: "#3178c6" }} />,
+        iconName: "typescript",
         level: "Beginner",
         type: "Strongly Typed Language",
         isLearning: false,
@@ -88,12 +69,12 @@ export const SkillData: SkillTypes[] = [
   },
   {
     name: "NodeJs",
-    icon: <SiNodedotjs style={{ color: "#83cd29" }} />,
+    iconName: "nodedotjs",
     level: "Beginner",
     intNode: [
       {
         name: "ExpressJS",
-        icon: <SiExpress style={{ color: "#353535" }} />,
+        iconName: "express",
         level: "Beginner",
         type: "Node Framework",
         isLearning: true,
@@ -104,13 +85,12 @@ export const SkillData: SkillTypes[] = [
   },
   {
     name: "React",
-    icon: <SiReact style={{ color: "#61dbfb" }} />,
+    iconName: "react",
     level: "Intermediate",
     intNode: [
       {
         name: "Material UI",
-        icon: <SiMui style={{ color: "#007fff" }} />,
-        // icon: <SiMaterialui style={{ color: "#007fff" }} />,
+        iconName: "mui",
         level: "Beginner",
         type: "React Component Library",
         isLearning: true,
@@ -121,7 +101,7 @@ export const SkillData: SkillTypes[] = [
   },
   {
     name: "MongoDB",
-    icon: <SiMongodb style={{ color: "#4faa41" }} />,
+    iconName: "mongodb",
     level: "Beginner",
     intNode: null,
     type: "Database",
@@ -129,7 +109,7 @@ export const SkillData: SkillTypes[] = [
   },
   {
     name: "NextJS",
-    icon: <SiNextdotjs style={{ color: "#fff" }} />,
+    iconName: "nextdotjs",
     level: "Beginner",
     intNode: null,
     type: "React Framework",
@@ -138,7 +118,7 @@ export const SkillData: SkillTypes[] = [
 
   {
     name: "Python",
-    icon: <SiPython style={{ color: "#000" }} />,
+    iconName: "python",
     level: "Beginner",
     intNode: null,
     type: "Language",
@@ -146,10 +126,10 @@ export const SkillData: SkillTypes[] = [
   },
 ];
 
-export const ToolData: SkillTypes[] = [
+const ToolData: SkillTypes[] = [
   {
     name: "Linux",
-    icon: <SiLinux style={{ color: "#000" }} />,
+    iconName: "linux",
     level: "Beginner",
     intNode: null,
     type: "Operating System",
@@ -157,10 +137,16 @@ export const ToolData: SkillTypes[] = [
   },
   {
     name: "Git",
-    icon: <SiGit style={{ color: "#f05033" }} />,
+    iconName: "git",
     level: "Beginner",
     intNode: null,
     type: "Version Control",
     isLearning: true,
   },
 ];
+
+const getSkillData = () => {
+  return { SkillData, ToolData };
+};
+
+export default getSkillData;

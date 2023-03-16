@@ -1,7 +1,11 @@
 // import { useDataContext } from "@context/dataLayer";
 import { motion, useWillChange } from "framer-motion";
 import { useDataContext } from "@context/dataLayer";
-import { BaseTransition, PageVariants } from "common/animation/framer";
+import {
+  AnimatePropsFull,
+  BaseTransition,
+  PageVariants,
+} from "@animate/framer";
 import type { PropsWithChildren, FC } from "react";
 
 export const Container: FC<PropsWithChildren> = ({ children }) => {
@@ -15,12 +19,10 @@ export const Container: FC<PropsWithChildren> = ({ children }) => {
         <>
           <motion.div
             variants={PageVariants}
-            initial="hidden"
-            animate="enter"
-            exit="exit"
             transition={{ ...{ stiffness: 260 }, ...BaseTransition }}
             className="page-ani"
             style={{ willChange }}
+            {...AnimatePropsFull}
           >
             {children}
           </motion.div>

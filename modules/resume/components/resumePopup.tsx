@@ -1,13 +1,17 @@
 import styles from "../styles/Resume.module.scss";
 import ModalBase from "@components/modal";
 import CloseIcon from "@mui/icons-material/Close";
-import { resumelink } from "@data/link";
 import IconButton from "@mui/material/IconButton";
 import SkeletonPlaceHolder from "./skeleton";
 import { motion } from "framer-motion";
-import { Document, Page, pdfjs } from "react-pdf";
+import { resumelink } from "@data/link";
 import { useDataContext } from "@context/dataLayer";
-import { AbstractTransition, DefaultVariant } from "common/animation/framer";
+import { Document, Page, pdfjs } from "react-pdf";
+import {
+  AbstractTransition,
+  DefaultVariant,
+  AnimatePropsFull,
+} from "@animate/framer";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
@@ -39,11 +43,9 @@ const ResumePopup: React.FC<popupProps> = ({ modal, closeFunc }) => {
           </div>
           <motion.div
             variants={DefaultVariant}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            transition={AbstractTransition}
             className={styles.popup}
+            transition={AbstractTransition}
+            {...AnimatePropsFull}
           >
             <Document
               file={resumelink}

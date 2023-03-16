@@ -1,4 +1,4 @@
-import type { Transition, Variants } from "framer-motion";
+import type { MotionProps, Transition, Variants } from "framer-motion";
 import type { ViewportOptions } from "types/commonTypes";
 
 export const DefaultViewPort: ViewportOptions = {
@@ -39,7 +39,7 @@ export const ModalVariants: Variants = {
 
 export const PageVariants: Variants = {
   hidden: { opacity: 0, x: 50, y: 0 },
-  enter: { ...ModalVariants.visible },
+  visible: { ...ModalVariants.visible },
   exit: { opacity: 0, x: 0, y: -50 },
 };
 
@@ -56,4 +56,31 @@ export const TimelineVariants: Variants = {
 export const TimelineNodeVariants: Variants = {
   hidden: { opacity: 0, scale: 0 },
   visible: { opacity: 1, scale: 1 },
+};
+
+export const AlternateSkillVarinat: Variants = {
+  hidden: { opacity: 0, x: 100 },
+  visible: { opacity: 1, x: 0 },
+  exit: { opacity: 0, scale: 0 },
+};
+
+export const ScaleVariant: Variants = {
+  hidden: { scale: 0.3 },
+  visible: { scale: 1 },
+};
+
+export const PopFromTop: Variants = {
+  hidden: { opacity: 0, y: -70 },
+  visible: { opacity: 1, y: 0 },
+};
+
+export const AnimatePropsFull: MotionProps = {
+  initial: "hidden",
+  animate: "visible",
+  exit: "exit",
+};
+
+export const AnimatePropsSemi: MotionProps = {
+  initial: "hidden",
+  animate: "visible",
 };

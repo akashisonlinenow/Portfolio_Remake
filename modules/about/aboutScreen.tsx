@@ -1,6 +1,6 @@
 import styles from "./styles/About.module.scss";
-import AboutData from "@data/aboutData";
 import dynamic from "next/dynamic";
+import AboutData from "@data/aboutData";
 
 const ParticleComponent = dynamic(() => import("@components/particles/"));
 

@@ -5,6 +5,12 @@ let nextConfig = {
   reactStrictMode: true,
   images: {
     domains: ["avatars.githubusercontent.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.simpleicons.org/**",
+      },
+    ],
   },
 };
 

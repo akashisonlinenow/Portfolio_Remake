@@ -57,7 +57,7 @@ export interface PanelTypes {
 
 export interface SkillTypes {
   name: string;
-  icon: JSX.Element;
+  iconName: string;
   level: "Intermediate" | "Beginner" | "Expert";
   intNode?: SkillTypes[] | null;
   type: string;
@@ -75,4 +75,8 @@ export interface TimelineTypes {
 
 export interface TimelineInputProps {
   data: TimelineTypes[];
+}
+
+export interface SkillCardInterface {
+  data: SkillTypes[];
 }

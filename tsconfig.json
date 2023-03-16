@@ -27,7 +27,8 @@
       "@data/*": ["./data/*"],
       "@test/*": ["./test/*"],
       "@types/*": ["./types/*"],
-      "@store/*": ["./store/*"]
+      "@store/*": ["./store/*"],
+      "@animate/*": ["./common/animation/*"]
     }
   },
   "include": [

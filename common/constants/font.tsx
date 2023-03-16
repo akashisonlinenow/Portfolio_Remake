@@ -39,5 +39,3 @@ export const FontProvider: React.FC<PropsWithChildren> = ({ children }) => {
     </>
   );
 };
-
-// ? ENABLE MOTION CONFIG FOR MOBILE OPTIMIZATION

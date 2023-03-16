@@ -9,11 +9,9 @@ import {
   WhileInViewX,
   TimelineNodeVariants,
   TimelineVariants,
-} from "common/animation/framer";
-import {
   StaggeredTransition,
   DefaultTransition,
-} from "common/animation/framer";
+} from "@animate/framer";
 
 const viewPort = { once: true, amount: 0.2, margin: "90px 0px 50px 0px" };
 

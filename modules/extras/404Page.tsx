@@ -1,5 +1,5 @@
 import Link from "next/link";
-// import Image from "next/image";
+import Image from "next/image";
 import styles from "./styles/404.module.scss";
 import Button from "@mui/material/Button";
 import ParticleComponent from "@components/particles/";
@@ -8,7 +8,13 @@ const Page404 = () => {
   return (
     <div className={styles.container}>
       <div className={styles.img}>
-        <img className={styles.zoro} src="/zoroNotFound.png" alt="zoro lost" />
+        <Image
+          priority
+          width={238}
+          height={372}
+          src="/notFound.png"
+          alt="zoro_lost"
+        />
         <div className={styles.banner}>
           <span>404</span>
           <span>Page Not Found!</span>
@@ -40,5 +46,3 @@ const Page404 = () => {
 };
 
 export default Page404;
-
-// TODO: Fix Mix blend mode disabling during transitions

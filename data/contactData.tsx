@@ -5,10 +5,8 @@ import {
   AiFillGithub,
   AiOutlineTwitter,
 } from "react-icons/ai";
-
 import styles from "@styles/Contact.module.scss";
 import type { ContactTypes } from "types/DataTypes";
-
 
 const _defContact: ContactTypes[] = [
   {

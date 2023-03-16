@@ -1,4 +1,4 @@
-import type { MotionProps, Transition, Variant } from "framer-motion";
+import type { MotionProps } from "framer-motion";
 import type { SkillTypes } from "types/DataTypes";
 
 export interface SkillCardProps extends MotionProps {

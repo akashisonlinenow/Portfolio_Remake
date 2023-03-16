@@ -11,12 +11,12 @@ const Arrow = () => {
     <>
       {ScrollPos < 100 && (
         <motion.div
-          style={{ willChange }}
           animate={{ y: [10, -10, 10] }}
           transition={{
             duration: 2,
             repeat: Infinity,
           }}
+          style={{ willChange }}
           className={styles.arrow}
         >
           <KeyboardDoubleArrowDownIcon style={{ fontSize: "2rem" }} />
