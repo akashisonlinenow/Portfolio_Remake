@@ -94,4 +94,3 @@ const ProjectCard: FC<ProjectCardProps> = ({ data: e, isMobile, ...rest }) => {
 export default ProjectCard;
 
 // TODO : Somehow find a way to bind the lang data to the card so that it dosent refetch everytime the user visits projects page
-// TODO : optimize ani props

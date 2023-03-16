@@ -107,9 +107,7 @@ const ProjectModal = () => {
                   ))}
                 </div>
                 <div className={styles.desc}>
-                  {currentSelection.description
-                    ? currentSelection.description
-                    : "No Description Available"}
+                  {currentSelection.description || "No Description Available"}
                 </div>
                 <div className={styles.action}>
                   <ActionButtons data={currentSelection} variant="withText" />
@@ -145,4 +143,4 @@ const ProjectModal = () => {
 
 export default ProjectModal;
 
-// TODO: Optimize Code
+// TODO : If Pie chart fails show error {currently it keeps on loading}

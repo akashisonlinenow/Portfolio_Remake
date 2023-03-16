@@ -95,5 +95,3 @@ const Pannel = () => {
 };
 
 export default Pannel;
-
-// TODO: Try to get animation props in common area

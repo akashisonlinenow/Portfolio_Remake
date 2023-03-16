@@ -51,5 +51,3 @@ const HoverPortal: FC<AboutPortalProps> = ({ Select }) => {
 };
 
 export default HoverPortal;
-
-// TODO: Optimize Animation Props

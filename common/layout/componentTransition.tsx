@@ -4,7 +4,6 @@ import {
   StaggeredTransition,
   WhileInViewX,
   DefaultViewPort,
-  AnimatePropsSemi,
 } from "@animate/framer";
 import type { FC } from "react";
 import type { ComponentTransitionProps } from "types/layoutProps";
@@ -18,10 +17,11 @@ const Component: FC<ComponentTransitionProps> = ({ children, ...rest }) => {
       {!isMobile ? (
         <motion.div
           variants={WhileInViewX}
+          initial="hidden"
+          whileInView="visible"
           viewport={DefaultViewPort}
           transition={StaggeredTransition}
           style={{ willChange }}
-          {...AnimatePropsSemi}
           {...rest}
         >
           {children}
