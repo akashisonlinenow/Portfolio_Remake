@@ -2,10 +2,10 @@ import styles from "./styles/Skills.module.scss";
 import Heading from "@components/heading";
 import Component from "@layout/componentTransition";
 import SkillCard from "./components/skillCard";
-import { motion } from "framer-motion";
-import { ToolData } from "@data/skillsData";
+import type { FC } from "react";
+import type { SkillCardInterface } from "types/DataTypes";
 
-const ToolsPage = () => {
+const ToolsPage: FC<SkillCardInterface> = ({ data: ToolData }) => {
   return (
     <>
       <Heading title="Tools" />

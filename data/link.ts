@@ -5,3 +5,5 @@ export const resumelink = `https://cdn.jsdelivr.net/gh/${
 }/data/Resume.pdf`;
 
 export const deployedlink = "https://jayesh-singh.vercel.app/";
+
+export const socialDesc = `Hey there, I'm Jayesh Singh. Checkout My Portfolio `;

@@ -6,6 +6,11 @@ import ActionButtons from "./actionButtons";
 import { TbGitFork, TbStar } from "react-icons/tb";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence, useWillChange } from "framer-motion";
+import {
+  AbstractTransition,
+  AnimatePropsFull,
+  ModalVariants,
+} from "@animate/framer";
 import type { FC } from "react";
 import type { LanguageProps, ProjectCardProps } from "types/projectPageType";
 
@@ -44,52 +49,48 @@ const ProjectCard: FC<ProjectCardProps> = ({ data: e, isMobile, ...rest }) => {
   const willChange = useWillChange();
 
   return (
-    <>
-      <motion.div
-        onHoverStart={startHover}
-        onHoverEnd={endHover}
-        className={styles.card}
-        style={{ willChange }}
+    <motion.div
+      onHoverStart={startHover}
+      onHoverEnd={endHover}
+      className={styles.card}
+      style={{ willChange }}
+    >
+      <AnimatePresence mode="wait">
+        {hover && (
+          <motion.div
+            variants={ModalVariants}
+            transition={AbstractTransition}
+            className={styles.cardExtra}
+            style={{ willChange }}
+            {...AnimatePropsFull}
+          >
+            <ActionButtons data={e} />
+          </motion.div>
+        )}
+      </AnimatePresence>
+      <ButtonBase
+        onClick={() => {
+          focusSelection(e);
+          getLangData();
+        }}
+        className={styles.cardBody}
+        data-error={rest.failCase}
       >
-        <AnimatePresence mode="wait">
-          {hover && (
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 50 }}
-              transition={{ type: "spring" }}
-              className={styles.cardExtra}
-              style={{ willChange }}
-            >
-              <ActionButtons data={e} />
-            </motion.div>
-          )}
-        </AnimatePresence>
-        <ButtonBase
-          onClick={() => {
-            focusSelection(e);
-            getLangData();
-          }}
-          className={styles.cardBody}
-          data-error={rest.failCase}
-        >
-          <div className={styles.heading}>{e.name}</div>
-          <div className={styles.lang}>{e.language}</div>
-          <div className={styles.stats}>
-            <span>
-              <TbStar /> {e.stargazers_count}
-            </span>
-            <span>
-              <TbGitFork /> {e.forks}
-            </span>
-          </div>
-        </ButtonBase>
-      </motion.div>
-    </>
+        <div className={styles.heading}>{e.name}</div>
+        <div className={styles.lang}>{e.language}</div>
+        <div className={styles.stats}>
+          <span>
+            <TbStar /> {e.stargazers_count}
+          </span>
+          <span>
+            <TbGitFork /> {e.forks}
+          </span>
+        </div>
+      </ButtonBase>
+    </motion.div>
   );
 };
 
 export default ProjectCard;
 
 // TODO : Somehow find a way to bind the lang data to the card so that it dosent refetch everytime the user visits projects page
-// TODO : optimize ani props

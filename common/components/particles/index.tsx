@@ -54,12 +54,10 @@ const ParticleComponent: FC<ParticleProps> = ({ particles }) => {
                     enable: true,
                     mode: "repulse",
                     type: "rectangle",
-                    // type: "circle",
                   },
                   onClick: {
                     enable: true,
                     mode: "push",
-                    // mode: "push",
                   },
                   onHover: {
                     enable: true,
@@ -104,7 +102,6 @@ const ParticleComponent: FC<ParticleProps> = ({ particles }) => {
                   enable: true,
                   outModes: {
                     default: "out",
-                    // default: "bounce",
                   },
                   random: true,
                   speed: 3,
@@ -115,8 +112,6 @@ const ParticleComponent: FC<ParticleProps> = ({ particles }) => {
                     enable: true,
                     area: 3000,
                   },
-                  // value: 80,
-                  // limit: 80,
                   value: particles?.count ? particles.count : 80,
                   limit: particles?.limit ? particles.limit : 80,
                 },

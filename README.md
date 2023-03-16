@@ -36,25 +36,25 @@ npm run build
 
 ## To Personalize
 
-**Step I :**  [Fork the Repo](https://github.com/KingBael09/Portfolio_Remake/fork)[^1].
+**Step I :**  [Fork](https://github.com/KingBael09/Portfolio_Remake/fork) the Repo[^1].
 
-**Step II :** Then navigate to `next.config.js` file & update relevant info.
+**Step II :** Create a `.env.local` file & populate it.
 
 **Step III :** Then navigate to `/data` folder & update relevant data
 
 ### Details
 
-<details><summary>Next Config Environment Variables</summary>
+<details><summary>Environment Variables</summary>
 
 #### Environment Variables
 
 | Variables | Default | Description |
-| :---: | :---: | :---: |
-| `GITHUB_USERNAME` | KingBael09 | Your Github Username |
-| `GITHUB_REPO_NAME` | Portfolio_Remake | Name of the Forked Repo |
-| `FIRST_NAME` | Jayesh |  First Name to be displayed  |
-| `LAST_NAME` | Singh |  Last Name to be displayed   |
-| `LOCATION` | India |  Location to be displayed   |
+| :--- | :---: | :---: |
+| `NEXT_PUBLIC_GITHUB_USERNAME` | KingBael09 | Your Github Username |
+| `NEXT_PUBLIC_GITHUB_REPO_NAME` | Portfolio_Remake | Name of the Forked Repo |
+| `NEXT_PUBLIC_FIRST_NAME` | Jayesh |  First Name to be displayed  |
+| `NEXT_PUBLIC_LAST_NAME` | Singh |  Last Name to be displayed   |
+| `NEXT_PUBLIC_LOCATION` | India |  Location to be displayed   |
 
 </details>
 
@@ -68,7 +68,7 @@ npm run build
 | `aboutData.tsx` | Contains HTML for About Page |
 | `contactData.tsx` | Array of objects containing links & icons for contact <br/><sub>Used in Footer and Contact Modal</sub> |
 | `failSafe.tsx` | Contains the fail safe data of Projects <br/> In case GitHub's API Reaches its limit [^2]  |
-| `link.ts` |  Contains the link to Resume [^3]   |
+| `link.ts` |  Contains the link to Resume & deployment [^3]   |
 | `pannelData.tsx` |  Array of Panel Items<br/><sub>Used in Vertical Navbar/Panel</sub>   |
 | `Resume.pdf` |  Your Resume [^3]   |
 | `skillsData.tsx` |  Contains Array of Skills and Tools [^4]  |
@@ -76,7 +76,7 @@ npm run build
 
 </details>
 
-[^1]: *Forking Repo is actually needed to get the Resume.*
+[^1]: *Forking Repo is actually needed to get the Resume Linking Function.*
 [^2]: *It is reccomended to create a Fail Safe from : [API Link](https://api.github.com/users/KingBael09/repos)*
 [^3]: *Link String remains unchanged if resume uploaded in same folder*
 [^4]: *Each Skill can contain SubSkills*

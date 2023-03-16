@@ -3,37 +3,15 @@ import { Fragment } from "react";
 import { useDataContext } from "@context/dataLayer";
 import { motion, useWillChange } from "framer-motion";
 import type { FC } from "react";
-import type { MotionProps } from "framer-motion";
-import type { Transition, Variants } from "framer-motion";
 import type { TimelineInputProps } from "types/DataTypes";
-
-const variants: Variants = {
-  visible: { opacity: 1, y: 0 },
-  hidden: { opacity: 0, y: 200 },
-};
-
-const nodeVariant: Variants = {
-  visible: { opacity: 1, scale: 1 },
-  hidden: { opacity: 0, scale: 0 },
-};
-
-const childVariant: Variants = {
-  visible: { opacity: 1, x: 0 },
-  hidden: { opacity: 0, x: -100 },
-};
-
-const childTransitions: Transition = {
-  type: "spring",
-  stiffness: 400,
-  damping: 30,
-};
-
-const transition: Transition = {
-  type: "spring",
-  stiffness: 400,
-  damping: 30,
-  staggerChildren: 0.1,
-};
+import type { MotionProps } from "framer-motion";
+import {
+  WhileInViewX,
+  TimelineNodeVariants,
+  TimelineVariants,
+  StaggeredTransition,
+  DefaultTransition,
+} from "@animate/framer";
 
 const viewPort = { once: true, amount: 0.2, margin: "90px 0px 50px 0px" };
 
@@ -45,13 +23,13 @@ const TimelineComponent: FC<TimelineInputProps> = ({ data }) => {
     style: { willChange },
     initial: "hidden",
     whileInView: "visible",
-    transition: transition,
+    transition: StaggeredTransition,
     viewport: viewPort,
   };
   const commonChildProps: MotionProps = {
     style: { willChange },
-    variants: childVariant,
-    transition: childTransitions,
+    variants: WhileInViewX,
+    transition: DefaultTransition,
   };
 
   const item = data;
@@ -61,7 +39,7 @@ const TimelineComponent: FC<TimelineInputProps> = ({ data }) => {
         <Fragment key={e.id}>
           <div className={styles.item}>
             <motion.div
-              variants={variants}
+              variants={TimelineVariants}
               {...commonParentProps}
               className={styles.content}
             >
@@ -87,7 +65,7 @@ const TimelineComponent: FC<TimelineInputProps> = ({ data }) => {
             </motion.div>
             <div id="timeline">
               <motion.div
-                variants={nodeVariant}
+                variants={TimelineNodeVariants}
                 {...commonParentProps}
                 className={styles.centerNode}
               >
@@ -95,7 +73,7 @@ const TimelineComponent: FC<TimelineInputProps> = ({ data }) => {
               </motion.div>
             </div>
             <motion.div
-              variants={variants}
+              variants={TimelineVariants}
               {...commonParentProps}
               className={`${styles.space} ${styles.date}`}
             >

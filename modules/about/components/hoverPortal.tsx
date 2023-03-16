@@ -1,5 +1,6 @@
 import styles from "../styles/Calendar.module.scss";
 import Portal from "@components/portal";
+import { DefaultTransition } from "@animate/framer";
 import { useEffect, useState } from "react";
 import { motion, useWillChange } from "framer-motion";
 import type { FC } from "react";
@@ -30,27 +31,23 @@ const HoverPortal: FC<AboutPortalProps> = ({ Select }) => {
   const willChange = useWillChange();
 
   return (
-    <>
-      <Portal>
-        {Select && (
-          <motion.div
-            animate={{ scale: 1, x: 20, y: -20 }}
-            exit={{ scale: 0.7, opacity: 0 }}
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className={styles.tooltip}
-            style={{ top: MousePos.y, left: MousePos.x, willChange }}
-          >
-            <span>
-              <strong>{`${Select?.count} contributions `}</strong>on
-            </span>
-            <motion.span> {`${handleDate(Select?.date)}`}</motion.span>
-          </motion.div>
-        )}
-      </Portal>
-    </>
+    <Portal>
+      {Select && (
+        <motion.div
+          animate={{ scale: 1, x: 20, y: -20 }}
+          exit={{ scale: 0.7, opacity: 0 }}
+          transition={DefaultTransition}
+          className={styles.tooltip}
+          style={{ top: MousePos.y, left: MousePos.x, willChange }}
+        >
+          <span>
+            <strong>{`${Select?.count} contributions `}</strong>on
+          </span>
+          <span> {`${handleDate(Select?.date)}`}</span>
+        </motion.div>
+      )}
+    </Portal>
   );
 };
 
 export default HoverPortal;
-
-// TODO: Optimize Animation Props

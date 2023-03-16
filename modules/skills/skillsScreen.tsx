@@ -1,11 +1,12 @@
 import styles from "./styles/Skills.module.scss";
 import dynamic from "next/dynamic";
 import SkillCard from "./components/skillCard";
-import { SkillData } from "@data/skillsData";
+import type { FC } from "react";
+import type { SkillCardInterface } from "types/DataTypes";
 
 const SkillModal = dynamic(() => import("./components/customModal"));
 
-const SkillsPage = () => {
+const SkillsPage: FC<SkillCardInterface> = ({ data: SkillData }) => {
   return (
     <>
       <SkillModal />

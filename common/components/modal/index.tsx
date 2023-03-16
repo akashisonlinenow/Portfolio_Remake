@@ -4,27 +4,14 @@ import ScrollDisable from "@hooks/scrollDisable";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
 import { useDataContext } from "@context/dataLayer";
 import { motion, useWillChange } from "framer-motion";
+import {
+  AnimatePropsFull,
+  DefaultVariant,
+  ModalVariants,
+  StaggeredTransition,
+} from "@animate/framer";
 import type { FC } from "react";
-import type { Transition, Variants } from "framer-motion";
 import type { ModalProps } from "types/modalProps";
-
-const modalTransition: Transition = {
-  type: "spring",
-  stiffness: 200,
-  damping: 20,
-  staggerChildren: 0.1,
-  delayChildren: 0.2,
-};
-const modalVariants: Variants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0 },
-  exit: { opacity: 0, y: 100 },
-};
-const backgroundVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1 },
-  exit: { opacity: 0 },
-};
 
 const ModalBase: FC<ModalProps> = ({
   activation,
@@ -37,13 +24,6 @@ const ModalBase: FC<ModalProps> = ({
   const willChange = useWillChange();
   const isMobile = useDataContext().device !== "lg";
 
-  const commonProps = {
-    initial: "hidden",
-    animate: "visible",
-    exit: "exit",
-    style: { willChange },
-  };
-
   return (
     <Portal>
       {activation && (
@@ -51,11 +31,12 @@ const ModalBase: FC<ModalProps> = ({
           <div className={styles.modal}>
             <ClickAwayListener touchEvent={false} onClickAway={handleClickAway}>
               <motion.div
-                variants={!isMobile ? modalVariants : undefined}
-                transition={modalTransition}
+                variants={!isMobile ? ModalVariants : undefined}
+                transition={StaggeredTransition}
+                style={{ willChange }}
                 id="ModalBody"
                 className={styles.modalBody}
-                {...commonProps}
+                {...AnimatePropsFull}
                 {...rest}
               >
                 {children}
@@ -63,9 +44,9 @@ const ModalBase: FC<ModalProps> = ({
             </ClickAwayListener>
           </div>
           <motion.div
-            variants={!isMobile ? backgroundVariants : undefined}
+            variants={!isMobile ? DefaultVariant : undefined}
             className={styles.modalBackground}
-            {...commonProps}
+            {...AnimatePropsFull}
           />
         </>
       )}

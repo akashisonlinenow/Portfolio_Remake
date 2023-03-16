@@ -7,8 +7,12 @@ const PacMan = () => {
         {`
           .pac-loader {
             display: flex;
-            // align-items: center;
             justify-content: center;
+            align-items: center;
+            position: fixed;
+            inset: 0;
+            background: var(--bgColor);
+            z-index: 999;
           }
           #container {
             padding: 3rem;

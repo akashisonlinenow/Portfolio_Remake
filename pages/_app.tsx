@@ -58,4 +58,3 @@ export default function App({ Component, pageProps }: AppProps) {
 }
 
 // TODO: Create Initial Loader, something like this initial https://haveraw-app.vercel.app/
-// TODO: ADD Favicon

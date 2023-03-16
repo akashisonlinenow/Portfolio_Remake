@@ -8,6 +8,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import IconButton from "@mui/material/IconButton";
 import ActionButtons from "../components/actionButtons";
 import { Spinner } from "@components/loader";
+import { AnimatePresence } from "framer-motion";
 import { TbStar, TbGitFork } from "react-icons/tb";
 import { useEffect, useState } from "react";
 import type { DataProps } from "types/projectPageType";
@@ -22,7 +23,6 @@ const ProjectModal = () => {
   const handleClickAway = () => {
     focusSelection(null);
   };
-
 
   let subData: DataProps[] = [];
 
@@ -46,7 +46,7 @@ const ProjectModal = () => {
   }, [currentLang]);
 
   return (
-    <>
+    <AnimatePresence>
       <ModalBase
         activation={currentSelection ? true : false}
         handleClickAway={handleClickAway}
@@ -107,9 +107,7 @@ const ProjectModal = () => {
                   ))}
                 </div>
                 <div className={styles.desc}>
-                  {currentSelection.description
-                    ? currentSelection.description
-                    : "No Description Available"}
+                  {currentSelection.description || "No Description Available"}
                 </div>
                 <div className={styles.action}>
                   <ActionButtons data={currentSelection} variant="withText" />
@@ -139,10 +137,10 @@ const ProjectModal = () => {
           </IconButton>
         </div>
       </ModalBase>
-    </>
+    </AnimatePresence>
   );
 };
 
 export default ProjectModal;
 
-// TODO: Optimize Code
+// TODO : If Pie chart fails show error {currently it keeps on loading}

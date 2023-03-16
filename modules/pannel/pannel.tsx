@@ -6,10 +6,11 @@ import ItemData from "@data/pannelData";
 import useStore from "store/store";
 import MenuIcon from "@mui/icons-material/Menu";
 import Component from "@layout/componentTransition";
+import ScrollDisable from "@hooks/scrollDisable";
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 import { useDataContext } from "@context/dataLayer";
-import ScrollDisable from "common/hooks/scrollDisable";
+import { AnimatePropsSemi, PopFromTop } from "@animate/framer";
 
 const Pannel = () => {
   const MenuStatus = useStore((state) => state.menuStatus);
@@ -17,6 +18,7 @@ const Pannel = () => {
   const SwitchDialog = useStore((state) => state.dialogSwitch);
   const router = useRouter();
   const isMobile = useDataContext().device !== "lg";
+
   ScrollDisable(MenuStatus);
 
   const handleClick = () => {
@@ -48,8 +50,7 @@ const Pannel = () => {
     return currentHeading;
   };
 
-  // ! Experemental Stuff
-  const MotionLink = motion(Link);
+  // const MotionLink = motion(Link);
 
   if (!isMobile) {
     return (
@@ -80,9 +81,9 @@ const Pannel = () => {
   } else {
     return (
       <motion.div
-        initial={{ opacity: 0, y: -70 }}
-        animate={{ opacity: 1, y: 0 }}
+        variants={PopFromTop}
         className={styles.parent}
+        {...AnimatePropsSemi}
       >
         <Heading title={getHeading()} type="custom" className={styles.logo} />
         <Button sx={{ backgroundColor: "transparent" }} onClick={handleClick}>
@@ -94,5 +95,3 @@ const Pannel = () => {
 };
 
 export default Pannel;
-
-// TODO: Try to get animation props in common area

@@ -115,5 +115,3 @@ const PieChart: FC<PieProps> = ({ data }) => {
   );
 };
 export default PieChart;
-
-// TODO: Make custom chainable functions
