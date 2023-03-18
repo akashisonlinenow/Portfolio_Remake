@@ -14,7 +14,7 @@ const SkillData: SkillTypes[] = [
   {
     name: "C++",
     iconName: "cplusplus",
-    level: "Intermediate",
+    level: "Expert",
     intNode: null,
     type: "Language",
     isLearning: false,
@@ -31,7 +31,7 @@ const SkillData: SkillTypes[] = [
   {
     name: "CSS",
     iconName: "css3",
-    level: "Expert",
+    level: "Intermediate",
     intNode: [
       {
         name: "BootStrap",
@@ -67,22 +67,22 @@ const SkillData: SkillTypes[] = [
     type: "Language",
     isLearning: false,
   },
-  {
-    name: "NodeJs",
-    iconName: "nodedotjs",
-    level: "Beginner",
-    intNode: [
-      {
-        name: "ExpressJS",
-        iconName: "express",
-        level: "Beginner",
-        type: "Node Framework",
-        isLearning: true,
-      },
-    ],
-    type: "Runtime Environment",
-    isLearning: true,
-  },
+  // {
+  //   name: "NodeJs",
+  //   iconName: "nodedotjs",
+  //   level: "Beginner",
+  //   intNode: [
+  //     {
+  //       name: "ExpressJS",
+  //       iconName: "express",
+  //       level: "Beginner",
+  //       type: "Node Framework",
+  //       isLearning: true,
+  //     },
+  //   ],
+  //   type: "Runtime Environment",
+  //   isLearning: true,
+  // },
   {
     name: "React",
     iconName: "react",
@@ -91,7 +91,7 @@ const SkillData: SkillTypes[] = [
       {
         name: "Material UI",
         iconName: "mui",
-        level: "Beginner",
+        level: "Intermediate",
         type: "React Component Library",
         isLearning: true,
       },
@@ -99,22 +99,22 @@ const SkillData: SkillTypes[] = [
     type: "FrontEnd",
     isLearning: true,
   },
-  {
-    name: "MongoDB",
-    iconName: "mongodb",
-    level: "Beginner",
-    intNode: null,
-    type: "Database",
-    isLearning: true,
-  },
-  {
-    name: "NextJS",
-    iconName: "nextdotjs",
-    level: "Beginner",
-    intNode: null,
-    type: "React Framework",
-    isLearning: true,
-  },
+  // {
+  //   name: "MongoDB",
+  //   iconName: "mongodb",
+  //   level: "Beginner",
+  //   intNode: null,
+  //   type: "Database",
+  //   isLearning: true,
+  // },
+  // {
+  //   name: "NextJS",
+  //   iconName: "nextdotjs",
+  //   level: "Beginner",
+  //   intNode: null,
+  //   type: "React Framework",
+  //   isLearning: true,
+  // },
 
   {
     name: "Python",
@@ -124,17 +124,26 @@ const SkillData: SkillTypes[] = [
     type: "Language",
     isLearning: true,
   },
+
+  {
+    name: "Java",
+    iconName: "java",
+    level: "Intermediate",
+    intNode: null,
+    type: "Language",
+    isLearning: true,
+  },
 ];
 
 const ToolData: SkillTypes[] = [
-  {
-    name: "Linux",
-    iconName: "linux",
-    level: "Beginner",
-    intNode: null,
-    type: "Operating System",
-    isLearning: true,
-  },
+  // {
+  //   name: "Linux",
+  //   iconName: "linux",
+  //   level: "Beginner",
+  //   intNode: null,
+  //   type: "Operating System",
+  //   isLearning: true,
+  // },
   {
     name: "Git",
     iconName: "git",
