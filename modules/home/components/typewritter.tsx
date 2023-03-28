@@ -7,9 +7,8 @@ const Typewritter: FC = () => {
       options={{
         strings: [
           "Student",
-          "Pro Coder!",
-          "Full-Stack Dev",
-          "Linux Enthusiast",
+          "Competitive Programmer!",
+          "Front-End Dev",
         ],
         autoStart: true,
         loop: true,
