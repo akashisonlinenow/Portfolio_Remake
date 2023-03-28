@@ -127,7 +127,7 @@ const SkillData: SkillTypes[] = [
 
   {
     name: "Java",
-    iconName: "java",
+    iconName: "coffeescript",
     level: "Intermediate",
     intNode: null,
     type: "Language",
