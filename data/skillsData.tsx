@@ -152,6 +152,7 @@ const ToolData: SkillTypes[] = [
     type: "Version Control",
     isLearning: true,
   },
+  
 ];
 
 const getSkillData = () => {
