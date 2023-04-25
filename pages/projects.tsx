@@ -13,7 +13,7 @@ const Projects = () => {
   return (
     <Container>
       <Head>
-        <title>Projects</title>
+        <title>Projects & Works</title>
       </Head>
       <div>
         <InitialPage>
