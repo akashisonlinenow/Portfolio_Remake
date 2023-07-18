@@ -1,10 +1,11 @@
 import {
   AiOutlineMail,
-  AiOutlineInstagram,
   AiOutlineLinkedin,
   AiFillGithub,
   AiOutlineTwitter,
+  AiOutlineInstagram,
 } from "react-icons/ai";
+import { SiCodechef, SiCodeforces, SiLeetcode } from "react-icons/si";
 import styles from "@styles/Contact.module.scss";
 import type { ContactTypes } from "types/DataTypes";
 
@@ -18,10 +19,10 @@ const _defContact: ContactTypes[] = [
   },
   {
     id: 2,
-    name: styles.insta,
-    link: "https://www.instagram.com/akashonlinehere/",
+    name: styles.instagram,
+    link: "https://www.codechef.com/users/akash_2802",
     color: "hsl(323, 100%, 50%)",
-    component: <AiOutlineInstagram className={styles.icon} />,
+    component: <SiCodechef className={styles.icon} />,
   },
   {
     id: 3,
@@ -44,6 +45,21 @@ const _defContact: ContactTypes[] = [
     color: "hsl(203, 89%, 53%)",
     component: <AiOutlineTwitter className={styles.icon} />,
   },
+  {
+    id: 6,
+    name: styles.twitter,
+    link: "https://codeforces.com/profile/akashshridharan2802",
+    color: "hsl(203, 89%, 53%)",
+    component: <SiCodeforces className={styles.icon} />,
+  },
+  {
+    id: 6,
+    name: styles.twitter,
+    link: "https://leetcode.com/akashonlinehere/",
+    color: "hsl(205, 90%, 54%)",
+    component: <SiLeetcode className={styles.icon} />,
+  },
+  
 ];
 
 export default _defContact;

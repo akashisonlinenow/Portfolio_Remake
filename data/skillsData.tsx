@@ -15,7 +15,15 @@ const SkillData: SkillTypes[] = [
     name: "C++",
     iconName: "cplusplus",
     level: "Expert",
-    intNode: null,
+    intNode: [
+      {
+        name: "DSA",
+        iconName: "dsa",
+        level: "Intermediate",
+        type: "Data Structures and Algorithm",
+        isLearning: false,
+      },
+    ],
     type: "Language",
     isLearning: false,
   },
@@ -41,10 +49,10 @@ const SkillData: SkillTypes[] = [
         isLearning: false,
       },
       {
-        name: "Sass",
-        iconName: "sass",
-        level: "Beginner",
-        type: "CSS Preprocessor",
+        name: "Tailwind CSS",
+        iconName: "tailwindcss",
+        level: "Intermediate",
+        type: "It is a utility-first CSS Framework",
         isLearning: true,
       },
     ],
@@ -95,26 +103,35 @@ const SkillData: SkillTypes[] = [
         type: "React Component Library",
         isLearning: true,
       },
+      
     ],
     type: "FrontEnd",
     isLearning: true,
   },
-  // {
-  //   name: "MongoDB",
-  //   iconName: "mongodb",
-  //   level: "Beginner",
-  //   intNode: null,
-  //   type: "Database",
-  //   isLearning: true,
-  // },
-  // {
-  //   name: "NextJS",
-  //   iconName: "nextdotjs",
-  //   level: "Beginner",
-  //   intNode: null,
-  //   type: "React Framework",
-  //   isLearning: true,
-  // },
+  {
+    name: "MongoDB",
+    iconName: "mongodb",
+    level: "Beginner",
+    intNode: null,
+    type: "Database",
+    isLearning: true,
+  },
+  {
+    name: "Prisma",
+    iconName: "prisma",
+    level: "Beginner",
+    intNode: null,
+    type: "Server-side library used to r/w data into DB",
+    isLearning: true,
+  },
+  {
+    name: "NextJS",
+    iconName: "nextdotjs",
+    level: "Beginner",
+    intNode: null,
+    type: "React Framework",
+    isLearning: true,
+  },
 
   {
     name: "Python",
@@ -125,14 +142,14 @@ const SkillData: SkillTypes[] = [
     isLearning: true,
   },
 
-  {
-    name: "Java",
-    iconName: "coffeescript",
-    level: "Intermediate",
-    intNode: null,
-    type: "Language",
-    isLearning: true,
-  },
+  // {
+  //   name: "Java",
+  //   iconName: "coffeescript",
+  //   level: "Intermediate",
+  //   intNode: null,
+  //   type: "Language",
+  //   isLearning: true,
+  // },
 ];
 
 const ToolData: SkillTypes[] = [
@@ -150,6 +167,14 @@ const ToolData: SkillTypes[] = [
     level: "Beginner",
     intNode: null,
     type: "Version Control",
+    isLearning: true,
+  },
+  {
+    name: "Github",
+    iconName: "github",
+    level: "Beginner",
+    intNode: null,
+    type: "Code hosting platform",
     isLearning: true,
   },
   

@@ -15,8 +15,13 @@ const AboutData: FC<AboutProps> = ({ defaultStyles: styles }) => {
         {process.env.NEXT_PUBLIC_LOCATION || "India"}
       </span>
       .
-      <br /> An Aspiring <b><i>Front-End Developer</i></b> and <b><i>Competitive Programmer</i></b> looking for Opportunities
+      <br /> An Aspiring <b><i>Full-stack Developer</i></b> and <b><i>Competitive Programmer</i></b> looking for Opportunities
       <br />
+      <br/>
+      
+      I am a coding enthusiast who love to solve DSA problems in <b>C++ (Competitive Programmer)</b> and building projects in <b>Web dev</b> domain || 2⭐<b>@Codechef</b> || 5⭐in C++ <b>@Hackerrank</b> || Institute Rank <b>27th</b> in <b>GFG</b> practice coding platform || Newbie <b>@Codeforces</b> || Solved over <b>500+ DSA</b> questions on various platforms.
+      <br />I am always keen to learn New Technologies and explore new things daily... 
+      <br/><br/>
       Apart from Coding I have a wide range of interests in:
       <ul className={styles.interests}>
         <li>Reading Books</li>
@@ -24,8 +29,6 @@ const AboutData: FC<AboutProps> = ({ defaultStyles: styles }) => {
         <li>Listening Music</li>
         <li>Playing Games</li>
       </ul>
-      I am a coding enthusiast who love to solve DSA problems in C++ (Competitive Programmer) || 2⭐@Codechef || 5⭐in C++ @hackerrank || Newbie @Codeforces || Solved over 500+ DSA questions on various platforms.
-      <br />I am always keen to learn New Technologies and explore new things daily... 
     </div>
   );
 };
